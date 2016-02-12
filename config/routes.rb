@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :pictures
+  resources :quads
+  resources :buildings
+  resources :rooms
+  resources :reviews
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

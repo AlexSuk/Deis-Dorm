@@ -1,0 +1,2 @@
+class QuadsController < ApplicationController
+end

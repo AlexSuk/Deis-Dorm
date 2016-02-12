@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  up_vote: 1
+  rating: 1
+  user_id: 1
+  building_id: 1
+  room_id: 1
+
+two:
+  text: MyText
+  up_vote: 1
+  rating: 1
+  user_id: 1
+  building_id: 1
+  room_id: 1
