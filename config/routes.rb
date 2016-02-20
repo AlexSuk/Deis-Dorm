@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :lines
+  resources :posts
+  resources :tags
+  resources :users
+  resources :boards
   resources :pictures
   resources :quads
   resources :buildings
