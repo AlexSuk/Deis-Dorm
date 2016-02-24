@@ -7,8 +7,32 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- <header>
+      <nav> -->
+  <div id="banner">
+      <h3 class="login">Login</h3>
+      <ul class="main-nav">
+          <li><%= link_to "Quads", {:controller => "quads", :action => "index"} %> </li>
+          <li><%= link_to "Map", {:controller => "map", :action => "index"} %></li>
+          <li><%= link_to "Forum", {:controller => "forum", :action => "index"} %></li>
+          <li><%= link_to "Profile", {:controller => "profile", :action => "index"} %></li>
+      </ul>
+  </div>
+      <!-- </nav> -->
 
-<%= yield %>
+      <!-- <div class="hero-text-box">
+        <form>
+          <input type="text" name="keywords" value="Search for quads">
+        </form>
+      </div> -->
 
+  <!-- </header> -->
+
+    <div id="main">
+      <%= yield %>
+    </div>
+  <!-- <div class="row" >
+    <%= yield %>
+  </div> -->
 </body>
 </html>

@@ -1,14 +1,34 @@
 Rails.application.routes.draw do
-  resources :lines
-  resources :posts
+
+
   resources :tags
+
   resources :users
-  resources :boards
+
+  resources :boards do
+    resources :lines do
+      resources :posts
+    end
+  end
+
+  resources :map
+
+  resources :forum
+
+  resources :profile
+
   resources :pictures
-  resources :quads
-  resources :buildings
+
+  resources :quads do
+    resources :buildings
+  end
+
   resources :rooms
+
   resources :reviews
+
+  root 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
