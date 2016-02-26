@@ -7495,3 +7495,352 @@ Started GET "/" for 127.0.0.1 at 2016-02-24 02:03:26 -0500
 Processing by HomeController#index as HTML
   Rendered home/index.html.erb within layouts/application (0.1ms)
 Completed 200 OK in 39ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-02-26 16:06:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 1121ms (Views: 1109.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/boards.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/buildings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/lines.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/pictures.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/quads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/reviews.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/rooms.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/tags.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/application.self-2bfc1da63086f3c53c5b83cf5572e53ee8591fc8de0dd0fc883d6dc319f6b33b.css?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/buildings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/lines.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/pictures.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/quads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/reviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/rooms.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/tags.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-26 16:06:43 -0500
+
+
+Started GET "/quads" for ::1 at 2016-02-26 16:06:45 -0500
+Processing by QuadsController#index as HTML
+  [1m[35mQuad Load (0.6ms)[0m  SELECT "quads".* FROM "quads"
+  Rendered quads/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 58ms (Views: 54.3ms | ActiveRecord: 1.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (18.6ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ziv"], ["rating", 4.1], ["info", "Quad with four buildings. For Juniors and Seniors. Lower campus"], ["created_at", "2016-02-26 21:09:05.104857"], ["updated_at", "2016-02-26 21:09:05.104857"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "East"], ["rating", 3.7], ["info", "Two buildings connected with a hallway. For Sophomores. Upper campus"], ["created_at", "2016-02-26 21:09:05.128150"], ["updated_at", "2016-02-26 21:09:05.128150"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Massell"], ["rating", 5.0], ["info", "Freshman dorms in lower campus. Four buildings"], ["created_at", "2016-02-26 21:09:05.130984"], ["updated_at", "2016-02-26 21:09:05.130984"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Ridgewood"], ["rating", 3.2], ["info", "The housing that all juniors want."], ["created_at", "2016-02-26 21:09:05.134267"], ["updated_at", "2016-02-26 21:09:05.134267"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ziv"], ["rating", 4.1], ["info", "Quad with four buildings. For Juniors and Seniors. Lower campus"], ["created_at", "2016-02-26 21:09:46.965566"], ["updated_at", "2016-02-26 21:09:46.965566"]]
+  [1m[35m (18.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "East"], ["rating", 3.7], ["info", "Two buildings connected with a hallway. For Sophomores. Upper campus"], ["created_at", "2016-02-26 21:09:46.987606"], ["updated_at", "2016-02-26 21:09:46.987606"]]
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Massell"], ["rating", 5.0], ["info", "Freshman dorms in lower campus. Four buildings"], ["created_at", "2016-02-26 21:09:46.992829"], ["updated_at", "2016-02-26 21:09:46.992829"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Ridgewood"], ["rating", 3.2], ["info", "The housing that all juniors want."], ["created_at", "2016-02-26 21:09:46.995904"], ["updated_at", "2016-02-26 21:09:46.995904"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "North"], ["rating", 2.0], ["info", "Cable feels like a prison, but it will get better soon"], ["created_at", "2016-02-26 21:09:46.998280"], ["updated_at", "2016-02-26 21:09:46.998280"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Castle"], ["rating", 3.5], ["info", "Only called castle to attract students, no one actually wants to live in it"], ["created_at", "2016-02-26 21:09:47.000382"], ["updated_at", "2016-02-26 21:09:47.000382"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "567 South Street"], ["rating", 3.0], ["info", "Only outcasts want to live here"], ["created_at", "2016-02-26 21:09:47.002564"], ["updated_at", "2016-02-26 21:09:47.002564"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Charles River Apartment"], ["rating", 1.0], ["info", "spiders everywhere"], ["created_at", "2016-02-26 21:09:47.004921"], ["updated_at", "2016-02-26 21:09:47.004921"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Foster Mods Housing"], ["rating", 4.5], ["info", "Expensive but worth"], ["created_at", "2016-02-26 21:09:47.007047"], ["updated_at", "2016-02-26 21:09:47.007047"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Rosenthal"], ["rating", 4.0], ["info", "Worse version of Ziv"], ["created_at", "2016-02-26 21:09:47.009034"], ["updated_at", "2016-02-26 21:09:47.009034"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Village"], ["rating", 4.0], ["info", "Housing for midyears, study abroad students, and sophomores"], ["created_at", "2016-02-26 21:09:47.011311"], ["updated_at", "2016-02-26 21:09:47.011311"]]
+  [1m[35m (2.1ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2016-02-26 16:10:11 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 231ms (Views: 220.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/quads" for ::1 at 2016-02-26 16:10:15 -0500
+Processing by QuadsController#index as HTML
+  [1m[35mQuad Load (0.2ms)[0m  SELECT "quads".* FROM "quads"
+  Rendered quads/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 87ms (Views: 83.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (15.8ms)[0m  [1mCREATE TABLE "boards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (13.1ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "longitude" float, "latitude" float, "description" text, "type" varchar, "quad_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "up_vote" integer, "user_id" integer, "board_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_path" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" text, "posted" datetime, "thread_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "quads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "rating" float, "info" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" text, "up_vote" integer, "rating" integer, "user_id" integer, "building_id" integer, "room_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "area" float, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag" varchar, "foreign_table" integer, "foreign_id" varchar, "integer" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "password" varchar, "email" varchar, "bio" text, "icon" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160220015848')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160212194933')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160212195021')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160212195228')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160212195427')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160212195635')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160220013218')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160220013730')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160220013824')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160220014011')
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "boards" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "buildings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "longitude" float, "latitude" float, "description" text, "type" varchar, "quad_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "lines" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "up_vote" integer, "user_id" integer, "board_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "image_path" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" text, "posted" datetime, "thread_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "quads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "rating" float, "info" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" text, "up_vote" integer, "rating" integer, "user_id" integer, "building_id" integer, "room_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "rooms" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "area" float, "building_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag" varchar, "foreign_table" integer, "foreign_id" varchar, "integer" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "password" varchar, "email" varchar, "bio" text, "icon" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160220015848')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160212194933')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160212195021')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160212195228')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160212195427')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160212195635')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160220013218')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160220013730')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160220013824')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160220014011')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ziv"], ["rating", 4.1], ["info", "Quad with four buildings. For Juniors and Seniors. Lower campus"], ["created_at", "2016-02-26 21:13:20.665128"], ["updated_at", "2016-02-26 21:13:20.665128"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "East"], ["rating", 3.7], ["info", "Two buildings connected with a hallway. For Sophomores. Upper campus"], ["created_at", "2016-02-26 21:13:20.669840"], ["updated_at", "2016-02-26 21:13:20.669840"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Massell"], ["rating", 5.0], ["info", "Freshman dorms in lower campus. Four buildings"], ["created_at", "2016-02-26 21:13:20.672653"], ["updated_at", "2016-02-26 21:13:20.672653"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Ridgewood"], ["rating", 3.2], ["info", "The housing that all juniors want."], ["created_at", "2016-02-26 21:13:20.675641"], ["updated_at", "2016-02-26 21:13:20.675641"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "North"], ["rating", 2.0], ["info", "Cable feels like a prison, but it will get better soon"], ["created_at", "2016-02-26 21:13:20.678653"], ["updated_at", "2016-02-26 21:13:20.678653"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Castle"], ["rating", 3.5], ["info", "Only called castle to attract students, no one actually wants to live in it"], ["created_at", "2016-02-26 21:13:20.681751"], ["updated_at", "2016-02-26 21:13:20.681751"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "567 South Street"], ["rating", 3.0], ["info", "Only outcasts want to live here"], ["created_at", "2016-02-26 21:13:20.684868"], ["updated_at", "2016-02-26 21:13:20.684868"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Charles River Apartment"], ["rating", 1.0], ["info", "spiders everywhere"], ["created_at", "2016-02-26 21:13:20.687102"], ["updated_at", "2016-02-26 21:13:20.687102"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Foster Mods Housing"], ["rating", 4.5], ["info", "Expensive but worth"], ["created_at", "2016-02-26 21:13:20.689306"], ["updated_at", "2016-02-26 21:13:20.689306"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Rosenthal"], ["rating", 4.0], ["info", "Worse version of Ziv"], ["created_at", "2016-02-26 21:13:20.691505"], ["updated_at", "2016-02-26 21:13:20.691505"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Village"], ["rating", 4.0], ["info", "Housing for midyears, study abroad students, and sophomores"], ["created_at", "2016-02-26 21:13:20.693837"], ["updated_at", "2016-02-26 21:13:20.693837"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ziv"], ["rating", 4.1], ["info", "Quad with four buildings. For Juniors and Seniors. Lower campus"], ["created_at", "2016-02-26 21:13:28.510424"], ["updated_at", "2016-02-26 21:13:28.510424"]]
+  [1m[35m (18.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "East"], ["rating", 3.7], ["info", "Two buildings connected with a hallway. For Sophomores. Upper campus"], ["created_at", "2016-02-26 21:13:28.532339"], ["updated_at", "2016-02-26 21:13:28.532339"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Massell"], ["rating", 5.0], ["info", "Freshman dorms in lower campus. Four buildings"], ["created_at", "2016-02-26 21:13:28.535777"], ["updated_at", "2016-02-26 21:13:28.535777"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Ridgewood"], ["rating", 3.2], ["info", "The housing that all juniors want."], ["created_at", "2016-02-26 21:13:28.538387"], ["updated_at", "2016-02-26 21:13:28.538387"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "North"], ["rating", 2.0], ["info", "Cable feels like a prison, but it will get better soon"], ["created_at", "2016-02-26 21:13:28.540776"], ["updated_at", "2016-02-26 21:13:28.540776"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Castle"], ["rating", 3.5], ["info", "Only called castle to attract students, no one actually wants to live in it"], ["created_at", "2016-02-26 21:13:28.543794"], ["updated_at", "2016-02-26 21:13:28.543794"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "567 South Street"], ["rating", 3.0], ["info", "Only outcasts want to live here"], ["created_at", "2016-02-26 21:13:28.546537"], ["updated_at", "2016-02-26 21:13:28.546537"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Charles River Apartment"], ["rating", 1.0], ["info", "spiders everywhere"], ["created_at", "2016-02-26 21:13:28.549054"], ["updated_at", "2016-02-26 21:13:28.549054"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Foster Mods Housing"], ["rating", 4.5], ["info", "Expensive but worth"], ["created_at", "2016-02-26 21:13:28.551630"], ["updated_at", "2016-02-26 21:13:28.551630"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["name", "Rosenthal"], ["rating", 4.0], ["info", "Worse version of Ziv"], ["created_at", "2016-02-26 21:13:28.554291"], ["updated_at", "2016-02-26 21:13:28.554291"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "quads" ("name", "rating", "info", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Village"], ["rating", 4.0], ["info", "Housing for midyears, study abroad students, and sophomores"], ["created_at", "2016-02-26 21:13:28.557310"], ["updated_at", "2016-02-26 21:13:28.557310"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+
+
+Started GET "/quads" for ::1 at 2016-02-26 16:13:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by QuadsController#index as HTML
+  [1m[35mQuad Load (0.2ms)[0m  SELECT "quads".* FROM "quads"
+  Rendered quads/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 245ms (Views: 234.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/boards.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/buildings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/quads.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/reviews.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/pictures.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/rooms.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/tags.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/lines.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/application.self-2bfc1da63086f3c53c5b83cf5572e53ee8591fc8de0dd0fc883d6dc319f6b33b.css?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/boards.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/buildings.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/lines.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/pictures.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/quads.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/reviews.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/rooms.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/tags.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-02-26 16:13:38 -0500
