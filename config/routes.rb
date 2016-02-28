@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   resources :reviews
 
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#new'
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

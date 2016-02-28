@@ -27,8 +27,8 @@ Rails.application.routes.draw do
 
   resources :reviews
 
-  get "/signup" => "users#index"
-  post "/signup" => "users#create"
+  get '/signup' => 'users#create'
+  post '/signup' => 'users#create'
 
   root 'home#index'
 

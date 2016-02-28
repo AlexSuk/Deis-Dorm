@@ -1,14 +1,20 @@
 <br>
 <br>
 <%= form_for(@user) do |f| %>
-  <div><%= f.label :user_name %>
+  <div class="field">
+  <%= f.label :user_name %>
   <%= f.text_field :user_name %></div></br>
-  <div><%= f.label :email %>  
+  
+  <div class="field">
+  <%= f.label :email %>  
   <%= f.text_field :email %></div></br>
-  <div><%= f.label :password %>
+  
+  <div class="field">
+  <%= f.label :password %>
   <%= f.text_field :password %></div></br>
-  <div><%= f.label :password_confirmation %>
-  <%= f.text_field :password_confirmation %></div></br>
-  <%= f.button :submit %></br>
+  
+  <div class="actions">
+  <%= f.button :submit %>
+  </div></br>
 <% end %>
 
