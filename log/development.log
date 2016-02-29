@@ -11909,3 +11909,35 @@ ActionController::RoutingError (No route matches [GET] "/users/new"):
   Rendered /home/jmaeda/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /home/jmaeda/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
   Rendered /home/jmaeda/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (94.8ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2016-02-28 22:25:01 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 134ms (Views: 113.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-02-28 22:25:06 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MJ0vE+GB9jESwdyIZ/RZZz7HA2NTV7fFUyl7lv1CsOxbu9Z1pZwCP4HXfkv1Wa7EqcQDxLKEvlKxXUbGMz7CHg==", "user"=>{"user_name"=>"jon", "email"=>"jon", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "button"=>""}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'jon' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered users/new.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 173ms (Views: 106.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2016-02-28 22:43:20 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 96ms (Views: 95.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2016-02-28 22:43:24 -0500
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KuBC45Qd9fWqVG6127yUCi6eiZpHQ4mBezyegS95MRFBxruF0AAB+zlCzHZJEWOpuZ2JPaaQgBaZSKPR4QVD4w==", "user"=>{"user_name"=>"rawrrrr", "email"=>"rawr", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "button"=>""}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."user_name" = 'rawrrrr' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 123ms (Views: 117.2ms | ActiveRecord: 0.2ms)
