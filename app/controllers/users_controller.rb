@@ -32,15 +32,15 @@ class UsersController < ApplicationController
     
       respond_to do |format|
         if @user.save
-	       format.html { redirect_to users_url}
+	       format.html { redirect_to root_path}
 	       format.json { render action: 'show',
 	         status: :created, location: @user }
         else
-          format.html { render action: 'new' }
-          format.json { render json: @user.errors,
-            status: :unprocessable_entity }
+          #either username/email/ps is missing
         end
       end
+    else
+      #show an error that the passwords do not match
     end
   end
 
