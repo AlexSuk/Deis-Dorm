@@ -36,11 +36,11 @@ class UsersController < ApplicationController
 	       format.json { render action: 'show',
 	         status: :created, location: @user }
         else
-          #either username/email/ps is missing
+          format.html { render action: 'new' }
+          format.json { render json: @user.errors,
+            status: :unprocessable_entity }
         end
       end
-    else
-      #show an error that the passwords do not match
     end
   end
 
