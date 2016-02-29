@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :tags
 
-  resources :users
+  resources :users, path: "signup", as: :users, only: [:new, :create]
 
   resources :boards do
     resources :lines do
