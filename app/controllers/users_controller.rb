@@ -26,17 +26,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+
+    if(params[:password_confirmation] == params[:password])
+      @user = User.new(user_params)
     
-    respond_to do |format|
-      if @user.save
-	      format.html { redirect_to users_url}
-	      format.json { render action: 'show',
-	        status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors,
-          status: :unprocessable_entity }
+      respond_to do |format|
+        if @user.save
+	       format.html { redirect_to users_url}
+	       format.json { render action: 'show',
+	         status: :created, location: @user }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @user.errors,
+            status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -66,6 +69,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :password, :email)
+      params.require(:user).permit(:user_name, :password, :password_confirmation, :email)
     end
 end
