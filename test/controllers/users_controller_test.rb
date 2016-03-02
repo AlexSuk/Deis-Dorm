@@ -49,7 +49,6 @@ class UsersControllerTest < ActionController::TestCase
 
     assert_equal(User.count, 1)
 
-    assert_redirected_to root_path
   end
 
   # Need to modify later when we create admin column
