@@ -33,12 +33,12 @@ class UsersControllerTest < ActionController::TestCase
 		assert_redirected_to root_path
 	end
 
-  test "should destroy user" do
-    assert_difference('User.count', -1) do
-      delete :destroy, id: @user
-    end
+  	test "should destroy user" do
+    	assert_difference('User.count', -1) do
+      		delete :destroy, id: @user
+    	end
 
-    assert_redirected_to root_path
-  end
+    	assert_redirected_to root_path
+  	end
 end
 

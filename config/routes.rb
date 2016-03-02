@@ -22,8 +22,9 @@ Rails.application.routes.draw do
 
   resources :tags
 
-  resources :users, :only => [:index, :destroy, :update]
-  resources :users, path: "signup", as: :users, only: [:new, :create]
+  resources :users
+  #resources :users, :only => [:index, :destroy, :update, :show]
+  #resources :users, path: "signup", as: :users, only: [:new, :create]
 
   resources :boards do
     resources :lines do
@@ -46,9 +47,6 @@ Rails.application.routes.draw do
   resources :rooms
 
   resources :reviews
-
-  get '/signup' => 'users#new'
-  post '/signup' => 'users#new'
 
   root 'home#index'
 

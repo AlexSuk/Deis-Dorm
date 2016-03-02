@@ -82,6 +82,9 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    minitest-spec-rails (5.3.0)
+      minitest (~> 5.0)
+      rails (>= 4.1)
     multi_json (1.11.2)
     nested_form (0.3.2)
     nokogiri (1.6.7.2)
@@ -184,6 +187,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  minitest-spec-rails
   pg
   rails (= 4.2.5)
   rails_12factor
