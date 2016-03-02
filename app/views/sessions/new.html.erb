@@ -1,3 +1,5 @@
+<br>
+<br>
 <div class="depot_form">
   <% if flash[:alert] %>
     <p id="notice"><%= flash[:alert] %></p>
@@ -15,6 +17,10 @@
       </div>
       <div>
         <%= submit_tag "Login" %>
+      </div>
+      <br>
+      <div>
+        <%= link_to "Sign Up Now!", {:controller => "users", :action => "new"} %>
       </div>
     </fieldset>
   <% end %>
