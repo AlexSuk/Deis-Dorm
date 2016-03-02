@@ -9,7 +9,7 @@ class ReviewsControllerTest < ActionController::TestCase
   it "get new form" do
     get :new
     must_response_with :success
-    must_render_template :index
+    must_render_template :new
   end
 
 end

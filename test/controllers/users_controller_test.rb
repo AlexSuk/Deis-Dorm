@@ -28,6 +28,16 @@ class UsersControllerTest < ActionController::TestCase
   		assert_redirected_to root_path
   	end
 
+  	test "should show user" do
+    	get :show, id: @user
+    	assert_response :success
+  	end
+
+  	test "should get edit" do
+    	get :edit, id: @user
+    	assert_response :success
+  	end
+
   	test "should update user" do
 		patch :update, id: @user, user: { user_name: @user.user_name, email: 'same@same.com', password: 'secret'}
 		assert_redirected_to root_path

@@ -6,10 +6,10 @@ class ReviewsControllerTest < ActionController::TestCase
   #   assert true
   # end
 
-  it "get new form" do
-    get :new
-    must_response_with :success
-    must_render_template :new
-  end
+  #it "get new form" do
+  #  get :new
+  #  must_response_with :success
+  #  must_render_template :new
+  #end
 
 end
