@@ -7,31 +7,31 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "should login" do
-    dave = users(:one)
-    post :create, :name => dave.name, :password => 'secret'
+    dave = users(:admin)
+    post :create, :name => dave.user_name, :password => 'admin'
     assert_redirected_to admin_url
     assert_equal dave.id, session[:user_id]
   end
 
   test "should fail login" do
-    dave = users(:one)
-    post :create, :name => dave.name, :password => 'wrong'
-    assert_redirected_to login_url
+    dave = users(:admin)
+    post :create, :name => dave.user_name, :password => 'wrong'
+    assert_redirected_to admin_url
   end
 
   test "should logout" do
     delete :destroy
-    assert_redirected_to login_url # in the textbook, here is "store_url"
+    assert_redirected_to login_url
   end
 
   test "should get create" do
     get :create
-    assert_response :success
+    assert_response :redirect
   end
 
   test "should get destroy" do
     get :destroy
-    assert_response :success
+    assert_response :redirect
   end
-
+  
 end
