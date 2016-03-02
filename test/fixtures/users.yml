@@ -20,3 +20,10 @@ three:
   email: same@same.com
   bio: no
   icon: no
+  
+admin:
+  user_name: admin
+  password: admin
+  email: admin@admin.com
+  bio: no
+  icon: no
