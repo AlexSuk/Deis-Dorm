@@ -16,7 +16,7 @@ class SessionsControllerTest < ActionController::TestCase
   test "should fail login" do
     dave = users(:admin)
     post :create, :name => dave.user_name, :password => 'wrong'
-    assert_redirected_to admin_url
+    assert_redirected_to login_url
   end
 
   test "should logout" do
@@ -33,5 +33,5 @@ class SessionsControllerTest < ActionController::TestCase
     get :destroy
     assert_response :redirect
   end
-  
+
 end
