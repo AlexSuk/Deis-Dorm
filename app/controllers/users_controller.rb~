@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -18,26 +18,31 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    begin
+      @user.destroy
+      flash[:notice] = "User #{@user.name} was successfully deleted"
+    rescue StandardError => e
+      flash[:notice] = e.message
+    end
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
 
   def create
-    @user = User.new(user_params)
-    
-    respond_to do |format|
-      if @user.save
-	      format.html { redirect_to users_url,
-	        notice: "User #{@user.name} was successfully created." }
-	      format.json { render action: 'show',
-	        status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors,
-          status: :unprocessable_entity }
+
+    if(params[:password_confirmation] == params[:password])
+      @user = User.new(user_params)
+
+      respond_to do |format|
+        if @user.save
+	        format.html { redirect_to root_path}
+	        format.json { render action: 'show', status: :created, location: @user }
+        else
+          format.html { render action: 'new' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -45,8 +50,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url,
-          notice: "User #{@user.name} was successfully updated." }
+        format.html { redirect_to root_path}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(:name)
+    @users = User.order(:user_name)
   end
 
   private
@@ -68,6 +72,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user_name, :password, :email)
+      params.require(:user).permit(:user_name, :password, :password_confirmation, :email)
     end
 end
