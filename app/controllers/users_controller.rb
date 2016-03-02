@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -18,9 +18,14 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    begin
+      @user.destroy
+      flash[:notice] = "User #{@user.name} was successfully deleted"
+    rescue StandardError => e
+      flash[:notice] = e.message
+    end
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -29,7 +34,7 @@ class UsersController < ApplicationController
 
     if(params[:password_confirmation] == params[:password])
       @user = User.new(user_params)
-    
+
       respond_to do |format|
         if @user.save
 	        format.html { redirect_to root_path}
@@ -56,7 +61,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.order(:name)
+    @users = User.order(:user_name)
   end
 
   private
