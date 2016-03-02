@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :tags
 
+  resources :users, :only => [:index, :destroy, :update]
   resources :users, path: "signup", as: :users, only: [:new, :create]
 
   resources :boards do

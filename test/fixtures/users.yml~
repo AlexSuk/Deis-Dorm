@@ -13,10 +13,3 @@ two:
   email: MyString
   bio: MyText
   icon: MyText
-
-three:
-  user_name: same
-  password: secret
-  email: same@same.com
-  bio: no
-  icon: no
