@@ -10,7 +10,7 @@
   <!-- <header>
       <nav> -->
   <div id="banner">
-      <h3 class="login">Login</h3>
+      <h3 class="login"><%= link_to "Login", {:controller => "sessions", :action => "new"} %></h3>
       <ul class="main-nav">
           <li><%= link_to "Quads", {:controller => "quads", :action => "index"} %> </li>
           <li><%= link_to "Map", {:controller => "map", :action => "index"} %></li>
