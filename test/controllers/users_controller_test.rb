@@ -5,19 +5,19 @@ class UsersControllerTest < ActionController::TestCase
     #   assert true
     # end
 
-  setup do
-  	@user = users(:three)
+  	setup do
+  		@user = users(:three)
 	end
 
 	test "should get index" do
-  	get :index
-  	assert_response :success
-  	assert_not_nil assigns(:users)
+  		get :index
+  		assert_response :success
+  		assert_not_nil assigns(:users)
 	end
 
 	test "should get new" do
-  	get :new
-  	assert_response :success
+  		get :new
+  		assert_response :success
 	end
 
 	test "should create user" do
@@ -34,11 +34,11 @@ class UsersControllerTest < ActionController::TestCase
 	end
 
 	test "should destroy user" do
-  	assert_difference('User.count', -1) do
+  		assert_difference('User.count', -1) do
     		delete :destroy, id: @user
-  	end
+  		end
 
-  	assert_redirected_to root_path
+  		assert_redirected_to root_path
 	end
 
   test "should not destroy last user" do
@@ -60,8 +60,28 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should restrict duplicates" do
     assert_difference('User.count', 0) do
-			post :create, user: { user_name: 'admin', email: 'sam@sam.com', password: 'secret'}
-		end
+		post :create, user: { user_name: 'admin', email: 'sam@sam.com', password: 'secret'}
+	end
   end
 
+  #extra minitest tests
+	describe User do
+  		it "has four users in database" do
+  			User.count.must_equal 4
+		end
+
+		it "won't accept user without a password" do
+  			User.create(user_name: "jonathan", email: "jmaeda@brandeis.edu")
+  			User.count.must_equal 4
+		end
+
+		it "should provide an array after calling index" do
+			get :index
+  			assert_response :success
+  			assert_not_nil assigns(:users)
+  			users.must_be_kind_of Array
+		end
+	end
 end
+
+
