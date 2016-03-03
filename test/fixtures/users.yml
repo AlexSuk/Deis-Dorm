@@ -2,28 +2,32 @@
 
 one:
   user_name: MyString
-  password: MyString
+  password_digest: MyString
   email: MyString
   bio: MyText
   icon: MyText
+  admin?: false
 
 two:
   user_name: MyString
-  password: MyString
+  password_digest: MyString
   email: MyString
   bio: MyText
   icon: MyText
+  admin?: false
 
 three:
   user_name: same
-  password: secret
+  password_digest: secret
   email: same@same.com
   bio: no
   icon: no
-  
+  admin?: false
+
 admin:
   user_name: admin
-  password: admin
+  password_digest: admin
   email: admin@admin.com
   bio: no
   icon: no
+  admin?: true

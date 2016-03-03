@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     if User.exists?(user_name: "#{params[:name]}")
       user = User.find_by_user_name("#{params[:name]}")
-      if user.password == params[:password]
+      if user && user.password_digest == params[:password]
         session[:user_id] = user.id
         redirect_to admin_url
       else
