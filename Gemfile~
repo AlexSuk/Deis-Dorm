@@ -19,7 +19,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'bcrypt-ruby', '~> 3.1.2'
-gem 'rails_admin'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -39,6 +38,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+gem 'rails_admin'
+gem 'bootstrap-sass', '~>3.3.6'
+gem 'sass-rails', '>= 3.2'
+gem 'autoprefixer-rails'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -53,7 +59,7 @@ group :development do
 end
 
 group :test do
-	gem "rack-minitest"
 	gem 'minitest-spec-rails'
 end
+
 
