@@ -1,12 +1,11 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize
+  skip_before_action :authorize
   def new
   end
 
   def create
-    if User.exists?(user_name: "#{params[:name]}")
-      user = User.find_by_user_name("#{params[:name]}")
-      if user && user.password_digest == params[:password]
+    if user = User.find_by_user_name(params[:name])
+      if user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to admin_url
       else
