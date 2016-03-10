@@ -60,4 +60,5 @@ group :test do
 	gem 'minitest-spec-rails'
 end
 
-
+gem 'gmaps4rails'
+gem 'underscore-rails'
