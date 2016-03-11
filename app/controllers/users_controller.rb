@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :authorize
+  skip_before_action :authorize, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   # GET /users/1
   # GET /users/1.json
@@ -32,13 +33,11 @@ class UsersController < ApplicationController
   end
 
   def create
-
     if(params[:password_confirmation] == params[:password])
       @user = User.new(user_params)
-
       respond_to do |format|
         if @user.save
-	        format.html { redirect_to root_path}
+          format.html { redirect_to root_path}
 	        format.json { render action: 'show', status: :created, location: @user }
         else
           format.html { render action: 'new' }
@@ -50,6 +49,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
+      puts params
       if @user.update(user_params)
         format.html { redirect_to root_path}
         format.json { head :no_content }
@@ -73,6 +73,11 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:user_name, :password, :password_confirmation, :email)
+      params.require(:user).permit(:user_name, :password, :password_confirmation, :email, :icon)
+    end
+
+  private
+    def set_s3_direct_post
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "user/#{session[:user_id]}/${filename}", success_action_status: '201', acl: 'public-read')
     end
 end
