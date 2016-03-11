@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20160220015848) do
   create_table "posts", force: :cascade do |t|
     t.text     "text"
     t.datetime "posted"
-    t.integer  "thread_id"
+    t.integer  "line_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

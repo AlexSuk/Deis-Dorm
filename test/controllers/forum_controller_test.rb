@@ -11,5 +11,11 @@ class ForumControllerTest < ActionController::TestCase
 
   end
 
+  test "should be able to log in when signed in" do
+    get :index
+    assert_response :success
+
+  end
+
 
 end
