@@ -30,11 +30,16 @@ Building.create(name: "Pomerantz", longitude:, latitude:, description:, type:, q
 Building.create(name: "Shapiro", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Deroy", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Usen", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Renfield", longitude:, latitude:, description:, type:, quad_id:)Ridgewood B
+Building.create(name: "Renfield", longitude:, latitude:, description:, type:, quad_id:)
 
 Building.create(name: "Ridgewood A", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Ridgewood B", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Ridgewood C", longitude:, latitude:, description:, type:, quad_id:)
+
+Building.create(name: "Gordon", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Scheffres", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Reitman", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Cable", longitude:, latitude:, description:, type:, quad_id:)
 
 
 random = Random.new()
