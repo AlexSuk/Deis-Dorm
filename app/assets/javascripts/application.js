@@ -15,8 +15,9 @@
 //= require turbolinks
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+//= require underscore
+//= require gmaps/google
 //= require_tree .
-<<<<<<< HEAD
 
 $(document).ready(function() {
   $('.directUpload').find("input:file").each(function(i, elem) {
@@ -70,7 +71,3 @@ $(document).ready(function() {
     });
   });
 });
-=======
-//= require underscore
-//= require gmaps/google
->>>>>>> 1080b55a1794ab18e4d60376b81ed50e0b9c3514
