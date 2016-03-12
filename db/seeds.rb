@@ -12,56 +12,69 @@ Quad.create(name: "East", rating: 3.7, info: "Two buildings connected with a hal
 Quad.create(name: "Massell", rating: 5.0, info: "Freshman dorms in lower campus. Four buildings")
 Quad.create(name: "Ridgewood", rating: 3.2, info: "The housing that all juniors want.")
 Quad.create(name: "North", rating: 2.0, info: "Cable feels like a prison, but it will get better soon")
-Quad.create(name: "Castle", rating: 3.5, info: "Only called castle to attract students, no one actually wants to live in it")
+Quad.create(name: "Usen Castle", rating: 3.5, info: "Only called castle to attract students, no one actually wants to live in it")
 Quad.create(name: "567 South Street", rating: 3.0, info: "Only outcasts want to live here")
-Quad.create(name: "Charles River Apartment", rating: 1.0, info: "spiders everywhere")
+Quad.create(name: "Charles River Apartments", rating: 1.0, info: "spiders everywhere")
 Quad.create(name: "Foster Mods Housing", rating: 4.5, info: "Expensive but worth")
 Quad.create(name: "Rosenthal", rating: 4.0, info: "Worse version of Ziv")
 Quad.create(name: "Village", rating:4.0, info: "Housing for midyears, study abroad students, and sophomores")
 
-Building.create(name: "ziv 127", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "ziv 128", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "ziv 129", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "ziv 130", longitude:, latitude:, description:, type:, quad_id:)
+#ziv buildings
+Building.create(name: "ziv 127", longitude: -71.2616387, latitude: 42.3633962, description: "rightmost ziv", type: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
+Building.create(name: "ziv 128", longitude: -71.2615093, latitude: 42.3630568, description: "ziv to the left of 127", type: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
+Building.create(name: "ziv 129", longitude: -71.2610225, latitude: 42.3629225, description: "ziv to the right of 130", type: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
+Building.create(name: "ziv 130", longitude: -71.2608863, latitude: 42.3632783, description: "leftmost ziv", type: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
 
-Building.create(name: "Hassenfeld", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Pomerantz", longitude:, latitude:, description:, type:, quad_id:)
+#east buildings
+Building.create(name: "Hassenfeld", longitude: -71.2548726, latitude: 42.3679261, description: "Larger building of East that is further uphill", type: "dorm", quad_id: Quad.find_by(name: "East").id)
+Building.create(name: "Pomerantz", longitude: -71.2547494, latitude: 42.3674802, description: "Smaller building of East that is further downhill", type: "dorm", quad_id: Quad.find_by(name: "East").id)
 
-Building.create(name: "Shapiro", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Deroy", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Usen", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Renfield", longitude:, latitude:, description:, type:, quad_id:)
+#massel buildings
+Building.create(name: "Shapiro", longitude: -71.2614192, latitude: 42.3668253, description: "leftmost in massell quad", type: "dorm", quad_id: Quad.find_by(name: "Massell").id)
+Building.create(name: "Deroy", longitude: -71.2616125, latitude: 42.3673553, description: "to the right of Shapiro", type: "dorm", quad_id: Quad.find_by(name: "Massell").id)
+Building.create(name: "Usen", longitude: -71.2605758, latitude: 42.3671662, description: "rightmost in massell quad", type: "dorm", quad_id: Quad.find_by(name: "Massell").id)
+Building.create(name: "Renfield", longitude: -71.2610296, latitude: 42.3674719, description: "to the left of Usen", type: "dorm",quad_id: Quad.find_by(name: "Massell").id)
 
-Building.create(name: "Ridgewood A", longitude: -71.2604928, latitude: 42.3640341, description:, type:, quad_id:)
-Building.create(name: "Ridgewood B", longitude: -71.2611426, latitude: 42.3638964, description:, type:, quad_id:)
-Building.create(name: "Ridgewood C", longitude: -71.2607127, latitude: 42.3635757, description: , type:, quad_id:)
+#ridgewood buildings
+Building.create(name: "Ridgewood A", longitude: -71.2604928, latitude: 42.3640341, description: "Ridgewood with the large common area", type: "dorm", quad_id: Quad.find_by(name: "Ridgewood").id)
+Building.create(name: "Ridgewood B", longitude: -71.2611426, latitude: 42.3638964, description: "Ridgewood next to Spingold", type: "dorm", quad_id: Quad.find_by(name: "Ridgewood").id)
+Building.create(name: "Ridgewood C", longitude: -71.2607127, latitude: 42.3635757, description: "Ridgewood closest to Dunkin Donuts", type: "dorm", quad_id: Quad.find_by(name: "Ridgewood").id)
 
-Building.create(name: "Gordon", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Scheffres", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Reitman", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Cable", longitude:, latitude:, description:, type:, quad_id:)
+#north buildings
+Building.create(name: "Gordon", longitude: -71.2559024, latitude: 42.3696982, description: "Connected to the lounge through the first floor.", type: "dorm", quad_id: Quad.find_by(name: "North").id)
+Building.create(name: "Scheffres", longitude: -71.2563113, latitude: 42.3692478, description: "Connected to the lounge through the basement.", type: "dorm", quad_id: Quad.find_by(name: "North").id)
+Building.create(name: "Reitman", longitude: -71.2553477, latitude: 42.3696856, description: "Building with washing machines.", type: "dorm", quad_id: Quad.find_by(name: "North").id)
+Building.create(name: "Cable", longitude: -71.2552624, latitude: 42.3692278, description: "rightmost building in North Quad.", type: "dorm", quad_id: Quad.find_by(name: "North").id)
 
-Building.create(name: "Castle", longitude:, latitude:, description:, type:, quad_id:)
+#castle
+Building.create(name: "Usen Castle", longitude: -71.2556858, latitude: 42.3672562, description: "Brandeis' infamous castle. It can be quite confusing to navigate...", type: "dorm", quad_id: Quad.find_by(name: "Usen Castle").id)
 
-Building.create(name: "567 South Street", longitude:, latitude:, description:, type:, quad_id:)
+#567 South Street
+Building.create(name: "567 South Street", longitude: -71.2617369, latitude: 42.3613702, description: "A single appartment style building next to Cappy's Pizza", type: "dorm", quad_id: Quad.find_by(name: "567 South Street").id)
 
-Building.create(name: "Morton May", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Max and Ann Coffman", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Ollie A. Cohen", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "George E. Lewis", longitude:, latitude:, description:, type:, quad_id:)
+#grad buildings
+Building.create(name: "Morton May, 110 Angleside Road", longitude: -71.2576588, latitude: 42.3595228, description: "One of four grad dorms", type: "dorm", quad_id: Quad.find_by(name: "Charles River Apartments").id)
+Building.create(name: "Max and Ann Coffman, 150 Charles River Road", longitude: -71.2572095, latitude: 42.3596814, description: "One of four grad dorms", type: "dorm", quad_id: Quad.find_by(name: "Charles River Apartments").id)
+Building.create(name: "Ollie A. Cohen, 164 Charles River Road", longitude: -71.256805, latitude: 42.3599771, description: "One of four grad dorms", type: "dorm", quad_id: Quad.find_by(name: "Charles River Apartments").id)
+Building.create(name: "George E. Lewis, 178 Charles River Road", longitude: -71.2566022, latitude: 42.3603332, description: "One of four grad dorms", type: "dorm", quad_id: Quad.find_by(name: "Charles River Apartments").id)
 
-Building.create(name: "Upper Mods", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Lower Mods", longitude:, latitude:, description:, type:, quad_id:)
+#mods Buildings
+Building.create(name: "Upper Mods", longitude: -71.2538398, latitude: 42.3662074, description: "higher elevation mod area", type: "dorm", quad_id: Quad.find_by(name: "Foster Mods Housing").id)
+Building.create(name: "Lower Mods", longitude: -71.2534663, latitude: 42.3657189, description: "lower elevation mod area", type: "dorm", quad_id: Quad.find_by(name: "Foster Mods Housing").id)
 
-Building.create(name: "North", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "East", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "South", longitude:, latitude:, description:, type:, quad_id:)
+#rosenthal buildings
+Building.create(name: "North", longitude: -71.2601768, latitude: 42.3673301, description: "building at the bottom of the hill", type: "dorm", quad_id: Quad.find_by(name: "Rosenthal").id)
+Building.create(name: "East", longitude: -71.259926, latitude: 42.3670715, description: "building on the side of the hill", type: "dorm", quad_id: Quad.find_by(name: "Rosenthal").id)
+Building.create(name: "South", longitude: -71.2601182, latitude: 42.3668881, description: "building at the top of the hill", type: "dorm", quad_id: Quad.find_by(name: "Rosenthal").id)
 
-Building.create(name: "Village A", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Village B", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Village C", longitude:, latitude:, description:, type:, quad_id:)
+#village buildings
+Building.create(name: "Village A", longitude: -71.2600058, latitude: 42.3636824, description: "Village next to the music building", type: "dorm", quad_id: Quad.find_by(name: "Village").id)
+Building.create(name: "Village B", longitude: -71.2601989, latitude: 42.3633267, description: "The middle portion of village", type: "dorm", quad_id: Quad.find_by(name: "Village").id)
+Building.create(name: "Village C", longitude: -71.2605201, latitude: 42.3630206, description: "Village closest to the train station", type: "dorm", quad_id: Quad.find_by(name: "Village").id)
 
 random = Random.new()
+dorm_buildings = Buildng.where(type: "dorm")
+
 (0..100).each do |i|
 	a_user_name = Faker::Internet.user_name
 	a_password_digest = Faker::Internet.password
@@ -73,11 +86,13 @@ random = Random.new()
 		an_admin = false
 	end
 
+	#create a random user using info generated above
 	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin: an_admin)
 	the_user = User.find_by user_name '#{a_user_name}'
 	
+	#create two reviews for each user
 	(0..1).each do |j|
-		Review.create(text: Faker::Hacker.say_something_smart, upvote: 0, rating: random(5), user_id: the_user.id, building_id:)
+		Review.create(text: Faker::Hacker.say_something_smart, upvote: 0, rating: random(5), user_id: the_user.id, building_id: dorm_buildings[random(dorm_buildings.length)].id)
 	end
 end
 
