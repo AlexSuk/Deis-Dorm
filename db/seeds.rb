@@ -32,15 +32,34 @@ Building.create(name: "Deroy", longitude:, latitude:, description:, type:, quad_
 Building.create(name: "Usen", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Renfield", longitude:, latitude:, description:, type:, quad_id:)
 
-Building.create(name: "Ridgewood A", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Ridgewood B", longitude:, latitude:, description:, type:, quad_id:)
-Building.create(name: "Ridgewood C", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Ridgewood A", longitude: -71.2604928, latitude: 42.3640341, description:, type:, quad_id:)
+Building.create(name: "Ridgewood B", longitude: -71.2611426, latitude: 42.3638964, description:, type:, quad_id:)
+Building.create(name: "Ridgewood C", longitude: -71.2607127, latitude: 42.3635757, description: , type:, quad_id:)
 
 Building.create(name: "Gordon", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Scheffres", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Reitman", longitude:, latitude:, description:, type:, quad_id:)
 Building.create(name: "Cable", longitude:, latitude:, description:, type:, quad_id:)
 
+Building.create(name: "Castle", longitude:, latitude:, description:, type:, quad_id:)
+
+Building.create(name: "567 South Street", longitude:, latitude:, description:, type:, quad_id:)
+
+Building.create(name: "Morton May", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Max and Ann Coffman", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Ollie A. Cohen", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "George E. Lewis", longitude:, latitude:, description:, type:, quad_id:)
+
+Building.create(name: "Upper Mods", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Lower Mods", longitude:, latitude:, description:, type:, quad_id:)
+
+Building.create(name: "North", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "East", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "South", longitude:, latitude:, description:, type:, quad_id:)
+
+Building.create(name: "Village A", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Village B", longitude:, latitude:, description:, type:, quad_id:)
+Building.create(name: "Village C", longitude:, latitude:, description:, type:, quad_id:)
 
 random = Random.new()
 (0..100).each do |i|
