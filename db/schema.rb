@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160220015848) do
     t.float    "longitude"
     t.float    "latitude"
     t.text     "description"
-    t.string   "type"
+    t.string   "is_kind"
     t.integer  "quad_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

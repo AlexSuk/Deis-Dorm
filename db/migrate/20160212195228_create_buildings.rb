@@ -5,7 +5,7 @@ class CreateBuildings < ActiveRecord::Migration
       t.float :longitude
       t.float :latitude
       t.text :description
-      t.string :type
+      t.string :is_kind
       t.integer :quad_id
 
       t.timestamps null: false
