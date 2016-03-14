@@ -45,6 +45,7 @@ gem 'puma'
 gem 'rails_admin'
 gem 'bootstrap-sass', '~>3.3.6'
 gem 'autoprefixer-rails'
+gem 'faker', '~> 1.6', '>= 1.6.3'
 
 
 group :development, :test do
