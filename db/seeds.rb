@@ -20,8 +20,18 @@ Quad.create(name: "Foster Mods Housing", rating: 4.5, info: "Expensive but worth
 Quad.create(name: "Rosenthal", rating: 4.0, info: "Worse version of Ziv")
 Quad.create(name: "Village", rating:4.0, info: "Housing for midyears, study abroad students, and sophomores")
 
-
 Board.create(name: "Ziv Quad", description: "Better version of Rosie")
+Board.create(name: "Ridgewood", description: "nice housing")
+Board.create(name: "East", description: "etc")
+Board.create(name: "Masell", description: "etc")
+Board.create(name: "North", description: "etc")
+Board.create(name: "Usen Castle", description: "etc")
+Board.create(name: "567 South Street", description: "etc")
+Board.create(name: "Charles River Apartments", description: "etc")
+Board.create(name: "Foster Mods Housing", description: "etc")
+Board.create(name: "Rosenthal", description: "etc")
+Board.create(name: "Village", description: "etc")
+Board.create(name: "FAQs/Questions and Answers", description: "etc")
 
 
 #ziv buildings
@@ -105,7 +115,9 @@ dorm_buildings = Building.where(is_kind: "dorm")
 # 	end
 # end
 	#create a random user using info generated above
-	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
+	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email)
+	# User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
+
 	the_user = User.find_by(user_name: "#{a_user_name}")
 	
 	#create two reviews for each user
