@@ -1,6 +1,7 @@
-// Place all the styles related to the Quads controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.row {
+  height: 100vh;
+}
+
 html,
 body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 0.65) 100%), url('ridgewood1.jpg');

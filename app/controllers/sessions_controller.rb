@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user = User.find_by_user_name(params[:name])
       if user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to admin_url
+        redirect_to quads_url
       else
         redirect_to login_url, :alert => "Invalid password combination. Try again."
       end

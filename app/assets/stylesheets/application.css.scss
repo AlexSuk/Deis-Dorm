@@ -17,53 +17,17 @@
 @import "bootstrap";
 @import "main";
 
-
-#banner {
-  /*background: #9c9;*/
-  padding: 20px;
-  /*margin: 20px;*/
-  /*border: 2px solid;*/
-  /*font: small-caps 40px/40px "Times New Roman", serif;*/
-  /*color: #282;*/
-  text-align: center;
+a:link,
+a:visited {
+    color: #E67E22;
+    text-decoration: none;
+    border-bottom: 1px solid #E67E22;
+    margin-bottom: 1px;
+    transition: color 0.2s, border-bottom 0.2s;
 }
 
-.row {
-   max-width: 1140px;
-   margin: 0 auto;
-}
-
-.main-nav {
-   float: left;
-   list-style: none;
-   margin-top: 20px;
-   /*background: #000000*/
-}
-
-.main-nav li {
-   display: inline-block;
-   margin-left: 40px;
-}
-
-.main-nav li a:link,
-.main-nav li a:visited{
-   padding: 8px 0;
-   color: #0008FF;
-   text-decoration: none;
-   text-transform: uppercase;
-   font-size: 90%;
-   border-bottom: 2px solid transparent;
-   transition: border-bottom 0.2s;
-}
-
-.main-nav li a:active,
-.main-nav li a:hover {
-   border-bottom: 2px solid #00BFFF;
-}
-
-.login {
-  height: 100px;
-  width: auto;
-  float: right;
-  margin-top: 20px;
+a:hover,
+a:active {
+    color: #646363;
+    border-bottom: 1px solid transparent;
 }
