@@ -95,28 +95,15 @@ dorm_buildings = Building.where(is_kind: "dorm")
 	a_password_digest = Faker::Internet.password
 	an_email = Faker::Internet.email
 
-# random = Random.new()
-# (0..100).each do |i|
-# 	a_user_name = Faker::Internet.user_name
-# 	a_password_digest = Faker::Internet.password
-# 	an_email = Faker::Internet.email
+ 	if random.rand(2) == 1
+ 		an_admin = true
+ 	else 
+ 		an_admin = false
+ 	end
 
-# 	if random.rand(1) == 1
-# 		an_admin = true
-# 	else 
-# 		an_admin = false
-# 	end
-
-# 	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin: an_admin)
-# 	the_user = User.find_by user_name '#{a_user_name}'
-	
-# 	(0..1).each do |j|
-# 		Review.create(text: Faker::Hacker.say_something_smart, upvote: 0, rating: random(5), user_id: the_user.id, building_id:)
-# 	end
-# end
 	#create a random user using info generated above
-	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email)
-	# User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
+	#User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email)
+	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
 
 	the_user = User.find_by(user_name: "#{a_user_name}")
 	
