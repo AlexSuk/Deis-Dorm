@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     post 'login' => :create
     get 'logout' => :destroy
   end
-
+  resources :boards
   get 'sessions/new'
 
   get 'sessions/create'

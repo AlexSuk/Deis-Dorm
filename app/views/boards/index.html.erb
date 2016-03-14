@@ -1,0 +1,21 @@
+<h1>Forum Page</h1>
+<%for board in @boards%>
+say something
+<%end%>
+
+
+<table>
+  <tr>
+    <th width="60%">Forum</th>
+    <th width="20%">Last Post</th>
+  </tr>
+  <% for board in @boards %>
+    <tr>
+      <td><h4><%= link_to h(board.name), board_path(board.id)  %></h4>
+        <%=h board.description %></td>
+      <td class="right"></td>
+      <td><%= link_to "Show", board %></td>
+    </tr>
+  <% end %>
+</table>
+ 

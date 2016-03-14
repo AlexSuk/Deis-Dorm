@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
 #require 'faker'
 
 Quad.create(name: "Ziv", rating: 4.1, info: "Quad with four buildings. For Juniors and Seniors. Lower campus")
@@ -18,6 +19,20 @@ Quad.create(name: "Charles River Apartments", rating: 1.0, info: "spiders everyw
 Quad.create(name: "Foster Mods Housing", rating: 4.5, info: "Expensive but worth")
 Quad.create(name: "Rosenthal", rating: 4.0, info: "Worse version of Ziv")
 Quad.create(name: "Village", rating:4.0, info: "Housing for midyears, study abroad students, and sophomores")
+
+Board.create(name: "Ziv Quad", description: "Better version of Rosie")
+Board.create(name: "Ridgewood", description: "nice housing")
+Board.create(name: "East", description: "etc")
+Board.create(name: "Masell", description: "etc")
+Board.create(name: "North", description: "etc")
+Board.create(name: "Usen Castle", description: "etc")
+Board.create(name: "567 South Street", description: "etc")
+Board.create(name: "Charles River Apartments", description: "etc")
+Board.create(name: "Foster Mods Housing", description: "etc")
+Board.create(name: "Rosenthal", description: "etc")
+Board.create(name: "Village", description: "etc")
+Board.create(name: "FAQs/Questions and Answers", description: "etc")
+
 
 #ziv buildings
 Building.create(name: "ziv 127", longitude: -71.2616387, latitude: 42.3633962, description: "rightmost ziv", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
@@ -80,14 +95,29 @@ dorm_buildings = Building.where(is_kind: "dorm")
 	a_password_digest = Faker::Internet.password
 	an_email = Faker::Internet.email
 
-	if random.rand(1) == 1
-		an_admin = true
-	else 
-		an_admin = false
-	end
+# random = Random.new()
+# (0..100).each do |i|
+# 	a_user_name = Faker::Internet.user_name
+# 	a_password_digest = Faker::Internet.password
+# 	an_email = Faker::Internet.email
 
+# 	if random.rand(1) == 1
+# 		an_admin = true
+# 	else 
+# 		an_admin = false
+# 	end
+
+# 	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin: an_admin)
+# 	the_user = User.find_by user_name '#{a_user_name}'
+	
+# 	(0..1).each do |j|
+# 		Review.create(text: Faker::Hacker.say_something_smart, upvote: 0, rating: random(5), user_id: the_user.id, building_id:)
+# 	end
+# end
 	#create a random user using info generated above
-	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
+	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email)
+	# User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
+
 	the_user = User.find_by(user_name: "#{a_user_name}")
 	
 	#create two reviews for each user
