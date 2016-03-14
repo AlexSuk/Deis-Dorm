@@ -4,7 +4,7 @@ var json_array = [
   { lat: 42.369610, lng: -71.255711, name: 'North', infowindow: "Here is North Quad." },
   { lat: 42.367565, lng: -71.255646, name: 'Castle', infowindow: "Here is a beautiful Castle." }
 ];
-var initialized=false;
+var initialized = false;
 var Gmaps;
 var handler = Gmaps.build('Google');
 var markers=[];
@@ -13,20 +13,12 @@ var map=handler.buildMap({ internal: {id: 'map'} }, function(){
 });
 
 if(navigator.geolocation)
-  navigator.geolocation.getCurrentPosition(displayOnMap);
-
-  function displayOnMap(position){
-    var marker = handler.addMarker({
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    });
-    handler.map.centerOn(marker);
-  };
+   navigator.geolocation.getCurrentPosition(displayOnMap);
 
 function createSidebar(json_array){
-  initialized=true;
+  initialized = true;
   _.each(json_array, function(json){
-    var $li = $("<div class='dormbldg'>" + json.name + "</div>");
+    var $li = $("<div class='pointer'>" + json.name + "</div>");
     $li.appendTo('#sidebar_container');
     $li.on('click', function(){
       create(json);
@@ -36,7 +28,9 @@ function createSidebar(json_array){
 
 
 function find(marker){
+  // move to marker
   marker.setMap(handler.getMap()); //because clusterer removes map property from marker
+
   marker.panTo();
   google.maps.event.trigger(marker.getServiceObject(), 'click');
 }
