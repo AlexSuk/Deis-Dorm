@@ -17,7 +17,7 @@
           <li><%= link_to 'Quads', quads_path %></li>
           <li><%= link_to 'Map', map_index_path %></li>
           <li><%= link_to 'Forum', forum_index_path %></li>
-          <li><%= link_to 'Profile', profile_index_path %></li>
+          <li><%= link_to 'Profile', user_path(session[:user_id]) %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if !session[:user_id].nil? %>

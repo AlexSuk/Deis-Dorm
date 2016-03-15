@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authorize, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update, :show]
 
   # GET /users/1
   # GET /users/1.json
@@ -49,9 +49,11 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      puts params
+      puts @user.icon
       if @user.update(user_params)
-        format.html { redirect_to root_path}
+        puts "UPDATE USER"
+        puts @user.icon
+        format.html { redirect_to user_path(session[:user_id])}
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
