@@ -18,9 +18,12 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
+console.log("HEY MAN!")
 
 $(document).ready(function() {
+  console.log("HEY WOMAN")
   $('.directUpload').find("input:file").each(function(i, elem) {
+    console.log("BOY")
     var fileInput    = $(elem);
     var form         = $(fileInput.parents('form:first'));
     var submitButton = form.find('input[type="submit"]');
