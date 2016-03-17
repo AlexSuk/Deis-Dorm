@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :reviews
   has_many :posts
+  has_many :lines
 
   after_destroy :ensure_an_admin_remains
   private

@@ -1,5 +1,6 @@
 <h1>Listing articles</h1>
  
+ <%= link_to 'New Post', new_board_line_path(@board) %>
 <table>
   <tr>
     <th>Title</th>
@@ -8,8 +9,11 @@
  
   <% @topics.each do |topic| %>
     <tr>
-      <td><%= topic.title %></td>
-      <td><%= topic.text %></td>
+      <td><%= topic.name %></td>
+      <td><%= topic.description %></td>
+
     </tr>
   <% end %>
 </table>
+
+<%= link_to 'Back', boards_path %>
