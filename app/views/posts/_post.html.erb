@@ -1,0 +1,9 @@
+<p>
+  <strong>Commenter:</strong>
+  <%user = User.find_by(id: post.user_id)%>
+  <%= user.user_name %>
+</p>
+<p>
+  <strong>Comment:</strong>
+  <%= post.text %>
+</p>

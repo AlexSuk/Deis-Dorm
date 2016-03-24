@@ -4,10 +4,13 @@ class LinesController < ApplicationController
 	def index
 		@board = Board.find(params[:board_id])
 		@topics = @board.lines.all
+    
 	end
 
 	def show
-  	end
+    @board = Board.find(params[:board_id])
+    @line = @board.lines.find(params[:id])
+  end
 
   	def edit
   	end
@@ -21,9 +24,11 @@ class LinesController < ApplicationController
   		#note to self alex, i added belongs to/has_many relations in the User and line models
   		@board = Board.find(params[:board_id])
   		# @line = @board.lines.new(line_params)
-  		# @user = User.find_by(session[:user_id])
-  		@topic = @board.lines.create(line_params)
-  		# @topic.user_id = @user.id
+  		@user = User.find_by(id: session[:user_id])
+  		@topic = @board.lines.create(line_params.merge(:user_id => @user.id))
+      # @topic = @board.lines.create(line_params)
+
+  		# @topic.user_id = @user.id 
   		redirect_to board_lines_path
   	end
 
