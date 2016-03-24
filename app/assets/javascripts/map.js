@@ -7,8 +7,23 @@ var json_array = [
 var initialized = false;
 var Gmaps;
 var handler = Gmaps.build('Google');
-var markers=[];
-var map=handler.buildMap({ internal: {id: 'map'} }, function(){
+var markers = [];
+var map = handler.buildMap({ internal: {id: 'map'} }, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": 42.366719,
+      "lng": -71.258604,
+      "picture": {
+        "url" : "/assets/brandeis_logo.png",
+        "width":  32,
+        "height": 32
+      },
+      "infowindow": "Here is Brandeis"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(16); //control zoom level (0-21)
   if(!initialized) createSidebar(json_array);
 });
 
