@@ -1,5 +1,5 @@
 class Building < ActiveRecord::Base
-  has_many :pictures
+  has_many :pictures, as: :imageable
   has_many :reviews
-  belongs_to :quad 
+  belongs_to :quad
 end

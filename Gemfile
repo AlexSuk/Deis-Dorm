@@ -10,7 +10,7 @@ gem 'sqlite3', group: :development
 gem 'pg', group: :production
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-gem 'aws-sdk', '~> 2'
+# gem 'aws-sdk', '~> 2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -46,7 +46,9 @@ gem 'rails_admin'
 gem 'bootstrap-sass', '~>3.3.6'
 gem 'autoprefixer-rails'
 gem 'faker', '~> 1.6', '>= 1.6.3'
-
+gem 'paperclip'
+# gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -6,6 +6,16 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :lines
 
+  has_attached_file :icon, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+  validates_attachment_content_type :icon, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  # validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+  # validates_attachment_file_name :icon, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+
+
   after_destroy :ensure_an_admin_remains
   private
     def ensure_an_admin_remains

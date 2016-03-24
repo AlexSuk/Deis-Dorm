@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220015848) do
+ActiveRecord::Schema.define(version: 20160324102002) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
@@ -43,11 +43,13 @@ ActiveRecord::Schema.define(version: 20160220015848) do
 
   create_table "pictures", force: :cascade do |t|
     t.text     "image_path"
-    t.string   "filename"
-    t.string   "table"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "pictures", ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
 
   create_table "posts", force: :cascade do |t|
     t.text     "text"
@@ -99,10 +101,13 @@ ActiveRecord::Schema.define(version: 20160220015848) do
     t.string   "password_digest"
     t.string   "email"
     t.text     "bio"
-    t.text     "icon"
     t.boolean  "admin?"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
 end

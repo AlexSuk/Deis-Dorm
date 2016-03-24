@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authorize, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update, :show]
+  # before_action :set_s3_direct_post, only: [:new, :edit, :create, :update, :show]
 
   # GET /users/1
   # GET /users/1.json
@@ -78,8 +78,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:user_name, :password, :password_confirmation, :email, :icon)
     end
 
-  private
-    def set_s3_direct_post
-      @s3_direct_post = S3_BUCKET.presigned_post(key: "user/#{session[:user_id]}/${filename}", success_action_status: '201', acl: 'public-read')
-    end
-end
+  # private
+  #   def set_s3_direct_post
+  #     @s3_direct_post = S3_BUCKET.presigned_post(key: "user/#{session[:user_id]}/${filename}", success_action_status: '201', acl: 'public-read')
+  #   end
+ end
