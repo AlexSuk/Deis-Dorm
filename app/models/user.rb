@@ -12,8 +12,7 @@ class User < ActiveRecord::Base
     medium: '300x300>'
   }
   validates_attachment_content_type :icon, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  # validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
-  # validates_attachment_file_name :icon, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  validates_with AttachmentSizeValidator, attributes: :icon, less_than: 1.megabytes
 
 
   after_destroy :ensure_an_admin_remains

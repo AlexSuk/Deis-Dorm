@@ -49,10 +49,10 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      puts @user.icon
+      # puts @user.icon
       if @user.update(user_params)
-        puts "UPDATE USER"
-        puts @user.icon
+        # puts "UPDATE USER"
+        # puts @user.icon
         format.html { redirect_to user_path(session[:user_id])}
         format.json { head :no_content }
       else

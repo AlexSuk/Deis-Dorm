@@ -4,7 +4,7 @@ class LinesController < ApplicationController
 	def index
 		@board = Board.find(params[:board_id])
 		@topics = @board.lines.all
-    
+
 	end
 
 	def show
@@ -25,10 +25,11 @@ class LinesController < ApplicationController
   		@board = Board.find(params[:board_id])
   		# @line = @board.lines.new(line_params)
   		@user = User.find_by(id: session[:user_id])
+			
   		@topic = @board.lines.create(line_params.merge(:user_id => @user.id))
       # @topic = @board.lines.create(line_params)
 
-  		# @topic.user_id = @user.id 
+  		# @topic.user_id = @user.id
   		redirect_to board_lines_path
   	end
 
