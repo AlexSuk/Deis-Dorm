@@ -5,7 +5,7 @@ one:
   longitude: 1.5
   latitude: 1.5
   description: MyText
-  type: 
+  is_kind: 
   quad_id: 1
 
 two:
@@ -13,5 +13,5 @@ two:
   longitude: 1.5
   latitude: 1.5
   description: MyText
-  type: 
+  is_kind: 
   quad_id: 1

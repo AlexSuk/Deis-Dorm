@@ -5,7 +5,7 @@ class UsersControllerTest < ActionController::TestCase
     #   assert true
     # end
 
-  	setup do
+  setup do
   		@user = users(:three)
 	end
 
@@ -16,8 +16,8 @@ class UsersControllerTest < ActionController::TestCase
 	end
 
 	test "should get new" do
-  		get :new
-  		assert_response :success
+		get :new
+		assert_response :success
 	end
 
 	test "should create user" do
@@ -65,23 +65,23 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   #extra minitest tests
-	describe User do
-  		it "has four users in database" do
-  			User.count.must_equal 4
-		end
-
-		it "won't accept user without a password" do
-  			User.create(user_name: "jonathan", email: "jmaeda@brandeis.edu")
-  			User.count.must_equal 4
-		end
-
-		it "should provide an array after calling index" do
-			get :index
-  			assert_response :success
-  			assert_not_nil assigns(:users)
-  			users.must_be_kind_of Array
-		end
+	
+	test "has four users in database" do
+			User.count.must_equal 4
 	end
+
+	test "won't accept user without a password" do
+			User.create(user_name: "jonathan", email: "jmaeda@brandeis.edu")
+			User.count.must_equal 4
+	end
+
+	test "should provide an array after calling index" do
+		get :index
+			assert_response :success
+			assert_not_nil assigns(:users)
+			users.must_be_kind_of Array
+	end
+
 end
 
 

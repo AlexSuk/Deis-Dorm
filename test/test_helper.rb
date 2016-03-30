@@ -12,7 +12,7 @@ class ActiveSupport::TestCase
     session.delete :user_id
   end
   def setup
-	login_as :one if defined? session
+	 login_as :one if defined? session
   end
 
   # Add more helper methods to be used by all tests here...
