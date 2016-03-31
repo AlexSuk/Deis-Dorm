@@ -5,7 +5,7 @@ one:
   password_digest: <%= BCrypt::Password.create('MyString') %>
   email: MyString
   bio: MyText
-  icon: MyText
+  icon_file_name: MyText
   admin?: false
 
 two:
@@ -13,7 +13,7 @@ two:
   password_digest: <%= BCrypt::Password.create('MyString') %>
   email: MyString
   bio: MyText
-  icon: MyText
+  icon_file_name: MyText
   admin?: false
 
 three:
@@ -21,7 +21,7 @@ three:
   password_digest: <%= BCrypt::Password.create('secret') %>
   email: same@same.com
   bio: no
-  icon: no
+  icon_file_name: no
   admin?: false
 
 admin:
@@ -29,5 +29,5 @@ admin:
   password_digest: <%= BCrypt::Password.create('admin') %>
   email: admin@admin.com
   bio: no
-  icon: no
+  icon_file_name: no
   admin?: true

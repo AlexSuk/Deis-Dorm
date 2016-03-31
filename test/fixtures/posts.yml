@@ -3,11 +3,11 @@
 one:
   text: MyText
   posted: 2016-02-19 20:40:11
-  thread_id: 1
+  line_id: 1
   user_id: 1
 
 two:
   text: MyText
   posted: 2016-02-19 20:40:11
-  thread_id: 1
+  line_id: 1
   user_id: 1

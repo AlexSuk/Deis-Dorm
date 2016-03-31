@@ -1,15 +1,15 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+  # test "should get new" do
+  #   get :new
+  #   assert_response :success
+  # end
 
   test "should login" do
     dave = users(:admin)
     post :create, { name: dave.user_name, password: 'admin' }
-    assert_redirected_to admin_url
+    assert_redirected_to quads_url
     assert_equal dave.id, session[:user_id]
   end
 
