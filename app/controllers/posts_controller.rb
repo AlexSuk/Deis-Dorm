@@ -22,9 +22,14 @@ class PostsController < ApplicationController
 	def create
     @board = Board.find(params[:board_id])
 		@line = @board.lines.find(params[:line_id])
-    @user = User.find_by(id: session[:user_id])
-		@post = @line.posts.create(post_params.merge(:user_id => @user.id))
-
+    # @user = User.find_by(id: session[:user_id])
+		something = {text: post_params[:text]}
+		# @post = @line.posts.create(post_params.merge(:user_id => @user.id))
+		@post = @line.posts.create({text: post_params[:text], user_id: session[:user_id]})
+		@picture = @post.pictures.build(image: post_params[:image])
+		if @picture.save
+			flash[:notice] = "Successfully created comment."
+		end
 		redirect_to board_line_path(@board, @line)
 	end
 

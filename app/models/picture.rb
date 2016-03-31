@@ -6,7 +6,7 @@ class Picture < ActiveRecord::Base
     medium: '300x300>'
   }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  validates_with AttachmentSizeValidator, attributes: :image, less_than: 1.megabytes
+  validates_with AttachmentSizeValidator, attributes: :image, less_than: 5.megabytes
 
   # belongs_to :building
   # belongs_to :review

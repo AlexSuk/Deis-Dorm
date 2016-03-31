@@ -90,27 +90,25 @@ Building.create(name: "Village C", longitude: -71.2605201, latitude: 42.3630206,
 random = Random.new()
 dorm_buildings = Building.where(is_kind: "dorm")
 
-(0..100).each do |i|
-	a_user_name = Faker::Internet.user_name
-	a_password_digest = Faker::Internet.password
-	an_email = Faker::Internet.email
-
- 	if random.rand(2) == 1
- 		an_admin = true
- 	else 
- 		an_admin = false
- 	end
-
-	#create a random user using info generated above
-	#User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email)
-	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
-
-	the_user = User.find_by(user_name: "#{a_user_name}")
-	
-	#create two reviews for each user
-	(0..1).each do |j|
-		Review.create(text: Faker::Hacker.say_something_smart, up_vote: 0, rating: random.rand(5), user_id: the_user.id, building_id: dorm_buildings[random.rand(dorm_buildings.length)].id)
-	end
-end
-
-	
+# (0..100).each do |i|
+# 	a_user_name = Faker::Internet.user_name
+# 	a_password_digest = Faker::Internet.password
+# 	an_email = Faker::Internet.email
+#
+#  	if random.rand(2) == 1
+#  		an_admin = true
+#  	else
+#  		an_admin = false
+#  	end
+#
+# 	#create a random user using info generated above
+# 	#User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email)
+# 	User.create(user_name: a_user_name, password_digest: a_password_digest, email: an_email, admin?: an_admin)
+#
+# 	the_user = User.find_by(user_name: "#{a_user_name}")
+#
+# 	#create two reviews for each user
+# 	(0..1).each do |j|
+# 		Review.create(text: Faker::Hacker.say_something_smart, up_vote: 0, rating: random.rand(5), user_id: the_user.id, building_id: dorm_buildings[random.rand(dorm_buildings.length)].id)
+# 	end
+# end

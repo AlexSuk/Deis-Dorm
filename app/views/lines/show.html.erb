@@ -15,7 +15,7 @@
 <%= render @line.posts %>
 
 <h2>Add a comment:</h2>
-<%= form_for([@board, @line, @line.posts.build], multipart: true), do |f| %>
+<%= form_for([@board, @line, @line.posts.build], multipart: true) do |f| %>
 
   <p>
     <%= f.label :text %><br>

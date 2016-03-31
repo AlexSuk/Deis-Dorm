@@ -10,6 +10,14 @@ class LinesController < ApplicationController
 	def show
     @board = Board.find(params[:board_id])
     @line = @board.lines.find(params[:id])
+		# @users = {}
+		# @line.posts.each do |p|
+		# 	id = p.user_id
+		# 	if !@users.include? id
+		# 		u = User.find(id)
+		# 		@users[id] = { name: u.user_name, icon: u.icon.url(:thumb) }
+		# 	end
+		# end
   end
 
   	def edit
@@ -25,7 +33,6 @@ class LinesController < ApplicationController
   		@board = Board.find(params[:board_id])
   		# @line = @board.lines.new(line_params)
   		@user = User.find_by(id: session[:user_id])
-			
   		@topic = @board.lines.create(line_params.merge(:user_id => @user.id))
       # @topic = @board.lines.create(line_params)
 
