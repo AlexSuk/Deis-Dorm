@@ -47,6 +47,8 @@ gem 'bootstrap-sass', '~>3.3.6'
 gem 'autoprefixer-rails'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'paperclip'
+gem 'jquery-ui-rails'
+
 # gem 'aws-sdk'
 gem 'aws-sdk', '< 2.0'
 

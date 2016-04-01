@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160220015848) do
 
   create_table "quads", force: :cascade do |t|
     t.string   "name"
+    t.string   "years"
     t.float    "rating"
     t.text     "info"
     t.datetime "created_at", null: false
@@ -83,11 +84,27 @@ ActiveRecord::Schema.define(version: 20160220015848) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer  "number"
+    t.string   "number"
+    t.string   "years_available"
+    t.string   "room_type"
+    t.string   "gender"
+    t.decimal  "price",             precision: 8, scale: 2
     t.float    "area"
+    t.string   "dimensions"
+    t.integer  "rough_housing_num"
     t.integer  "building_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.float    "cleanliness"
+    t.float    "noisiness"
+    t.float    "light"
+    t.float    "social"
+    t.float    "location"
+    t.float    "issues"
+    t.float    "general_rating"
+    t.boolean  "kitchen"
+    t.boolean  "laundry"
+    t.boolean  "ac"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "tags", force: :cascade do |t|

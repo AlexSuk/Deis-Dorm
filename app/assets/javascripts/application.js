@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.ui.widget
+//= require jquery-ui
 //= require z.jquery.fileupload
 //= require underscore
 //= require gmaps/google
