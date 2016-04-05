@@ -48,6 +48,7 @@ gem 'autoprefixer-rails'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'paperclip'
 gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 
 # gem 'aws-sdk'
 gem 'aws-sdk', '< 2.0'

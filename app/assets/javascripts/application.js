@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require jquery.ui.widget
 //= require jquery-ui
 //= require z.jquery.fileupload

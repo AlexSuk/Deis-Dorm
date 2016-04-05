@@ -48,10 +48,26 @@
       <h1>Personal Preferences</h1> 
     </div>
     <%= form_tag '/', :method => 'get' do %>
+      <div class ="row">
+        Year: 
+      </div>
+      <div class ="row">
+        Gender Preference:
+      </div>
+      <div class ="row">
+        Room Type:
+      </div>
+      <div class ="row">
+        Housing Number:
+      </div>
+      <div class ="row">
+        Bedtime:
+      </div>
+      <br>
       <div class="row">
         <div class="col-md-6">
           <div class="range-wrapper">
-            Insert Field Name:
+            <p>Insert Field Name:</p>
             <input type="range" min="0" max="10" id="pref1"/>
             <div class="text">1</div>
             <br>
@@ -63,7 +79,7 @@
       <div class ="row">
         <div class="col-md-6">  
           <div class="range-wrapper">
-            Insert Field Name:
+            <p>Insert Field Name:</p>
             <input type="range" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
             <br>

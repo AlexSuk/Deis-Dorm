@@ -44,6 +44,12 @@ a:active {
   width: 5px;
 }
 .range-wrapper > .text {
+  position: absolute;
+  color: white;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   pointer-events: none;
 }
 input[type=range]{
@@ -58,11 +64,10 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid #e95e57;
   height: 32px;
   width: 32px;
   border-radius: 50%;
-  background: white;
+  background: #08F;
   margin-top: -14px;
   cursor: pointer;
 }
