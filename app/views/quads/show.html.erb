@@ -1,0 +1,87 @@
+
+
+<%= stylesheet_link_tag "quads" %>
+<%= javascript_include_tag "quads" %>
+
+<div class="container-fluid">
+
+  <div class="col-md-2" id="leftCol">
+    <ul class="nav nav-stacked" id="sidebar">
+      <% @buildings.each do |building| %>
+        <li><a href="#<%= building.name %>"><%= building.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
+
+
+  <div class="col-md-10">
+
+    <div class="row" id="new-review">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
+        <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photos</a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="comment">
+          <div class="row" >
+            <ul class="review-top">
+              <li> * * * * * </li>
+              <%= form_tag quads_path, method: "get", remote: true, id: 'search_form' do %>
+                <li class="form-group">
+                  <%= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building", data: { remote: true, url: url_for( action: :do_search, id: :s_id)},  id: "subject" %>
+                </li>
+
+                <li class="form-group">
+                  <%= text_field_tag :name, nil, placeholder: "Room #", class: 'form-control', id: 'keywords' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="row" >
+
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="photos">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row" id="reviews">
+
+    </div>
+
+    <% @buildings.each do |building| %>
+      <div class="row building">
+        <div class="row" id="<%= building.name%>">
+          <h2><%= building.name %> </h2>
+        </div>
+        <div class="row" >
+          <div class="media">
+            <div class="media-left media-middle">
+              <%= image_tag "ziv.jpg", class: "media-object"%>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><%= building.description %></h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" >
+          <%= button_tag%>
+        </div>
+        <div class="row" >
+          <h3>Personality</h3>
+          <p>Words to describe building</p>
+          <h3>Reviews</h3>
+
+        </div>
+      </div>
+    <% end %>
+
+
+
+
+  </div>
+</div>

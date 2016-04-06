@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   resources :pictures
 
   resources :quads do
+    collection do
+      get 'do_search'
+    end
     resources :buildings
   end
 
