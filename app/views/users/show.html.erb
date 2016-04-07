@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+<div class="range-wrapper">
+  Insert Field Name:
+  <input type="range" min="0" max="10" id="pref2"/>
+  <div class="text">1</div>
+  <br>
+</div>
+
+>>>>>>> 2188ebd8aea2cce90549ecfb51ba2fe80a71d4ca
 <div class="container">
   <div class="col-md-3" style="padding-right: 100px;">
     <div class="row">
@@ -37,7 +47,7 @@
       <%=@user.bio%>
     </div>
     <div class="row">
-      <h1>Personal Preferences</h1> 
+      <h1>Personal Preferences</h1>
     </div>
     <%= form_tag '/', :method => 'get' do %>
       <div class ="row">
@@ -84,7 +94,7 @@
         </div>
       </div>
       <div class ="row">
-        <div class="col-md-6">  
+        <div class="col-md-6">
           <div class="range-wrapper">
             <p>Insert Field Name:</p>
             <input type="range" min="0" max="10" id="pref2"/>
@@ -96,7 +106,7 @@
         </div>
       </div>
       <div class="row">
-          <%= submit_tag "Submit Preferences", class: "btn btn-primary" %> 
+          <%= submit_tag "Submit Preferences", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

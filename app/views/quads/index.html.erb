@@ -1,9 +1,107 @@
-<div>
-  <h1>Quad page</h1>
+<%= stylesheet_link_tag "quads" %>
 
-  <ul>
-    <% @all_quads.each do |quad| %>
-      <li><%=quad.inspect%></li>
-    <%end%>
-  </ul>
+<div class="container-fluid">
+  <div class="row">
+    <%= form_tag(do_search_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
+
+    <div class="input-group">
+      <input name="keywords" type="text"  class="form-control" placeholder="Keywords for quads, buildings, rooms, etc."/>
+      <span class="input-group-addon">
+        <%= button_tag "", type: 'submit', class: "btn btn-default glyphicon glyphicon-search pull-right" %>
+      </span>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-2">
+    <%= form_tag(do_search_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
+      <h4>Room type</h4>
+      <% ["Single", "Double", "Suite"].each do |roommate| %>
+        <%= check_box_tag "a[]", roommate, true, {:multiple => true} %>
+        <span><%=roommate%></span>
+        <br>
+      <% end %>
+      <h4>Price</h4>
+      <% ["6,000-6,999", "7,000-7,999", "8,000-8,999"].each do |price| %>
+        <%= check_box_tag "b[]", price, true, {:multiple => true} %>
+        <span><%=price%></span>
+        <br>
+      <% end %>
+
+      <%= submit_tag "Update", class: "form_submit" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-10">
+    <div class="row">
+      <h3>Freshman</h3>
+      <div class="media">
+        <div class="media-left media-middle" style="padding-right: 10px;">
+          <%= image_tag "shapiro.jpg", class: "media-object"%>
+        </div>
+        <div class="media-body">
+          <% @quad_buildings.each do |q, b| %>
+            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+            <% b.each do |build| %>
+              <span><%= build.name %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3>Sophomore</h3>
+      <div class="media">
+        <div class="media-left media-middle" style="padding-right: 10px;">
+          <%= image_tag "east.jpg", class: "media-object"%>
+        </div>
+        <div class="media-body">
+          <% @quad_buildings.each do |q, b| %>
+            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+            <% b.each do |build| %>
+              <span><%= build.name %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3>Junior</h3>
+      <div class="media">
+        <div class="media-left media-middle" style="padding-right: 10px;">
+          <%= image_tag "ziv.jpg", class: "media-object"%>
+        </div>
+        <div class="media-body">
+          <% @quad_buildings.each do |q, b| %>
+            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+            <% b.each do |build| %>
+              <span><%= build.name %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <h3>Senior</h3>
+      <div class="media">
+        <div class="media-left media-middle" style="padding-right: 10px;">
+          <%= image_tag "mods.jpg", class: "media-object"%>
+        </div>
+        <div class="media-body">
+          <% @quad_buildings.each do |q, b| %>
+            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+            <% b.each do |build| %>
+              <span><%= build.name %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
