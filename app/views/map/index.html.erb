@@ -12,9 +12,21 @@
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
+  Places of Interest: <input type="checkbox" id="places_of_interest_box" onclick="boxclick(this)"/>
 </div>
 <div id='sidebar_container'>
   <input type="text" id="search" placeholder="Search...">
 </div>
 
+
+
 <%= javascript_include_tag "map" %>
+<!-- <%= javascript_tag do %>
+
+$(document).ready(function(){
+  console.log("first");
+  building_markers = '<%=raw @array.to_json %>';
+  map();
+});
+
+<% end %> -->
