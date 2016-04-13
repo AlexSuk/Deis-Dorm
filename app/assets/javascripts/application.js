@@ -18,5 +18,4 @@
 //= require jquery-ui
 //= require z.jquery.fileupload
 //= require underscore
-//= require gmaps/google
 //= require_tree .
