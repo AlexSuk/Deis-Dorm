@@ -1,9 +1,19 @@
 
 
 <%= stylesheet_link_tag "quads" %>
-<%= javascript_include_tag "quads" %>
+<%= javascript_include_tag "sidebar" %>
 
-<div class="container-fluid">
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#sidebar").affix({
+        offset: {
+            top: 195
+        }
+    });
+});
+</script>
+
+<div class="container">
 
   <div class="col-md-2" id="leftCol">
     <ul class="nav nav-stacked" id="sidebar">
@@ -14,8 +24,7 @@
   </div>
 
 
-  <div class="col-md-10">
-
+  <div class="col-md-8">
     <div class="row" id="new-review">
       <ul class="nav nav-tabs" role="tablist">
         <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
@@ -24,26 +33,11 @@
       <!-- Tab panes -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="comment">
-          <div class="row" >
-            <ul class="review-top">
-              <li> * * * * * </li>
-              <%= form_tag quads_path, method: "get", remote: true, id: 'search_form' do %>
-                <li class="form-group">
-                  <%= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building", data: { remote: true, url: url_for( action: :do_search, id: :s_id)},  id: "subject" %>
-                </li>
-
-                <li class="form-group">
-                  <%= text_field_tag :name, nil, placeholder: "Room #", class: 'form-control', id: 'keywords' %>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="row" >
-
-          </div>
+          <%# puts "WHAAAAA!?~!?~!?~!?~!?~!??~?!?~?!?~!?~!?", params %>
+          <%= render(partial: 'new_post') %>
         </div>
         <div role="tabpanel" class="tab-pane" id="photos">
-
+          <%= render(partial: 'new_photos') %>
         </div>
       </div>
     </div>
