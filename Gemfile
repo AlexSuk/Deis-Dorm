@@ -41,14 +41,14 @@ gem 'puma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-gem 'rails_admin'
-gem 'bootstrap-sass', '~>3.3.6'
 gem 'autoprefixer-rails'
+gem 'bootstrap-sass', '~>3.3.6'
 gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'paperclip'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+gem 'rails_admin'
+gem 'tod', '~> 2.0', '>= 2.0.2'
 
 # gem 'aws-sdk'
 gem 'aws-sdk', '< 2.0'
@@ -70,5 +70,5 @@ group :test do
 	gem 'minitest-spec-rails'
 end
 
-gem 'gmaps4rails'
+# gem 'gmaps4rails'
 gem 'underscore-rails'

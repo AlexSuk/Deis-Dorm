@@ -1,10 +1,3 @@
-<div class="range-wrapper">
-  Insert Field Name:
-  <input type="range" min="0" max="10" id="pref2"/>
-  <div class="text">1</div>
-  <br>
-</div>
-
 <div class="container">
   <div class="col-md-3" style="padding-right: 100px;">
     <div class="row">
@@ -48,43 +41,110 @@
     </div>
     <%= form_tag '/', :method => 'get' do %>
       <div class ="row">
-        Year:
+        <div class="col-md-6">
+          Year:<%= select_tag(:all_any,
+              options_for_select(
+                [['Freshman', "Freshman"],
+                 ['Sophomore', "Sophomore"],
+                 ['Junior', "Junior"],
+                 ["Senior", "Senior"]]), class: "form-control", include_blank: true) %>
+          <br>
+        </div> 
       </div>
       <div class ="row">
-        Gender Preference:
+        <div class="col-md-6">
+          Gender Preference:<%= select_tag(:all_any,
+              options_for_select(
+                [['Male Only', "Male"],
+                 ['Female Only', "Female"],
+                 ["Mixed Gender", "Mixed"]]), class: "form-control", include_blank: true) %>
+          <br>
+        </div> 
       </div>
       <div class ="row">
+        <div class="col-md-6">
+          Bedtime:<%= select_tag(:all_any,
+              options_for_select(
+                [['Before 8pm', "Male"],
+                 ['8:00PM', "Female"],
+                 ['9:00PM', "Female"],
+                 ['10:00PM', "Female"],
+                 ['11:00PM', "Female"],
+                 ['12:00AM', "Female"],
+                 ['1:00AM', "Female"],
+                 ['2:00AM', "Female"],
+                 ['3:00AM', "Female"],
+                 ['After 3AM', "Female"]]), class: "form-control", include_blank: true) %>
+          <br>
+        </div> 
+      </div>
+      <div class ="row">
+        <br>
         Room Type:
       </div>
       <div class ="row">
-        Housing Number:
-      </div>
-      <div class ="row">
-        Bedtime:
+        <br>
+        Housing Number:     <%= number_field_tag :housing_number, params[:housing_number]%>
       </div>
       <br>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
           <div class="range-wrapper">
-            <p>Insert Field Name:</p>
+            <p>Rate the Importance of Price: (1: irrelevant 10: low price needed)</p>
             <input type="range" min="0" max="10" id="pref1"/>
             <div class="text">1</div>
             <br>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
         </div>
       </div>
       <div class ="row">
-        <div class="col-md-6">
+        <div class="col-md-8">
           <div class="range-wrapper">
-            <p>Insert Field Name:</p>
+            <p>Rate the Importance of Room Size: (1: irrelevant 10: must be large)</p>
             <input type="range" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
             <br>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+        </div>
+      </div>
+      <div class ="row">
+        <div class="col-md-8">
+          <div class="range-wrapper">
+            <p>Rate the Importance of Room Cleanliness: (1: irrelevant 10: must be clean)</p>
+            <input type="range" min="0" max="10" id="pref2"/>
+            <div class="text">1</div>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+      <div class ="row">
+        <div class="col-md-8">
+          <div class="range-wrapper">
+            <p>Rate the Importance of Noise Level: (1: must be silent 10: can be very loud)</p>
+            <input type="range" min="0" max="10" id="pref2"/>
+            <div class="text">1</div>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+      <div class ="row">
+        <div class="col-md-8">
+          <div class="range-wrapper">
+            <p>Rate the Importance of being in a Convenient Location on Campus: </p>
+            <input type="range" min="0" max="10" id="pref2"/>
+            <div class="text">1</div>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
         </div>
       </div>
       <div class="row">
