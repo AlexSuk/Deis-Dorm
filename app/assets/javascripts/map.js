@@ -13,6 +13,58 @@ var places_of_interest = [
 var markers = [];
 var brandeis_logo = '/assets/brandeis_logo.png';
 var map;
+var test = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "letter": "G",
+        "color": "blue",
+        "rank": "7",
+        "ascii": "71"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-71.260632, 42.364164],
+            [-71.260732, 42.364025],
+            [-71.260328, 42.363883],
+            [-71.260309, 42.364038],
+            [-71.260632, 42.364164]
+          ]
+        ]
+      }
+    }
+    // {
+    //   "type": "Feature",
+    //   "properties": {
+    //     "letter": "e",
+    //     "color": "red",
+    //     "rank": "5",
+    //     "ascii": "101"
+    //   },
+    //   "geometry": {
+    //     "type": "Polygon",
+    //     "coordinates": [
+    //       [
+    //         [144.14, -27.41], [145.67, -27.52], [146.86, -27.09], [146.82, -25.64], [146.25, -25.04],
+    //         [145.45, -24.68], [144.66, -24.60], [144.09, -24.76], [143.43, -25.08], [142.99, -25.40],
+    //         [142.64, -26.03], [142.64, -27.05], [142.64, -28.26], [143.30, -29.11], [144.18, -29.57],
+    //         [145.41, -29.64], [146.46, -29.19], [146.64, -28.72], [146.82, -28.14], [144.84, -28.42],
+    //         [144.31, -28.26], [144.14, -27.41]
+    //       ],
+    //       [
+    //         [144.18, -26.39], [144.53, -26.58], [145.19, -26.62], [145.72, -26.35], [145.81, -25.91],
+    //         [145.41, -25.68], [144.97, -25.68], [144.49, -25.64], [144, -25.99], [144.18, -26.39]
+    //       ]
+    //     ]
+    //   }
+    // }
+  ]
+}
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 42.366719, lng: -71.258604,},
@@ -21,39 +73,42 @@ function initMap() {
   });
   createSidebar(json_array);
 
+  // map.data.loadGeoJson('/app/assets/javascript/google.json');
+  map.data.addGeoJson(test);
+
   // Load GeoJSON.
   // map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
   //
-  // // Color each letter gray. Change the color when the isColorful property
-  // // is set to true.
-  // map.data.setStyle(function(feature) {
-  //   var color = 'gray';
-  //   if (feature.getProperty('isColorful')) {
-  //     color = feature.getProperty('color');
-  //   }
-  //   return /** @type {google.maps.Data.StyleOptions} */({
-  //     fillColor: color,
-  //     strokeColor: color,
-  //     strokeWeight: 2
-  //   });
-  // });
+  // Color each letter gray. Change the color when the isColorful property
+  // is set to true.
+  map.data.setStyle(function(feature) {
+    var color = 'gray';
+    if (feature.getProperty('isColorful')) {
+      color = feature.getProperty('color');
+    }
+    return /** @type {google.maps.Data.StyleOptions} */({
+      fillColor: color,
+      strokeColor: color,
+      strokeWeight: 2
+    });
+  });
 
-  // // When the user clicks, set 'isColorful', changing the color of the letters.
-  // map.data.addListener('click', function(event) {
-  //   event.feature.setProperty('isColorful', true);
-  // });
-  //
-  // // When the user hovers, tempt them to click by outlining the letters.
-  // // Call revertStyle() to remove all overrides. This will use the style rules
-  // // defined in the function passed to setStyle()
-  // map.data.addListener('mouseover', function(event) {
-  //   map.data.revertStyle();
-  //   map.data.overrideStyle(event.feature, {strokeWeight: 8});
-  // });
-  //
-  // map.data.addListener('mouseout', function(event) {
-  //   map.data.revertStyle();
-  // });
+  // When the user clicks, set 'isColorful', changing the color of the letters.
+  map.data.addListener('click', function(event) {
+    event.feature.setProperty('isColorful', true);
+  });
+
+  // When the user hovers, tempt them to click by outlining the letters.
+  // Call revertStyle() to remove all overrides. This will use the style rules
+  // defined in the function passed to setStyle()
+  map.data.addListener('mouseover', function(event) {
+    map.data.revertStyle();
+    map.data.overrideStyle(event.feature, {strokeWeight: 8});
+  });
+
+  map.data.addListener('mouseout', function(event) {
+    map.data.revertStyle();
+  });
 }
 
 function createSidebar(json_array){
