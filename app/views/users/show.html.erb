@@ -69,25 +69,25 @@
         <div class="col-md-6">
           Bedtime:<%= select_tag(:all_any,
               options_for_select(
-                [['Before 8pm', "Male"],
-                 ['8:00PM', "Female"],
-                 ['9:00PM', "Female"],
-                 ['10:00PM', "Female"],
-                 ['11:00PM', "Female"],
-                 ['12:00AM', "Female"],
-                 ['1:00AM', "Female"],
-                 ['2:00AM', "Female"],
-                 ['3:00AM', "Female"],
-                 ['After 3AM', "Female"]]), class: "form-control", include_blank: true) %>
+                [['Before 8pm', "Before 8pm"],
+                 ['8:00PM', "8:00PM"],
+                 ['9:00PM', "9:00PM"],
+                 ['10:00PM', "10:00PM"],
+                 ['11:00PM', "11:00PM"],
+                 ['12:00AM', "12:00AM"],
+                 ['1:00AM', "1:00AM"],
+                 ['2:00AM', "2:00AM"],
+                 ['3:00AM', "3:00AM"],
+                 ['After 3AM', "After 3AM"]]), class: "form-control", include_blank: true) %>
           <br>
         </div> 
       </div>
       <br>
       <div class="row">
         <div class="col-md-8">
+          <p>Rate the Importance of Price: (1: irrelevant 10: low price needed)</p>
           <div class="range-wrapper">
-            <p>Rate the Importance of Price: (1: irrelevant 10: low price needed)</p>
-            <input type="range" min="0" max="10" id="pref1"/>
+            <input type="range" name="pref_price" min="0" max="10" id="pref1"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -97,9 +97,9 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
+          <p>Rate the Importance of Room Size: (1: irrelevant 10: must be large)</p>
           <div class="range-wrapper">
-            <p>Rate the Importance of Room Size: (1: irrelevant 10: must be large)</p>
-            <input type="range" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_size" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -109,9 +109,9 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
+          <p>Rate the Importance of Room Cleanliness: (1: irrelevant 10: must be clean)</p>
           <div class="range-wrapper">
-            <p>Rate the Importance of Room Cleanliness: (1: irrelevant 10: must be clean)</p>
-            <input type="range" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_clean" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -121,9 +121,9 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
+          <p>Rate the Importance of Noise Level: (1: can be very loud  10: must be silent)</p>
           <div class="range-wrapper">
-            <p>Rate the Importance of Noise Level: (1: can be very loud  10: must be silent)</p>
-            <input type="range" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_noise" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -133,9 +133,9 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
+          <p>Rate the Importance of being in a Convenient Location on Campus: </p>
           <div class="range-wrapper">
-            <p>Rate the Importance of being in a Convenient Location on Campus: </p>
-            <input type="range" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_location" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
             <br>
           </div>

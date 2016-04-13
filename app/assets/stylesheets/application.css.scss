@@ -35,11 +35,10 @@ a:active {
 
 
 .range-wrapper {
-  overflow: hidden;
+  position: relative;
   padding: 5px 0px;    
 } 
 .range-wrapper > div {
-  position: relative;
   top: -15px;
   width: 5px;
 }

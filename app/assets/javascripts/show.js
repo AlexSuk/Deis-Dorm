@@ -28,9 +28,9 @@ function updateRangeValue(input){
   var inputWidth = input.width(); //323 width
   var background = getRangeGradient(selectedColor, nonSelectedColor, value, maximum);
   // console.log(input.width());
-  var numLocation=16+(value/10)*(inputWidth-32);
+  var numLocation=(value/10)*(inputWidth-32);
   input.next('.text').css({'left': numLocation + 'px'});
-  input.next('.text').css({'top': 21 + 'px'}); //circle radius + runnable track height
+  input.next('.text').css({'top': -10 + 'px'}); //circle radius + runnable track height
   input.next('.text').html(value);
   input.css('background', background); 
 }
