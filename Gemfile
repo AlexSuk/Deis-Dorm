@@ -70,5 +70,6 @@ group :test do
 	gem 'minitest-spec-rails'
 end
 
-gem 'gmaps4rails'
+# gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'jquery-star-rating-rails'

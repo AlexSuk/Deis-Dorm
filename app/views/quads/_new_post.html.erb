@@ -1,0 +1,34 @@
+<%= form_tag create_post_quads_path, method: "get", remote: true, id: 'new_comment' do %>
+<div class="row" >
+  <ul class="comment-top">
+    <li class="form-group comment-tab">
+      <input name="adv1" type="radio" class="star {split:2}" value="0.5"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="1.0"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="1.5" />
+      <input name="adv1" type="radio" class="star {split:2}" value="2.0"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="2.5"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="3.0"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="3.5"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="4.0"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="4.5"/>
+      <input name="adv1" type="radio" class="star {split:2}" value="5.0"/>
+    </li>
+    <li class="form-group comment-tab">
+      <%= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>
+    </li>
+
+    <li class="form-group comment-tab">
+      <%= text_field_tag :room, nil, placeholder: "Room #", class: 'form-control', id: 'room-num', size: 4 %>
+    </li>
+  </ul>
+</div>
+<div class="row col-md-8 comment-content form-group" >
+  <%= text_area_tag :content, nil, placeholder: "What's happening? ", class: 'form-control', id: 'review-content' %>
+</div>
+<div class="form-group">
+  <%= puts params %>
+  <%= puts "buildings", @buildings %>
+  <%= hidden_field_tag 'quad_id', params[:id] %>
+  <%= submit_tag "Post", class: "form_submit" %>
+</div>
+<% end %>

@@ -42,8 +42,13 @@ Rails.application.routes.draw do
   resources :quads do
     collection do
       get 'do_search'
+      get 'create_post'
+      get 'new_post'
+      put 'create_photos'
+      get 'new_photos'
     end
     resources :buildings
+
   end
 
   resources :rooms

@@ -1,10 +1,15 @@
 // Place all the styles related to the Quads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//= require jquery-star-rating
 
 .row {
   // padding: 30px;
   // border-bottom: 2px solid #b0e0e6 ;
+}
+
+textarea {
+  resize:none;
 }
 
 .building {
@@ -12,18 +17,46 @@
   border-top: 2px solid #b0e0e6 ;
 }
 
-#comment div ul {
+#leftCol {
+  margin-right: 10px;
+}
+
+#new-review {
+  background-color: #f0f5f5;
+}
+
+#comment {
+  // background-color: blue;
+  padding-left: 20px;
+  // padding-top: 10px;
+}
+
+.comment-top {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-#comment div ul li {
+.comment-tab {
+  // background-color: yellow;
+  float: left;
+  padding-top: 10px;
+  padding-left: 10px;
   display: inline;
 }
 
+.comment-content {
+  // padding-bottom: 15px;
+}
+
 body {
-	padding-top:50px;
+	// padding-top:50px;
+  // background-color: #000;
+}
+
+.container {
+  padding-top: 50px;
+  background-color: #fff;
 }
 
 #masthead {
@@ -72,15 +105,15 @@ body {
 
 @media (min-width: 979px) {
   #sidebar.affix-top {
-    position: static;
-  	margin-top:30px;
-  	width:228px;
+    position: fixed;
+  	// margin-top:30px;
+  	width:150px;
   }
 
   #sidebar.affix {
     position: fixed;
-    top:70px;
-    width:228px;
+    // top:70px;
+    width:150px;
   }
 }
 

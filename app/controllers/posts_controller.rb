@@ -26,6 +26,7 @@ class PostsController < ApplicationController
 		something = {text: post_params[:text]}
 		# @post = @line.posts.create(post_params.merge(:user_id => @user.id))
 		@post = @line.posts.create({text: post_params[:text], user_id: session[:user_id]})
+		puts "HELLO MY NAME IS CHUNGUK", post_params
 		@picture = @post.pictures.build(image: post_params[:image])
 		if @picture.save
 			flash[:notice] = "Successfully created comment."
