@@ -31,15 +31,19 @@
   </div>
   <div class="col-md-9">
     <div class="row">
-      <h3>Bio</h3>
+      <h2>Bio</h2>
     </div>
     <div class="row">
       <%=@user.bio%>
     </div>
     <div class="row">
-      <h1>Personal Preferences</h1>
+      <div id = "room_results">
+      </div>
     </div>
-    <%= form_tag '/', :method => 'get' do %>
+    <div class="row">
+      <h2>Personal Room Search</h2>
+    </div>
+    <%= form_tag(users_find_path, method: "put", remote: "true", role: "form", class: "form") do %>
       <div class ="row">
         <div class="col-md-6">
           Year:<%= select_tag(:all_any,
@@ -77,14 +81,6 @@
                  ['After 3AM', "Female"]]), class: "form-control", include_blank: true) %>
           <br>
         </div> 
-      </div>
-      <div class ="row">
-        <br>
-        Room Type:
-      </div>
-      <div class ="row">
-        <br>
-        Housing Number:     <%= number_field_tag :housing_number, params[:housing_number]%>
       </div>
       <br>
       <div class="row">
@@ -126,7 +122,7 @@
       <div class ="row">
         <div class="col-md-8">
           <div class="range-wrapper">
-            <p>Rate the Importance of Noise Level: (1: must be silent 10: can be very loud)</p>
+            <p>Rate the Importance of Noise Level: (1: can be very loud  10: must be silent)</p>
             <input type="range" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
             <br>
@@ -146,6 +142,22 @@
         </div>
         <div class="col-md-4">
         </div>
+      </div>
+      <div class ="row">
+        <br>
+        Room Type: (select at least one)
+        </br>
+        <% ["Single", "Double", "Suite"].each do |roommate| %>
+          <%= check_box_tag "room_type[]", roommate, true, {:multiple => true} %>
+          <span><%=roommate%></span>
+          <br>
+        <% end %>
+      </div>
+      <div class ="row">
+        <br>
+        Housing Number: (optional)  <%= number_field_tag :housing_number, params[:housing_number]%>
+        <br>
+        <br>
       </div>
       <div class="row">
           <%= submit_tag "Submit Preferences", class: "btn btn-primary" %>

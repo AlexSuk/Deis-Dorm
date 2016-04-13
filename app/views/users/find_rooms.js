@@ -1,0 +1,1 @@
+$('#room_results').html("<%= escape_javascript (render(partial: 'room_results')) %>");

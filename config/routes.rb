@@ -22,9 +22,8 @@ Rails.application.routes.draw do
 
   resources :tags
 
+  put 'users/find' => "users#find_rooms"
   resources :users
-  #resources :users, :only => [:index, :destroy, :update, :show]
-  #resources :users, path: "signup", as: :users, only: [:new, :create]
 
   resources :boards do
     resources :lines do
