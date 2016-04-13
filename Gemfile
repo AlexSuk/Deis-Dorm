@@ -72,3 +72,4 @@ end
 
 # gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'jquery-star-rating-rails'
