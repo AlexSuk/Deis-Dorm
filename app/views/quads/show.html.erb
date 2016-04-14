@@ -1,9 +1,7 @@
-
-
 <%= stylesheet_link_tag "quads" %>
-<%= javascript_include_tag "sidebar" %>
+<%= javascript_include_tag "quads" %>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
     $("#sidebar").affix({
         offset: {
@@ -11,7 +9,7 @@ $(document).ready(function(){
         }
     });
 });
-</script>
+</script> -->
 
 <div class="container">
 
@@ -54,7 +52,7 @@ $(document).ready(function(){
         <div class="row" >
           <div class="media">
             <div class="media-left media-middle">
-              <%= image_tag "ziv.jpg", class: "media-object"%>
+              <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/#{building.id}.jpg", class: "media-object"%>
             </div>
             <div class="media-body">
               <h4 class="media-heading"><%= building.description %></h4>

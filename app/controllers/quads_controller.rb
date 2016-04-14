@@ -29,14 +29,17 @@ class QuadsController < ApplicationController
 	end
 
 	def create_post
-		puts "CREATING POST     ~  ~~ ~      ~  ~   ~  ~ ~   ~ ~  "
 		puts params
 		@quad = params[:quad_id]
 		building = Building.find(params[:building])
 		# room_num = building.rooms.where("number LIKE ?", "%#{params[:room]}%")
 		# room = building.rooms.where(number: params[:room])
 		# if room.nil?
-		@review = Review.create(text: params[:content], user_id: session[:user_id], building_id: params[:building], room_id: params[:room])
+		@review = Review.create(text: params[:content],
+		 						user_id: session[:user_id],
+								building_id: params[:building],
+								room_id: params[:room],
+								rating: params[:rating])
 		# else
 		# 	puts "NO ROOM FOUND!"
 		# end
@@ -53,7 +56,6 @@ class QuadsController < ApplicationController
 	end
 
 	def create_photos
-		puts "CREATING PHOTOS", params
 		building = Building.find(params[:building_id])
 		@picture = building.pictures.build(picture_params)
 		if @picture.save

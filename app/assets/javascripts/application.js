@@ -18,4 +18,6 @@
 //= require jquery-ui
 //= require z.jquery.fileupload
 //= require underscore
+//= require jquery.metadata
+//= require jquery-star-rating
 //= require_tree .

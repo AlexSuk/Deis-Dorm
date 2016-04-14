@@ -2,16 +2,16 @@
 <div class="row" >
   <ul class="comment-top">
     <li class="form-group comment-tab">
-      <input name="adv1" type="radio" class="star {split:2}" value="0.5"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="1.0"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="1.5" />
-      <input name="adv1" type="radio" class="star {split:2}" value="2.0"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="2.5"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="3.0"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="3.5"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="4.0"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="4.5"/>
-      <input name="adv1" type="radio" class="star {split:2}" value="5.0"/>
+      <input name="rating" type="radio" class="star {split:2}" value="0.5"/>
+      <input name="rating" type="radio" class="star {split:2}" value="1.0"/>
+      <input name="rating" type="radio" class="star {split:2}" value="1.5" />
+      <input name="rating" type="radio" class="star {split:2}" value="2.0"/>
+      <input name="rating" type="radio" class="star {split:2}" value="2.5"/>
+      <input name="rating" type="radio" class="star {split:2}" value="3.0"/>
+      <input name="rating" type="radio" class="star {split:2}" value="3.5"/>
+      <input name="rating" type="radio" class="star {split:2}" value="4.0"/>
+      <input name="rating" type="radio" class="star {split:2}" value="4.5"/>
+      <input name="rating" type="radio" class="star {split:2}" value="5.0"/>
     </li>
     <li class="form-group comment-tab">
       <%= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>

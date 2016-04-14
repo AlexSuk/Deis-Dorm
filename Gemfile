@@ -47,7 +47,7 @@ gem 'faker', '~> 1.6', '>= 1.6.3'
 gem 'paperclip'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
-gem 'rails_admin'
+# gem 'rails_admin'
 gem 'tod', '~> 2.0', '>= 2.0.2'
 
 # gem 'aws-sdk'
