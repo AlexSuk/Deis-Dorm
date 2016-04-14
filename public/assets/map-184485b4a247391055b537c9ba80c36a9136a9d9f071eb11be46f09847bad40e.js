@@ -12,9 +12,6 @@ var places_of_interest = [
 ];
 var markers = [];
 var brandeis_logo = '/assets/brandeis_logo.png';
-var starbucks = '/assets/s_logo.png';
-var donut = '/assets/d_logo.png';
-var einstein = '/assets/e_logo.png';
 var map;
 var test = {
   "type": "FeatureCollection",
@@ -171,16 +168,11 @@ function create_interest_marker(places) {
       content: places[i]["infowindow"]
     });
     var latlng = {lat: places[i]["lat"], lng: places[i]["lng"]};
-    var icon_image = donut;
-    if (places[i]["name"] === "Starbucks"){
-      icon_image = starbucks;
-    } else if (places[i]["name"] === "Einstein Bros Bagels"){
-      icon_image = einstein;
-    }
+    // var icon_image = s;
     var marker = new google.maps.Marker({
       position: latlng,
       map: map,
-      icon: icon_image
+      icon: brandeis_logo
     });
     marker.addListener('click', function() {
       infowindow.open(map, marker);
