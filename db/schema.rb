@@ -126,6 +126,16 @@ ActiveRecord::Schema.define(version: 20160220015848) do
     t.integer  "icon_file_size"
     t.datetime "icon_updated_at"
     t.boolean  "admin?"
+    t.integer  "pref_price"
+    t.integer  "pref_size"
+    t.integer  "pref_clean"
+    t.integer  "pref_noise"
+    t.integer  "pref_location"
+    t.integer  "housing_number"
+    t.string   "pref_year"
+    t.string   "pref_gender"
+    t.string   "pref_bedtime"
+    t.string   "pref_room_type"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

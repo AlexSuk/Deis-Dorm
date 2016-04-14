@@ -1,0 +1,6 @@
+<%if @rooms.nil? || @rooms.length == 0%>
+	<br>
+	<h2>No Matches Found</h2>
+<% else %>
+	<%= render "render_room_results" %>
+<% end %>

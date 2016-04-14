@@ -9,6 +9,20 @@ class UsersController < ApplicationController
     puts params
   end
 
+  def find_rooms
+    @rooms = Room.individual_search("PARAMS")
+    @current = User.find_by id: session[:user_id]
+    #use form provided fields to change user
+
+    respond_to do |format|
+      if @current#.update(user_params) #update user params
+        format.js
+      else
+        #put errors here
+      end
+    end
+  end
+
   # GET /users/new
   def new
     @user = User.new
