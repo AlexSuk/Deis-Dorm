@@ -1,9 +1,11 @@
 console.log("SAY SOMETHING I'M GIVING UP ON YOU");
 
-$('#sidebar').affix({
-      offset: {
-        top: 245
-      }
+$(document).ready(function(){
+    $("#sidebar").affix({
+        offset: {
+            top: 195
+        }
+    });
 });
 
 var $body   = $(document.body);

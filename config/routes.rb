@@ -22,9 +22,8 @@ Rails.application.routes.draw do
 
   resources :tags
 
+  put 'users/find' => "users#find_rooms"
   resources :users
-  #resources :users, :only => [:index, :destroy, :update, :show]
-  #resources :users, path: "signup", as: :users, only: [:new, :create]
 
   resources :boards do
     resources :lines do
@@ -43,8 +42,13 @@ Rails.application.routes.draw do
   resources :quads do
     collection do
       get 'do_search'
+      get 'create_post'
+      get 'new_post'
+      put 'create_photos'
+      get 'new_photos'
     end
     resources :buildings
+
   end
 
   resources :rooms

@@ -1,37 +1,39 @@
-<%= form_for(@user, multipart: true) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+<div class="container">
+  <%= form_for(@user, multipart: true) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+    <%= f.label :user_name %>
+    <%= f.text_field :user_name %></div></br>
+
+    <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %></div></br>
+
+    <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %></div></br>
+
+    <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %></div></br>
+
+    <div class="field">
+    <%= f.label :icon %><br>
+    <%= f.file_field :icon %></div><br>
+
+    <div class="actions">
+    <%= f.button :submit, class: "btn btn-primary" %>
+    </div></br>
   <% end %>
-
-  <div class="field">
-  <%= f.label :user_name %>
-  <%= f.text_field :user_name %></div></br>
-
-  <div class="field">
-  <%= f.label :email %>
-  <%= f.text_field :email %></div></br>
-
-  <div class="field">
-  <%= f.label :password %>
-  <%= f.password_field :password %></div></br>
-
-  <div class="field">
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %></div></br>
-
-  <div class="field">
-  <%= f.label :icon %><br>
-  <%= f.file_field :icon %></div><br>
-
-  <div class="actions">
-  <%= f.button :submit, class: "btn btn-primary" %>
-  </div></br>
-<% end %>
+</div>
