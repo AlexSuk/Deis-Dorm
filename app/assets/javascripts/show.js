@@ -19,6 +19,7 @@ function getRangeGradient(color1,color2,value,maximum){
 }
 
 function updateRangeValue(input){
+  console.log('');
   input=$(input);
   var selectedColor = "#428bca";
   var nonSelectedColor = "#ddd"
