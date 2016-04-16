@@ -118,9 +118,12 @@ function createSidebar(json_array){
   });
 };
 
+var ifKeep = null;
 function createForSideBar(obj){
-  controlMarkers(markers, null);
-  markers = [];
+  controlMarkers(markers, ifKeep);
+  if (ifKeep == null){
+    markers = [];
+  }
   var marker = create(obj);
   marker.setMap(map);
   map.panTo({lat: obj["lat"], lng: obj["lng"]});
@@ -214,8 +217,19 @@ function hide(places_of_interest) {
   controlMarkers(interest_markers, null);
 }
 
+function keepMarkers(box){
+  if (box.checked){
+    ifKeep = map;
+  } else {
+    ifKeep = null;
+    controlMarkers(markers, ifKeep);
+    markers = [];
+  }
+}
+
+
 // == a checkbox has been clicked ==
-function boxclick(box) {
+function interestMarkersBox(box) {
   if (box.checked) {
     show(places_of_interest);
   } else {
