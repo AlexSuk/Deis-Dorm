@@ -36,6 +36,7 @@
     <div class="row">
       <%=@user.bio%>
     </div>
+    <% if session[:user_id] == @user.id %>
     <div class="row">
       <div id = "room_results">
       </div>
@@ -46,7 +47,7 @@
     <%= form_tag(users_find_path, method: "put", remote: "true", role: "form", class: "form") do %>
       <div class ="row">
         <div class="col-md-6">
-          Year:<%= select_tag(:all_any,
+          Year:<%= select_tag(:pref_year,
               options_for_select(
                 [['Freshman', "Freshman"],
                  ['Sophomore', "Sophomore"],
@@ -57,7 +58,7 @@
       </div>
       <div class ="row">
         <div class="col-md-6">
-          Gender Preference:<%= select_tag(:all_any,
+          Gender Preference:<%= select_tag(:pref_gender,
               options_for_select(
                 [['Male Only', "Male"],
                  ['Female Only', "Female"],
@@ -67,9 +68,9 @@
       </div>
       <div class ="row">
         <div class="col-md-6">
-          Bedtime:<%= select_tag(:all_any,
+          Bedtime:<%= select_tag(:pref_bedtime,
               options_for_select(
-                [['Before 8pm', "Before 8pm"],
+                [['Before 8pm', "7:00PM"],
                  ['8:00PM', "8:00PM"],
                  ['9:00PM', "9:00PM"],
                  ['10:00PM', "10:00PM"],
@@ -78,7 +79,7 @@
                  ['1:00AM', "1:00AM"],
                  ['2:00AM', "2:00AM"],
                  ['3:00AM', "3:00AM"],
-                 ['After 3AM', "After 3AM"]]), class: "form-control", include_blank: true) %>
+                 ['After 3AM', "4:00AM"]]), class: "form-control", include_blank: true) %>
           <br>
         </div> 
       </div>
@@ -144,6 +145,21 @@
         </div>
       </div>
       <div class ="row">
+        <div class="col-md-8">
+          <p>Rate the Importance of Having Air Conditioning: (1: willing to live without  10: necessity)
+          <br>
+          Note: This will only likely matter at the beginning and ending of the year. All dorms have heating.
+          </p>
+          <div class="range-wrapper">
+            <input type="range" name="pref_ac" min="0" max="10" id="pref2"/>
+            <div class="text">1</div>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+      <div class ="row">
         <br>
         Room Type: (select at least one)
         </br>
@@ -162,6 +178,7 @@
       <div class="row">
           <%= submit_tag "Submit Preferences", class: "btn btn-primary" %>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>

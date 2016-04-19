@@ -12,10 +12,23 @@ class UsersController < ApplicationController
   def find_rooms
     @rooms = Room.individual_search("PARAMS")
     @current = User.find_by id: session[:user_id]
-    #use form provided fields to change user
+    
+    #create hash for setting user preferences with only specific fields
+    u_params = Hash.new
+    u_params[:pref_price] = params[:pref_price]
+    u_params[:pref_size] = params[:pref_size]
+    u_params[:pref_clean] = params[:pref_clean]
+    u_params[:pref_noise] = params[:pref_noise]
+    u_params[:pref_location] = params[:pref_location]
+    u_params[:pref_ac] = params[:pref_ac]
+    u_params[:housing_number] = params[:housing_number]
+    u_params[:pref_year] = params[:pref_year]
+    u_params[:pref_gender] = params[:pref_gender]
+    u_params[:pref_bedtime] = params[:pref_bedtime]
+    u_params[:pref_room_type] = params[:room_type]
 
     respond_to do |format|
-      if @current#.update(user_params) #update user params
+      if @current.update_attributes(u_params)
         format.js
       else
         #put errors here
