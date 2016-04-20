@@ -7,6 +7,38 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     puts params
+    @current = User.find_by id: session[:user_id]
+    gon.user = Hash.new
+    gon.user["pref_price"] = @current.pref_price
+    gon.user["pref_size"] = @current.pref_size
+    gon.user["pref_clean"] = @current.pref_clean
+    gon.user["pref_noise"] = @current.pref_noise
+    gon.user["pref_location"] = @current.pref_location
+    gon.user["pref_ac"] = @current.pref_ac
+
+    if @current.pref_room_type
+      if @current.pref_room_type.include? "Single"
+        gon.user["single"] = true
+      else
+        gon.user["single"] = false
+      end
+
+      if @current.pref_room_type.include? "Double"
+        gon.user["double"] = true
+      else
+        gon.user["double"] = false
+      end
+
+      if @current.pref_room_type.include? "Suite"
+        gon.user["suite"] = true
+      else
+        gon.user["suite"] = false
+      end
+    else
+      gon.user["single"] = false
+      gon.user["double"] = false
+      gon.user["suite"] = false
+    end
   end
 
   def find_rooms

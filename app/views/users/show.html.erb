@@ -49,10 +49,10 @@
         <div class="col-md-6">
           Year:<%= select_tag(:pref_year,
               options_for_select(
-                [['Freshman', "Freshman"],
-                 ['Sophomore', "Sophomore"],
-                 ['Junior', "Junior"],
-                 ["Senior", "Senior"]]), class: "form-control", include_blank: true) %>
+                [["Freshman", "Freshman"],
+                 ["Sophomore", "Sophomore"],
+                 ["Junior", "Junior"],
+                 ["Senior", "Senior"]], @current.pref_year), class: "form-control", include_blank: true) %>
           <br>
         </div> 
       </div>
@@ -62,7 +62,7 @@
               options_for_select(
                 [['Male Only', "Male"],
                  ['Female Only', "Female"],
-                 ["Mixed Gender", "Mixed"]]), class: "form-control", include_blank: true) %>
+                 ["Mixed Gender", "Mixed"]], @current.pref_gender), class: "form-control", include_blank: true) %>
           <br>
         </div> 
       </div>
@@ -79,7 +79,7 @@
                  ['1:00AM', "1:00AM"],
                  ['2:00AM', "2:00AM"],
                  ['3:00AM', "3:00AM"],
-                 ['After 3AM', "4:00AM"]]), class: "form-control", include_blank: true) %>
+                 ['After 3AM', "4:00AM"]], @current.pref_bedtime), class: "form-control", include_blank: true) %>
           <br>
         </div> 
       </div>
@@ -88,19 +88,7 @@
         <div class="col-md-8">
           <p>Rate the Importance of Price: (1: irrelevant 10: low price needed)</p>
           <div class="range-wrapper">
-            <input type="range" name="pref_price" min="0" max="10" id="pref1"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of Room Size: (1: irrelevant 10: must be large)</p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_size" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_size" min="0" max="10" id="pref1"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -122,9 +110,21 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
+          <p>Rate the Importance of Room Size: (1: irrelevant 10: must be spacious)</p>
+          <div class="range-wrapper">
+            <input type="range" name="pref_clean" min="0" max="10" id="pref3"/>
+            <div class="text">1</div>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+      <div class ="row">
+        <div class="col-md-8">
           <p>Rate the Importance of Noise Level: (1: can be very loud  10: must be silent)</p>
           <div class="range-wrapper">
-            <input type="range" name="pref_noise" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_noise" min="0" max="10" id="pref4"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -136,7 +136,7 @@
         <div class="col-md-8">
           <p>Rate the Importance of being in a Convenient Location on Campus: </p>
           <div class="range-wrapper">
-            <input type="range" name="pref_location" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_location" min="0" max="10" id="pref5"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -151,7 +151,7 @@
           Note: This will only likely matter at the beginning and ending of the year. All dorms have heating.
           </p>
           <div class="range-wrapper">
-            <input type="range" name="pref_ac" min="0" max="10" id="pref2"/>
+            <input type="range" name="pref_ac" min="0" max="10" id="pref6"/>
             <div class="text">1</div>
             <br>
           </div>
@@ -171,7 +171,7 @@
       </div>
       <div class ="row">
         <br>
-        Housing Number: (optional)  <%= number_field_tag :housing_number, params[:housing_number]%>
+        Housing Number: (optional)  <%= number_field_tag :housing_number, @current.housing_number%>
         <br>
         <br>
       </div>
@@ -184,3 +184,4 @@
 </div>
 
 <%= javascript_include_tag "show" %>
+<%= include_gon %>
