@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20160414170213) do
     t.integer  "pref_clean"
     t.integer  "pref_noise"
     t.integer  "pref_location"
+    t.integer  "pref_ac"
     t.integer  "housing_number"
     t.string   "pref_year"
     t.string   "pref_gender"

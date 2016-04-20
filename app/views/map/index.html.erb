@@ -12,13 +12,13 @@
 <h1>Map</h1>
 
 <div style='width: 800px;'>
+  Places of Interest: <input type="checkbox" id="places_of_interest_box" onclick="interestMarkersBox(this)"/>
+  Keep Markers: <input type="checkbox" id="keep_markers_box" onclick="keepMarkers(this)"/>
   <div id="map" style='width: 800px; height: 400px;'></div>
-  Places of Interest: <input type="checkbox" id="places_of_interest_box" onclick="boxclick(this)"/>
+
 </div>
 <div id='sidebar_container'>
   <input type="text" id="search" placeholder="Search...">
 </div>
-
-
 
 <%= javascript_include_tag "map" %>

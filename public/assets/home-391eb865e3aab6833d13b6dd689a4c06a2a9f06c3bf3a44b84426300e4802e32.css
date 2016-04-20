@@ -1,0 +1,23 @@
+/* line 1, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/home.css.scss */
+.row {
+  height: 100vh;
+}
+
+/* line 5, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/home.css.scss */
+html,
+body {
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.7) 59%, rgba(0, 0, 0, 0.65) 100%), url("ridgewood1.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.7) 59%, rgba(0, 0, 0, 0.65) 100%), url("ridgewood1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+/* line 16, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/home.css.scss */
+body {
+  color: #fff;
+  text-align: center;
+}

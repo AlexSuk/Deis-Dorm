@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container top-buffer">
+  <h2>Sign Up</h2>
   <%= form_for(@user, multipart: true) do |f| %>
     <% if @user.errors.any? %>
       <div id="error_explanation">

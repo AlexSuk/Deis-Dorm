@@ -1,0 +1,101 @@
+/* line 10, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.building {
+  padding: 10px;
+  border-top: 2px solid #b0e0e6;
+}
+
+/* line 15, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#comment div ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* line 21, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#comment div ul li {
+  display: inline;
+}
+
+/* line 25, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+body {
+  padding-top: 50px;
+}
+
+/* line 29, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead {
+  min-height: 270px;
+  background-color: #000044;
+  color: #aaaacc;
+}
+
+/* line 35, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead h1 {
+  font-size: 55px;
+  line-height: 1;
+}
+
+/* line 40, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead .well {
+  margin-top: 13%;
+  background-color: #111155;
+  border-color: #000033;
+}
+
+/* line 46, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.icon-bar {
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 51, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+  #masthead h1 {
+    font-size: 100px;
+  }
+}
+/* line 56, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright {
+  background-color: #111155;
+  color: #fff;
+}
+
+/* line 61, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright a, #masthead a, #masthead .lead {
+  color: #aaaacc;
+}
+
+/* line 65, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright li > a:hover {
+  background-color: #000033;
+}
+
+/* line 69, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.affix-top, .affix {
+  position: static;
+}
+
+@media (min-width: 979px) {
+  /* line 74, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+  #sidebar.affix-top {
+    position: static;
+    margin-top: 30px;
+    width: 228px;
+  }
+
+  /* line 80, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+  #sidebar.affix {
+    position: fixed;
+    top: 70px;
+    width: 228px;
+  }
+}
+/* line 87, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#sidebar li.active {
+  border: 0 #eee solid;
+  border-right-width: 4px;
+}
+
+/* line 92, /Users/Jasmine/Dropbox/cosi166b_cuimei/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#mainCol h2 {
+  padding-top: 55px;
+  margin-top: -55px;
+}
