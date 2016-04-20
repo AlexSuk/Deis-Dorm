@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.text :text
       t.integer :up_vote
-      t.integer :rating
+      t.float :rating
       t.integer :user_id
       t.integer :building_id
       t.integer :room_id
