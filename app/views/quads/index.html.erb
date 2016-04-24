@@ -36,14 +36,16 @@
     <div class="row">
       <h3>Freshman</h3>
       <div class="media">
-        <div class="media-left media-middle" style="padding-right: 10px;">
+        <div class="media-left media-top" style="padding-right: 10px;">
           <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/9.jpg", class: "media-object"%>
         </div>
         <div class="media-body">
           <% @quad_buildings.each do |q, b| %>
-            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
-            <% b.each do |build| %>
-              <span><%= build.name %></span>
+            <% if q.years[0] == "1" %>
+              <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+              <% b.each do |build| %>
+                <span><%= build.name %></span>
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -53,14 +55,16 @@
     <div class="row">
       <h3>Sophomore</h3>
       <div class="media">
-        <div class="media-left media-middle" style="padding-right: 10px;">
+        <div class="media-left media-top" style="padding-right: 10px;">
           <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/5.jpg", class: "media-object"%>
         </div>
         <div class="media-body">
           <% @quad_buildings.each do |q, b| %>
-            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
-            <% b.each do |build| %>
-              <span><%= build.name %></span>
+            <% if q.years[1] == "1" %>
+              <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+              <% b.each do |build| %>
+                <span><%= build.name %></span>
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -70,14 +74,16 @@
     <div class="row">
       <h3>Junior</h3>
       <div class="media">
-        <div class="media-left media-middle" style="padding-right: 10px;">
+        <div class="media-left media-top" style="padding-right: 10px;">
           <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/3.jpg", class: "media-object"%>
         </div>
         <div class="media-body">
           <% @quad_buildings.each do |q, b| %>
-            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
-            <% b.each do |build| %>
-              <span><%= build.name %></span>
+            <% if q.years[2] == "1" %>
+              <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+              <% b.each do |build| %>
+                <span><%= build.name %></span>
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -87,14 +93,16 @@
     <div class="row">
       <h3>Senior</h3>
       <div class="media">
-        <div class="media-left media-middle" style="padding-right: 10px;">
+        <div class="media-left media-top" style="padding-right: 10px;">
           <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/24.jpg", class: "media-object"%>
         </div>
         <div class="media-body">
           <% @quad_buildings.each do |q, b| %>
-            <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
-            <% b.each do |build| %>
-              <span><%= build.name %></span>
+            <% if q.years[3] == "1" %>
+              <h4 class="media-heading"><%= link_to q.name, quad_path(q.id)%></h4>
+              <% b.each do |build| %>
+                <span><%= build.name %></span>
+              <% end %>
             <% end %>
           <% end %>
         </div>
