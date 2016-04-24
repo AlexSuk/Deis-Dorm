@@ -17,7 +17,6 @@ class QuadsController < ApplicationController
 	end
 
 	def new_post
-		puts "WOAH...", params
 		@buildings = Quad.find(params[:quad_id]).buildings
 		redirect_to quad_path(params[:quad_id])
 		# @buildings = Quad.find(params[:id]).buildings
