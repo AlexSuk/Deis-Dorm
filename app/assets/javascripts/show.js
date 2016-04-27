@@ -1,13 +1,15 @@
 $(document).ready(function(){
-  $("#pref1").val(gon.user["pref_price"]);
-  $("#pref2").val(gon.user["pref_clean"]);
-  $("#pref3").val(gon.user["pref_size"]);
-  $("#pref4").val(gon.user["pref_noise"]);
-  $("#pref5").val(gon.user["pref_location"]);
-  $("#pref6").val(gon.user["pref_ac"]);
-  $('input[value=Single]').prop("checked",gon.user["single"]);
-  $('input[value=Double]').prop("checked",gon.user["double"]);
-  $('input[value=Suite]').prop("checked",gon.user["suite"]);
+  if(gon.user){
+    $("#pref1").val(gon.user["pref_price"]);
+    $("#pref2").val(gon.user["pref_clean"]);
+    $("#pref3").val(gon.user["pref_size"]);
+    $("#pref4").val(gon.user["pref_noise"]);
+    $("#pref5").val(gon.user["pref_location"]);
+    $("#pref6").val(gon.user["pref_ac"]);
+    $('input[value=Single]').prop("checked",gon.user["single"]);
+    $('input[value=Double]').prop("checked",gon.user["double"]);
+    $('input[value=Suite]').prop("checked",gon.user["suite"]);
+  }
 
   $('input[type=range]').each(function(index,value){updateRangeValue(value)});
   $('input[type=range]').on('input change',function(){
