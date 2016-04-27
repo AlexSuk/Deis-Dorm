@@ -1,79 +1,72 @@
-<%= stylesheet_link_tag "quads" %>
-<%= javascript_include_tag "quads" %>
+<%= stylesheet_link_tag "quads", media: "all", "data-turbolinks-track" => "reload" %>
+<%= javascript_include_tag "quads","data-turbolinks-track" => "reload" %>
 
-<!-- <script type="text/javascript">
-$(document).ready(function(){
-    $("#sidebar").affix({
-        offset: {
-            top: 195
-        }
-    });
-});
-</script> -->
+<body data-spy="scroll" data-target="#leftCol">
 
-<div class="container">
+  <div class="container-fluid">
 
-  <div class="col-md-2" id="leftCol">
-    <ul class="nav nav-stacked" id="sidebar">
-      <% @buildings.each do |building| %>
-        <li><a href="#<%= building.name %>"><%= building.name %></a></li>
-      <% end %>
-    </ul>
-  </div>
-
-
-  <div class="col-md-8">
-    <div class="row" id="new-review">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
-        <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photos</a></li>
+    <div class="col-md-2 row" id="leftCol">
+      <ul class="nav nav-stacked" id="sidebar" data-spy="affix" data-offset-top="0">
+        <% @buildings.each do |building| %>
+          <li><a href="#<%= building.name %>"><%= building.name %></a></li>
+        <% end %>
       </ul>
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="comment">
-          <%# puts "WHAAAAA!?~!?~!?~!?~!?~!??~?!?~?!?~!?~!?", params %>
-          <%= render(partial: 'new_post') %>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="photos">
-          <%= render(partial: 'new_photos') %>
-        </div>
-      </div>
     </div>
 
-    <div class="row" id="reviews">
 
-    </div>
-
-    <% @buildings.each do |building| %>
-      <div class="row building">
-        <div class="row" id="<%= building.name%>">
-          <h2><%= building.name %> </h2>
-        </div>
-        <div class="row" >
-          <div class="media">
-            <div class="media-left media-middle">
-              <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/#{building.id}.jpg", class: "media-object"%>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading"><%= building.description %></h4>
-            </div>
+    <div class="col-md-8" id="rightCol">
+      <div class="row" id="new-review">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
+          <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photos</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="comment">
+            <%# puts "WHAAAAA!?~!?~!?~!?~!?~!??~?!?~?!?~!?~!?", params %>
+            <%= render(partial: 'new_post') %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="photos">
+            <%= render(partial: 'new_photos') %>
           </div>
         </div>
-
-        <div class="row" >
-          <%= button_tag%>
-        </div>
-        <div class="row" >
-          <h3>Personality</h3>
-          <p>Words to describe building</p>
-          <h3>Reviews</h3>
-
-        </div>
       </div>
-    <% end %>
+
+      <div class="row" id="reviews">
+
+      </div>
+
+      <% @buildings.each do |building| %>
+        <div class="row building">
+          <div class="row" id="<%= building.name%>">
+            <h2><%= building.name %> </h2>
+          </div>
+          <div class="row" >
+            <div class="media">
+              <div class="media-left media-middle">
+                <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/#{building.id}.jpg", class: "media-object"%>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= building.description %></h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" >
+            <%= button_tag%>
+          </div>
+          <div class="row" >
+            <h3>Personality</h3>
+            <p>Words to describe building</p>
+            <h3>Reviews</h3>
+
+          </div>
+        </div>
+      <% end %>
 
 
 
 
+    </div>
   </div>
-</div>
+</body>

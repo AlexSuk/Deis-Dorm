@@ -8,6 +8,13 @@
   // border-bottom: 2px solid #b0e0e6 ;
 }
 
+
+body {
+	// padding-top:50px;
+  // background-color: #000;
+  position: relative;
+}
+
 textarea {
   resize:none;
 }
@@ -30,7 +37,7 @@ textarea {
 }
 
 .class-year {
-  
+
 }
 
 #leftCol {
@@ -65,13 +72,8 @@ textarea {
   // padding-bottom: 15px;
 }
 
-body {
-	// padding-top:50px;
-  // background-color: #000;
-}
-
 .container {
-  padding-top: 50px;
+  padding-top: 20px;
   background-color: #fff;
 }
 
@@ -104,41 +106,55 @@ body {
 
 .navbar-bright {
 	background-color:#111155;
-    color:#fff;
+  color:#fff;
 }
 
 .navbar-bright a, #masthead a, #masthead .lead {
-  	color:#aaaacc;
+	color:#aaaacc;
 }
 
 .navbar-bright li > a:hover {
-    background-color:#000033;
+  background-color:#000033;
 }
 
-.affix-top,.affix{
-	position: static;
+// .affix-top,.affix{
+// 	position: static;
+// }
+
+// @media (min-width: 979px) {
+//   #sidebar.affix-top {
+//     position: fixed;
+//   	// margin-top:30px;
+//   	width:175px;
+//   }
+//
+//   #sidebar.affix {
+//     position: fixed;
+//     // top:70px;
+//     width:175px;
+//   }
+// }
+
+.affix {
+  top: 150;
+  width: 150px;
 }
 
-@media (min-width: 979px) {
-  #sidebar.affix-top {
-    position: fixed;
-  	// margin-top:30px;
-  	width:150px;
-  }
+.affix-top {
+  width: 150px;
+}
 
-  #sidebar.affix {
-    position: fixed;
-    // top:70px;
-    width:150px;
-  }
+.affix-bottom {
+  width: 150px;
+  position: absolute;
 }
 
 #sidebar li.active {
-  	border:0 #eee solid;
-  	border-right-width:4px;
+	border:0 #eee solid;
+	border-right-width:4px;
 }
 
 #mainCol h2 {
 	padding-top: 55px;
-    margin-top: -55px;
+  margin-top: -55px;
 }
