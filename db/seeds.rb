@@ -6,7 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#require 'faker'
+require 'faker'
+require 'csv'
 
 Quad.create(name: "Ziv", rating: 4.1, info: "Quad with four buildings. For Juniors and Seniors. Lower campus", years: "0011")
 Quad.create(name: "East", rating: 3.7, info: "Two buildings connected with a hallway. For Sophomores. Upper campus", years: "0100")
@@ -35,10 +36,10 @@ Board.create(name: "FAQs/Questions and Answers", description: "etc")
 
 
 #ziv buildings
-Building.create(name: "ziv 127", longitude: -71.2616387, latitude: 42.3633962, description: "rightmost ziv", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
-Building.create(name: "ziv 128", longitude: -71.2615093, latitude: 42.3630568, description: "ziv to the left of 127", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
-Building.create(name: "ziv 129", longitude: -71.2610225, latitude: 42.3629225, description: "ziv to the right of 130", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
-Building.create(name: "ziv 130", longitude: -71.2608863, latitude: 42.3632783, description: "leftmost ziv", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
+Building.create(name: "Ziv 127", longitude: -71.2616387, latitude: 42.3633962, description: "Rightmost Ziv", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
+Building.create(name: "Ziv 128", longitude: -71.2615093, latitude: 42.3630568, description: "Ziv to the left of 127", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
+Building.create(name: "Ziv 129", longitude: -71.2610225, latitude: 42.3629225, description: "Ziv to the right of 130", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
+Building.create(name: "Ziv 130", longitude: -71.2608863, latitude: 42.3632783, description: "Leftmost Ziv", is_kind: "dorm", quad_id: Quad.find_by(name: "Ziv").id)
 
 #east buildings
 Building.create(name: "Hassenfeld", longitude: -71.2548726, latitude: 42.3679261, description: "Larger building of East that is further uphill", is_kind: "dorm", quad_id: Quad.find_by(name: "East").id)
@@ -83,12 +84,32 @@ Building.create(name: "East", longitude: -71.259926, latitude: 42.3670715, descr
 Building.create(name: "South", longitude: -71.2601182, latitude: 42.3668881, description: "building at the top of the hill", is_kind: "dorm", quad_id: Quad.find_by(name: "Rosenthal").id)
 
 #village buildings
-Building.create(name: "Village A", longitude: -71.2600058, latitude: 42.3636824, description: "Village next to the music building", is_kind: "dorm", quad_id: Quad.find_by(name: "Village").id)
-Building.create(name: "Village B", longitude: -71.2601989, latitude: 42.3633267, description: "The middle portion of village", is_kind: "dorm", quad_id: Quad.find_by(name: "Village").id)
-Building.create(name: "Village C", longitude: -71.2605201, latitude: 42.3630206, description: "Village closest to the train station", is_kind: "dorm", quad_id: Quad.find_by(name: "Village").id)
+Building.create(name: "Village A", longitude: -71.2600058, latitude: 42.3636824, description: "Village next to the music building", is_kind: "dorm", quad_id: Quad.find_by(name: "Village").id, years: "0100")
+Building.create(name: "Village B", longitude: -71.2601989, latitude: 42.3633267, description: "The middle portion of village", is_kind: "dorm", quad_id: Quad.find_by(name: "Village").id, years: "1011")
+Building.create(name: "Village C", longitude: -71.2605201, latitude: 42.3630206, description: "Village closest to the train station", is_kind: "dorm", quad_id: Quad.find_by(name: "Village").id, years:"1011")
 
 random = Random.new()
 dorm_buildings = Building.where(is_kind: "dorm")
+
+# =========== REVIEWS==============#
+
+CSV.foreach("db/reviews.csv") do |row|
+		user = User.create( user_name: Faker::Internet.user_name,
+				password_digest: BCrypt::Password.create(Faker::Internet.password),
+				email: Faker::Internet.email,
+				icon_file_name: Faker::Avatar.image
+		)
+    review = Review.create(text: "#{row[5]}. #{row[7]}",
+        rating: (row[4].to_f / 2),
+        user_id: user.id,
+        building_id: Building.find_by(name: row[1]).id,
+        created_at: row[0],
+        updated_at: row[0])
+    unless row[6].nil?
+      tags = row[6].gsub(/\s+/, "").split("#")
+      review.tag_list.add(tags)
+    end
+end
 
 # (0..100).each do |i|
 # 	a_user_name = Faker::Internet.user_name

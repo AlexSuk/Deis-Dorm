@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160414170213) do
     t.text     "description"
     t.string   "is_kind"
     t.integer  "quad_id"
+    t.string   "years"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

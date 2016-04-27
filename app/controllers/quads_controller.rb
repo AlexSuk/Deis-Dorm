@@ -6,6 +6,7 @@ class QuadsController < ApplicationController
 		@all_quads.each do |quad|
 			@quad_buildings[quad] = quad.buildings
 		end
+		
   end
 
 	def show
