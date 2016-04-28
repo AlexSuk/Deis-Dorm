@@ -1,0 +1,14 @@
+<%= form_for(@picture, multipart: true, url: create_photos_quads_path, method:"put") do |f| %>
+
+  <div class="form-group comment-tab">
+    Building name
+    <%#= select_tag :building_id, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= hidden_field_tag "quad_id", params[:id] %>
+    <%= f.submit "Upload" %>
+  </div>
+<% end %>

@@ -99,7 +99,7 @@ CSV.foreach("db/reviews.csv") do |row|
 				email: Faker::Internet.email,
 				icon_file_name: Faker::Avatar.image
 		)
-    review = Review.create(text: "#{row[5]}. #{row[7]}",
+    review = Review.create(text: "#{row[5]}\n#{row[7]}",
         rating: (row[4].to_f / 2),
         user_id: user.id,
         building_id: Building.find_by(name: row[1]).id,
@@ -108,6 +108,7 @@ CSV.foreach("db/reviews.csv") do |row|
     unless row[6].nil?
       tags = row[6].gsub(/\s+/, "").split("#")
       review.tag_list.add(tags)
+			review.save
     end
 end
 

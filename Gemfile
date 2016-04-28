@@ -75,3 +75,4 @@ end
 gem 'underscore-rails'
 gem 'jquery-star-rating-rails'
 gem 'acts-as-taggable-on'
+gem 'autosize-rails'

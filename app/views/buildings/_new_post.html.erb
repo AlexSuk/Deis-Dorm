@@ -20,7 +20,8 @@
         <input name="rating" type="radio" class="star {split:2}" value="5.0"/>
       </li>
       <li class="form-group comment-tab">
-        <%= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>
+        Building name
+        <%#= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>
       </li>
 
       <li class="form-group comment-tab">

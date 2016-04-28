@@ -12,6 +12,7 @@
 body {
 	// padding-top:50px;
   // background-color: #000;
+  background-color: #e6f2ff;
   position: relative;
 }
 
@@ -19,32 +20,63 @@ textarea {
   resize:none;
 }
 
-.media-body .building_link a:link,
-.media-body .building_link a:visited {
+.media-body {
+  padding-bottom: 16px;
+}
+
+.media-heading {
+  margin-bottom: -6px;
+}
+
+.media-sub-heading .building-link a:link,
+.media-sub-heading .building-link a:visited {
   color: #646363;
+  font-size: 15px;
   text-decoration: none;
   // border-bottom: 1px solid #003366;
   // margin-bottom: 1px;
   border-bottom-style: none;
-  transition: color 0.2s, border-bottom 0.2s;
+  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
 }
 
-.media-body .building_link a:hover,
-.media-body .building_link a:active {
+.media-sub-heading .building-link a:hover {
   color: #ababab;
+  font-size: 21px;
   // text-decoration: none;
   border-bottom: 1px solid #979797;
+  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
+}
+
+.media-sub-heading {
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+.building-link {
+  font-size: 21px;
+  color: #ababab;
 }
 
 .class-year {
+  background-color: #fff;
+  margin: 30px 0;
+  padding: 10px 30px;
+}
 
+.class-year h3 {
+  margin-top: 10px;
 }
 
 #leftCol {
   margin-right: 10px;
+  background-color: #fff;
 }
 
-#new-review {
+#rightCol {
+  margin-left: 20px;
+}
+
+.new-review {
   background-color: #f0f5f5;
 }
 
@@ -138,15 +170,18 @@ textarea {
 .affix {
   top: 150;
   width: 150px;
+  background-color: #fff;
 }
 
 .affix-top {
   width: 150px;
+  background-color: #fff;
 }
 
 .affix-bottom {
   width: 150px;
   position: absolute;
+  background-color: #fff;
 }
 
 #sidebar li.active {
