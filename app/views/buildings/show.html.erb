@@ -1,5 +1,69 @@
-<h1> <%= @building.name %> </h1>
+<%= stylesheet_link_tag "buildings", media: "all", "data-turbolinks-track" => "reload" %>
 
-<% @building.pictures.each do |photo| %>
-  <%= image_tag photo.image.url(:square) %>
-<% end %>
+<div class="container">
+
+  <h1> <%= @building.name %> </h1>
+
+  <h3> <%= @building.description %> </h3>
+
+  <div class="row new-review">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
+      <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photos</a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="comment">
+        <%# puts "WHAAAAA!?~!?~!?~!?~!?~!??~?!?~?!?~!?~!?", params %>
+        <%= render(partial: 'new_post') %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="photos">
+        <%= render(partial: 'new_photos') %>
+      </div>
+    </div>
+  </div>
+
+  <h2> Photos </h2>
+
+  <% @building.pictures.each do |photo| %>
+    <% if photo.image_content_type.nil? %>
+      <%= image_tag photo.image_file_name, id: "profile-pic", width: "200" %>
+    <% else %>
+      <%= image_tag photo.image.url(:square), id: "profile-pic", width: "200" %>
+    <% end %>
+  <% end %>
+
+  <h2> Reviews </h2>
+
+  <% @reviews_users.each do |review, user| %>
+  <%# review = @building.reviews[2] %>
+    <div class="row">
+      <span>
+        <% if user.icon_content_type.nil? %>
+          <%= image_tag user.icon_file_name, id: "profile-pic", size: "50" %>
+        <% else %>
+          <%= image_tag user.icon.url(:thumb), id: "profile-pic" %>
+        <% end %>
+      </span>
+      <span><h5> <%= link_to user.user_name, user_path(user.id) %> </h5></span>
+      <span> Rating: <%= review.rating %> </span>
+
+      <span>
+        <% (1..10).each do |rating| %>
+          <% unless rating == (review.rating * 2) %>
+            <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled"/>
+          <% else %>
+            <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled" checked="checked"/>
+          <% end %>
+        <% end %>
+      </span>
+      <p> <%= review.text %> </p>
+      <% review.tags.each do |tag| %>
+        <span>#<%= tag %> </span>
+      <% end %>
+      <p class="datetime"> Posted <%= review.created_at.strftime('%b %d, %Y') %> </p>
+    </div>
+  <% end %>
+
+
+</div>

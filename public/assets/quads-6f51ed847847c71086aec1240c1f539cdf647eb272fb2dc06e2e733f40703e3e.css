@@ -1,0 +1,155 @@
+/* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
+
+div.rating-cancel,div.star-rating{float:left;width:17px;height:15px;text-indent:-999em;cursor:pointer;display:block;background:transparent;overflow:hidden}
+div.rating-cancel,div.rating-cancel a{background:url(/assets/delete-32cd2462f0572cc6d63fba76837141950a47108f0015cee8f116f69002d1019f.gif) no-repeat 0 -16px}
+div.star-rating,div.star-rating a{background:url(/assets/star-5fd075331477f1fefe387b90b403b6384ad4540bbcb4d2b740511a7c902e4c20.gif) no-repeat 0 0px}
+div.rating-cancel a,div.star-rating a{display:block;width:16px;height:100%;background-position:0 0px;border:0}
+div.star-rating-on a{background-position:0 -16px!important}
+div.star-rating-hover a{background-position:0 -32px}
+/* Read Only CSS */
+div.star-rating-readonly a{cursor:default !important}
+/* Partial Star CSS */
+div.star-rating{background:transparent!important;overflow:hidden!important}
+/* END jQuery.Rating Plugin CSS */
+/*
+
+ */
+
+/* line 12, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+body {
+  position: relative;
+}
+
+/* line 18, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+textarea {
+  resize: none;
+}
+
+/* line 22, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.media-body .building_link a:link,
+.media-body .building_link a:visited {
+  color: #646363;
+  text-decoration: none;
+  border-bottom-style: none;
+  -webkit-transition: color 0.2s, border-bottom 0.2s;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+
+/* line 32, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.media-body .building_link a:hover,
+.media-body .building_link a:active {
+  color: #ababab;
+  border-bottom: 1px solid #979797;
+}
+
+/* line 43, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#leftCol {
+  margin-right: 10px;
+}
+
+/* line 47, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#new-review {
+  background-color: #f0f5f5;
+}
+
+/* line 51, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#comment {
+  padding-left: 20px;
+}
+
+/* line 57, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.comment-top {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* line 63, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.comment-tab {
+  float: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  display: inline;
+}
+
+/* line 75, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.container {
+  padding-top: 20px;
+  background-color: #fff;
+}
+
+/* line 80, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead {
+  min-height: 270px;
+  background-color: #000044;
+  color: #aaaacc;
+}
+
+/* line 86, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead h1 {
+  font-size: 55px;
+  line-height: 1;
+}
+
+/* line 91, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead .well {
+  margin-top: 13%;
+  background-color: #111155;
+  border-color: #000033;
+}
+
+/* line 97, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.icon-bar {
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 102, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+  #masthead h1 {
+    font-size: 100px;
+  }
+}
+/* line 107, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright {
+  background-color: #111155;
+  color: #fff;
+}
+
+/* line 112, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright a, #masthead a, #masthead .lead {
+  color: #aaaacc;
+}
+
+/* line 116, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright li > a:hover {
+  background-color: #000033;
+}
+
+/* line 138, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.affix {
+  top: 150;
+  width: 150px;
+}
+
+/* line 143, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.affix-top {
+  width: 150px;
+}
+
+/* line 147, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.affix-bottom {
+  width: 150px;
+  position: absolute;
+}
+
+/* line 152, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#sidebar li.active {
+  border: 0 #eee solid;
+  border-right-width: 4px;
+}
+
+/* line 157, /home/chungyuk/Documents/rails_projects/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#mainCol h2 {
+  padding-top: 55px;
+  margin-top: -55px;
+}

@@ -1,0 +1,42 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('textarea').autosize();
+  });
+</script>
+
+<%= form_tag create_post_quads_path, method: "get", remote: true, id: 'new_comment' do %>
+  <div class="row" >
+    <ul class="comment-top">
+      <li class="form-group comment-tab">
+        <input name="rating" type="radio" class="star {split:2}" value="0.5"/>
+        <input name="rating" type="radio" class="star {split:2}" value="1.0"/>
+        <input name="rating" type="radio" class="star {split:2}" value="1.5" />
+        <input name="rating" type="radio" class="star {split:2}" value="2.0"/>
+        <input name="rating" type="radio" class="star {split:2}" value="2.5"/>
+        <input name="rating" type="radio" class="star {split:2}" value="3.0"/>
+        <input name="rating" type="radio" class="star {split:2}" value="3.5"/>
+        <input name="rating" type="radio" class="star {split:2}" value="4.0"/>
+        <input name="rating" type="radio" class="star {split:2}" value="4.5"/>
+        <input name="rating" type="radio" class="star {split:2}" value="5.0"/>
+      </li>
+      <li class="form-group comment-tab">
+        Building name
+        <%#= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>
+      </li>
+
+      <li class="form-group comment-tab">
+        <%= text_field_tag :room, nil, placeholder: "Room #", class: 'form-control', id: 'room-num', size: 4 %>
+      </li>
+    </ul>
+  </div>
+  <div class="row col-md-12 comment-content form-group" >
+    <%= text_area_tag :content, nil, placeholder: "What's happening?\nAdd your own hashtags here too (e.g. #clean #quiet #thinwalls)", class: 'form-control', id: 'review-content' %>
+  </div>
+  <div class="row col-md-11 tag">
+    Tags
+  </div>
+  <div class="col-md-1 form-group">
+    <%= hidden_field_tag 'quad_id', params[:id] %>
+    <%= submit_tag "Post", class: "form_submit" %>
+  </div>
+<% end %>

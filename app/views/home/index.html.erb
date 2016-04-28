@@ -6,14 +6,183 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row ridgewood">
-      <h1> Welcome</h1>
+    <div class="big-row welcome">
+      <!-- <h1> Welcome</h1> -->
+      <h1> Explore 'Deis Dorms </h1>
+
+    </div>
+
+    <div class="centered-search-bar">
+      <%#= form_tag(do_search_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
+      <div class="input-group">
+        <input name="keywords" type="text"  class="form-control" placeholder="Keywords for dorms, locations, reviews, etc."/>
+        <span class="input-group-btn">
+          <%= button_tag "", type: 'submit', class: "btn btn-default glyphicon glyphicon-search pull-right" %>
+        </span>
+      </div>
+      <%# end %>
+    </div>
+    <div class="big-row features">
+      <div class="row">
+        <h1> Features </h1>
+      </div>
+      <div class="row">
+        <div class="col-md-3 feature">
+          <div class="row">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Map</h2>
+            <h4>Find dorms on a map along with points of interest</h4>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <%= link_to "View Map", map_index_path %>
+          </div>
+        </div>
+        <div class="col-md-3 feature">
+          <div class="row">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-half-o"></i>
+            <i class="fa fa-star-o"></i>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Reviews</h2>
+            <h4>Browse and write reviews on specific dorms on campus</h4>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <%= link_to "Read Reviews", "#" %>
+          </div>
+        </div>
+        <div class="col-md-3 feature">
+          <div class="row">
+            <i class="fa fa-list"></i>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Forum</h2>
+            <h4>Discuss concerns or inside jokes with the community</h4>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <%= link_to "Read/Write", boards_path %>
+          </div>
+        </div>
+        <div class="col-md-3 feature">
+          <div class="row">
+            <i class="fa fa-users"></i>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Profile</h2>
+            <h4>Personalize your search results and get yourself known in the community</h4>
+          </div>
+          <div class="row col-md-offset-1 col-md-10">
+            <% if session[:user_id].nil? %>
+              <%= link_to 'Signup Now', login_path %>
+            <% else %>
+              <%= link_to 'View your Profile', user_path(session[:user_id]) %>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dorm-classes">
+      <div class="row">
+        <h1>Find your Dorm</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-3 dorm">
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Freshman</h2>
+          </div>
+          <div class="row building-pic">
+            <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/9.jpg", size:"175x131" %>
+          </div>
+          <div class="row building-list">
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "Massell", quad_path(3) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "North", quad_path(5) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-arrow-circle-o-right"></i>
+              <%= link_to "View More...", quads_path %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 dorm">
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Sophomore</h2>
+          </div>
+          <div class="row building-pic">
+            <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/5.jpg", size:"175x131" %>
+          </div>
+          <div class="row building-list">
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "East", quad_path(10) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "Rosenthal", quad_path(11) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-arrow-circle-o-right"></i>
+              <%= link_to "View More...", quads_path %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 dorm">
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Junior</h2>
+          </div>
+          <div class="row building-pic">
+            <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/3.jpg", size:"175x131" %>
+          </div>
+          <div class="row building-list">
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "Ziv", quad_path(1) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "Ridgewood", quad_path(4) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-arrow-circle-o-right"></i>
+              <%= link_to "View More...", quads_path %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 dorm">
+          <div class="row col-md-offset-1 col-md-10">
+            <h2>Senior</h2>
+          </div>
+          <div class="row building-pic">
+            <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/24.jpg", size:"175x131" %>
+          </div>
+          <div class="row building-list">
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "Foster Mods", quad_path(9) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-home"></i>
+              <%= link_to "Grad", quad_path(8) %>
+            </div>
+            <div class="building-item">
+              <i class="fa fa-arrow-circle-o-right"></i>
+              <%= link_to "View More...", quads_path %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
-
-  <section>
-    <div>
-
 </body>
 </html>

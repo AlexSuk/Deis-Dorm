@@ -2,10 +2,12 @@
 <html>
 <head>
   <title>DeisDorms</title>
+  <%= Gon::Base.render_data({}) %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,7 +16,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <div class="nav navbar-nav navbar-left" style="margin-top: 10px; margin-right: 15px;">
-          <%= link_to image_tag("stop_motion.jpg", size: "30" ), root_path %></li>
+          <%#= link_to image_tag("stop_motion.jpg", size: "30" ), root_path %></li>
+          <%= link_to "Deis-Dorms", root_path %></li>
         </div>
         <ul class="nav navbar-nav">
           <li><%= link_to 'Dorms', quads_path %></li>
@@ -39,5 +42,28 @@
 <div style="padding-top: 50px;">
   <%= yield %>
 </div>
+
+<footer>
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="footer-nav">
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">iOS App</a></li>
+        <li><a href="#">Android App</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul class="social-links">
+        <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
+        <li><a href="#"> <i class="fa fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

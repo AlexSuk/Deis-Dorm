@@ -1,0 +1,6 @@
+<h3> Thanks for the photos! </h3>
+<p> Would you like to upload more? </p>
+
+<%#= hidden_field_tag 'buildings', @buildings %>
+
+<%= link_to "Upload Photos", new_photos_quads_path(quad_id: @quad), method: :get %>

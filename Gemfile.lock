@@ -36,9 +36,13 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     arel (6.0.3)
     autoprefixer-rails (6.3.6)
       execjs
+    autosize-rails (1.18.17)
+      rails (>= 3.1)
     aws-sdk (1.66.0)
       aws-sdk-v1 (= 1.66.0)
     aws-sdk-v1 (1.66.0)
@@ -73,12 +77,13 @@ GEM
     execjs (2.6.0)
     faker (1.6.3)
       i18n (~> 0.5)
-    font-awesome-rails (4.6.1.0)
-      railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    haml (4.0.7)
-      tilt
+    gon (6.0.1)
+      actionpack (>= 3.0)
+      json
+      multi_json
+      request_store (>= 1.0)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -95,9 +100,6 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
-    kaminari (0.16.3)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -112,7 +114,6 @@ GEM
       minitest (~> 5.0)
       rails (>= 4.1)
     multi_json (1.11.2)
-    nested_form (0.3.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     paperclip (4.3.6)
@@ -124,9 +125,6 @@ GEM
     pg (0.18.4)
     puma (3.4.0)
     rack (1.6.4)
-    rack-pjax (0.8.0)
-      nokogiri (~> 1.5)
-      rack (~> 1.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5)
@@ -151,20 +149,6 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_admin (0.8.1)
-      builder (~> 3.1)
-      coffee-rails (~> 4.0)
-      font-awesome-rails (>= 3.0, < 5)
-      haml (~> 4.0)
-      jquery-rails (>= 3.0, < 5)
-      jquery-ui-rails (~> 5.0)
-      kaminari (~> 0.14)
-      nested_form (~> 0.3)
-      rack-pjax (~> 0.7)
-      rails (~> 4.0)
-      remotipart (~> 1.0)
-      safe_yaml (~> 1.0)
-      sass-rails (>= 4.0, < 6)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (4.2.5)
@@ -175,8 +159,7 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
-    remotipart (1.2.1)
-    safe_yaml (1.0.4)
+    request_store (1.3.1)
     sass (3.4.22)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -217,7 +200,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   autoprefixer-rails
+  autosize-rails
   aws-sdk (< 2.0)
   bcrypt (~> 3.1.2)
   bootstrap-sass (~> 3.3.6)
@@ -225,6 +210,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   dotenv-rails
   faker (~> 1.6, >= 1.6.3)
+  gon
   jbuilder (~> 2.0)
   jquery-rails
   jquery-star-rating-rails
@@ -236,7 +222,6 @@ DEPENDENCIES
   puma
   rails (= 4.2.5)
   rails_12factor
-  rails_admin
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
