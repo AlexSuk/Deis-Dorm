@@ -42,7 +42,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "naem": "Ridgewood B",
-        "color": "red"
+        "color": "blue"
       },
       "geometry": {
         "type": "Polygon",
@@ -61,7 +61,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Ridgewood C",
-        "color": "red"
+        "color": "blue"
       },
       "geometry": {
         "type": "Polygon",
@@ -154,7 +154,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Willage C",
+        "name": "Village C",
         "color": "red"
       },
       "geometry": {
@@ -237,7 +237,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Ziv A",
-        "color": "red"
+        "color": "yellow"
       },
       "geometry": {
         "type": "Polygon",
@@ -303,7 +303,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Ziv B",
-        "color": "red"
+        "color": "yellow"
       },
       "geometry": {
         "type": "Polygon",
@@ -369,7 +369,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Ziv C",
-        "color": "red"
+        "color": "yellow"
       },
       "geometry": {
         "type": "Polygon",
@@ -435,7 +435,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Ziv D",
-        "color": "red"
+        "color": "yellow"
       },
       "geometry": {
         "type": "Polygon",
@@ -501,7 +501,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massell Usen",
-        "color": "red"
+        "color": "white"
       },
       "geometry": {
         "type": "Polygon",
@@ -535,7 +535,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massell Renfield",
-        "color": "red"
+        "color": "white"
       },
       "geometry": {
         "type": "Polygon",
@@ -569,7 +569,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massell Deroy",
-        "color": "red"
+        "color": "white"
       },
       "geometry": {
         "type": "Polygon",
@@ -603,7 +603,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massel Shapiro",
-        "color": "red"
+        "color": "white"
       },
       "geometry": {
         "type": "Polygon",
@@ -669,7 +669,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "North Pomerantz",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -799,7 +799,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "East Hassenfeld",
-        "color": "red"
+        "color": "grey"
       },
       "geometry": {
         "type": "Polygon",
@@ -921,7 +921,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Castle",
-        "color": "red"
+        "color": "blue"
       },
       "geometry": {
         "type": "Polygon",
@@ -1209,7 +1209,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Ollie A. Cohen, 164 Charles River Road",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -1466,7 +1466,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Max and Ann Coffman, 150 Charles River Road",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -1657,7 +1657,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "George E. Lewis, 178 Charles River Road",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -1850,7 +1850,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Morton May, 110 Angleside Road",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -2044,7 +2044,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Upper Mods",
-        "color": "red"
+        "color": "orange"
       },
       "geometry": {
         "type": "Polygon",
@@ -2190,7 +2190,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Lower Mods",
-        "color": "red"
+        "color": "orange"
       },
       "geometry": {
         "type": "Polygon",
@@ -2372,7 +2372,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "North Gordon",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -2438,7 +2438,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "North Reitman",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -2488,7 +2488,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "North Cable",
-        "color": "red"
+        "color": "green"
       },
       "geometry": {
         "type": "Polygon",
@@ -2538,7 +2538,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Rosenthal West",
-        "color": "red"
+        "color": "pink"
       },
       "geometry": {
         "type": "Polygon",
@@ -2636,7 +2636,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Rosenthal South",
-        "color": "red"
+        "color": "pink"
       },
       "geometry": {
         "type": "Polygon",
@@ -2734,7 +2734,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Rosenthal North",
-        "color": "red"
+        "color": "pink"
       },
       "geometry": {
         "type": "Polygon",
@@ -2839,16 +2839,15 @@ function initMap() {
   });
   createSidebar(json_array);
 
-  // map.data.loadGeoJson('/app/assets/javascript/google.json');
+  // map.data.loadGeoJson('https://gist.github.com/zcm0705/b0d8ccafd283307795664bb0a8b24e4b.js');
   map.data.addGeoJson(test);
 
   // Load GeoJSON.
   // map.data.loadGeoJson('https://storage.googleapis.com/maps-devrel/google.json');
   //
-  // Color each letter gray. Change the color when the isColorful property
-  // is set to true.
+
   map.data.setStyle(function(feature) {
-    var color = 'blue';
+    var color = feature.getProperty('color');
     return /** @type {google.maps.Data.StyleOptions} */({
       fillColor: color,
       strokeColor: color,
