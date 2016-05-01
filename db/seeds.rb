@@ -91,7 +91,13 @@ Building.create(name: "Village C", longitude: -71.2605201, latitude: 42.3630206,
 random = Random.new()
 dorm_buildings = Building.where(is_kind: "dorm")
 
-# =========== REVIEWS==============#
+# =========== BUILDING PHOTOS ======#
+Building.all.each do |b|
+	picture = b.pictures.build(image_file_name: "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/#{b.id}.jpg")
+	picture.save
+end
+
+# =========== REVIEWS ==============#
 
 CSV.foreach("db/reviews.csv") do |row|
 		user = User.create( user_name: Faker::Internet.user_name,
