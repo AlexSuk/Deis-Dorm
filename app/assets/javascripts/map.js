@@ -11,10 +11,10 @@ var places_of_interest = [
   {lat: 42.366412, lng: -71.260546, name: "Sherman Dinning Hall", infowindow: "Student dinning hall"}
 ];
 var markers = [];
-var brandeis_logo = '/assets/brandeis_logo.png';
-var starbucks = '/assets/s_logo.png';
-var donut = '/assets/d_logo.png';
-var einstein = '/assets/e_logo.png';
+var brandeis_logo = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/brandeis_logo.png';
+var starbucks = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/s_logo.png';
+var donut = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/d_logo.png';
+var einstein = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/e_logo.png';
 var map;
 var test = {
   "type": "FeatureCollection",
