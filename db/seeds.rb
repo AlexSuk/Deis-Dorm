@@ -93,7 +93,13 @@ Building.create(name: "Village C", longitude: -71.2605201, latitude: 42.3630206,
 random = Random.new()
 dorm_buildings = Building.where(is_kind: "dorm")
 
-# =========== REVIEWS==============#
+# =========== BUILDING PHOTOS ======#
+Building.all.each do |b|
+	picture = b.pictures.build(image_file_name: "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/#{b.id}.jpg")
+	picture.save
+end
+
+# =========== REVIEWS ==============#
 
 CSV.foreach("db/reviews.csv") do |row|
 		user = User.create( user_name: Faker::Internet.user_name,
@@ -113,6 +119,32 @@ CSV.foreach("db/reviews.csv") do |row|
 			review.save
     end
 end
+
+# ============= ROOMS ============= #
+building = 0
+
+CSV.foreach("db/room_data.csv") do |row|
+    has_kitchen = true
+    has_laundry = true
+    has_ac = true
+
+    if row[0].include? "&"
+        building = Building.find_by(name: "#{row[1]}")
+    else
+        if row[7].include? "false"
+            has_kitchen = false
+        end
+
+        if row[8].include? "false"
+            has_laundry = false
+        end
+
+        if row[9].include? "false"
+            has_ac = false
+        end
+        Room.create(number: "#{row[0]}", building_id: building, floor: "#{row[1]}", years_available: "#{row[2]}", room_type: "#{row[3]}", gender: "#{row[4]}", price: "#{row[5]}", rough_housing_num: "#{row[6]}", kitchen: has_kitchen, laundry: has_laundry, ac: has_ac, area: "#{row[11]}")
+    end
+end 
 
 # (0..100).each do |i|
 # 	a_user_name = Faker::Internet.user_name
