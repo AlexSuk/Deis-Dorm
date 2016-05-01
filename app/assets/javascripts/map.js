@@ -1,21 +1,25 @@
-var json_array = [
-  { lat: 42.364018, lng: -71.260718, name: 'Ridgewood', infowindow: "Here is Ridgewood Quad."},
-  { lat: 42.369610, lng: -71.255711, name: 'North', infowindow: "Here is North Quad." },
-  { lat: 42.367565, lng: -71.255646, name: 'Castle', infowindow: "Here is a beautiful Castle." }
-];
-var places_of_interest = [
-  {lat: 42.366327, lng: -71.258744, name: "Dunkin' Donuts", infowindow: "food info and shop info"},
-  {lat: 42.367854, lng: -71.258671, name: "Starbucks", infowindow: "Starbucks in Farber Library"},
-  {lat: 42.365730, lng: -71.260188, name: "Einstein Bros Bagels",infowindow: "Selling bagels and softdrinks here"},
-  {lat: 42.368043, lng: -71.256617, name: "Usdan Dinning Hall", infowindow: "Lower Usdan Dinning hall"},
-  {lat: 42.366412, lng: -71.260546, name: "Sherman Dinning Hall", infowindow: "Student dinning hall"}
-];
-var markers = [];
-var brandeis_logo = '/assets/brandeis_logo.png';
-var starbucks = '/assets/s_logo.png';
-var donut = '/assets/d_logo.png';
-var einstein = '/assets/e_logo.png';
-var map;
+// <<<<<<< HEAD
+// var json_array = [
+//   { lat: 42.364018, lng: -71.260718, name: 'Ridgewood', infowindow: "Here is Ridgewood Quad."},
+//   { lat: 42.369610, lng: -71.255711, name: 'North', infowindow: "Here is North Quad." },
+//   { lat: 42.367565, lng: -71.255646, name: 'Castle', infowindow: "Here is a beautiful Castle." }
+// ];
+// var places_of_interest = [
+//   {lat: 42.366327, lng: -71.258744, name: "Dunkin' Donuts", infowindow: "food info and shop info"},
+//   {lat: 42.367854, lng: -71.258671, name: "Starbucks", infowindow: "Starbucks in Farber Library"},
+//   {lat: 42.365730, lng: -71.260188, name: "Einstein Bros Bagels",infowindow: "Selling bagels and softdrinks here"},
+//   {lat: 42.368043, lng: -71.256617, name: "Usdan Dinning Hall", infowindow: "Lower Usdan Dinning hall"},
+//   {lat: 42.366412, lng: -71.260546, name: "Sherman Dinning Hall", infowindow: "Student dinning hall"}
+// ];
+// var markers = [];
+// var brandeis_logo = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/brandeis_logo.png';
+// var starbucks = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/s_logo.png';
+// var donut = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/d_logo.png';
+// var einstein = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/e_logo.png';
+// var map;
+// =======
+//
+// >>>>>>> a7a24e8eb9286100a2add448326641f2ddbda3c1
 var test = {
   "type": "FeatureCollection",
   "features": [
@@ -501,7 +505,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massell Usen",
-        "color": "white"
+        "color": "black"
       },
       "geometry": {
         "type": "Polygon",
@@ -535,7 +539,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massell Renfield",
-        "color": "white"
+        "color": "black"
       },
       "geometry": {
         "type": "Polygon",
@@ -569,7 +573,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massell Deroy",
-        "color": "white"
+        "color": "black"
       },
       "geometry": {
         "type": "Polygon",
@@ -603,7 +607,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "Massel Shapiro",
-        "color": "white"
+        "color": "black"
       },
       "geometry": {
         "type": "Polygon",
@@ -669,7 +673,7 @@ var test = {
       "type": "Feature",
       "properties": {
         "name": "North Pomerantz",
-        "color": "green"
+        "color": "grey"
       },
       "geometry": {
         "type": "Polygon",
@@ -2830,6 +2834,26 @@ var test = {
     }
   ]
 }
+
+// var json_array = [
+//   { lat: 42.364018, lng: -71.260718, name: 'Ridgewood', infowindow: "Here is Ridgewood Quad."},
+//   { lat: 42.369610, lng: -71.255711, name: 'North', infowindow: "Here is North Quad." },
+//   { lat: 42.367565, lng: -71.255646, name: 'Castle', infowindow: "Here is a beautiful Castle." }
+// ];
+var json_array = gon.buildings;
+var places_of_interest = [
+  {lat: 42.366327, lng: -71.258744, name: "Dunkin' Donuts", infowindow: "food info and shop info"},
+  {lat: 42.367854, lng: -71.258671, name: "Starbucks", infowindow: "Starbucks in Farber Library"},
+  {lat: 42.365730, lng: -71.260188, name: "Einstein Bros Bagels",infowindow: "Selling bagels and softdrinks here"},
+  {lat: 42.368043, lng: -71.256617, name: "Usdan Dinning Hall", infowindow: "Lower Usdan Dinning hall"},
+  {lat: 42.366412, lng: -71.260546, name: "Sherman Dinning Hall", infowindow: "Student dinning hall"}
+];
+var markers = [];
+var brandeis_logo = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/brandeis_logo.png';
+var starbucks = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/s_logo.png';
+var donut = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/d_logo.png';
+var einstein = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/e_logo.png';
+var map;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {

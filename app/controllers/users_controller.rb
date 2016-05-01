@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   def find_rooms
     @rooms = Room.individual_search(params)
     @current = User.find_by id: session[:user_id]
-    
+
     #create hash for setting user preferences with only specific fields
     u_params = Hash.new
     u_params[:pref_price] = params[:pref_price]

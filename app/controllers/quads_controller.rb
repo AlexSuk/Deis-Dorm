@@ -6,18 +6,20 @@ class QuadsController < ApplicationController
 		@all_quads.each do |quad|
 			@quad_buildings[quad] = quad.buildings
 		end
-		
+
   end
 
 	def show
 		@quad = Quad.find(params[:id])
-		puts @quad, @quad.buildings, "What"
 		@buildings = @quad.buildings
 		@building = Building.new
 		@picture = Picture.new
+		@review_text = ""
+		@tags = Tag.find_adj_nouns_verbs(@review_text)
 	end
 
 	def new_post
+		puts "new_post"
 		@buildings = Quad.find(params[:quad_id]).buildings
 		redirect_to quad_path(params[:quad_id])
 		# @buildings = Quad.find(params[:id]).buildings
@@ -29,13 +31,19 @@ class QuadsController < ApplicationController
 	end
 
 	def create_post
-		puts params
+		puts "create_post"
 		@quad = params[:quad_id]
-		building = Building.find(params[:building])
+		# building = Building.find(params[:building])
 		# room_num = building.rooms.where("number LIKE ?", "%#{params[:room]}%")
 		# room = building.rooms.where(number: params[:room])
 		# if room.nil?
-		@review = Review.create(text: params[:content],
+
+		content = params[:content]
+
+		tags = content.split.find_all{|word| /^#.+/.match word}
+		index = tags.size - 1
+
+		@review = Review.create(text: content,
 		 						user_id: session[:user_id],
 								building_id: params[:building],
 								room_id: params[:room],
@@ -43,7 +51,32 @@ class QuadsController < ApplicationController
 		# else
 		# 	puts "NO ROOM FOUND!"
 		# end
-		puts @review
+		tags = tags.map { |t|
+			t[1..-1]
+	  }
+		@review.tag_list.add(tags)
+		@review.save
+
+		args = {building_id: params[:building], tags: tags }
+		puts "Args-=-=-=-=-=-=-=-=-=-=-", args
+		CounterJob.perform_async(args)
+
+		puts "User", session[:user_id]
+		puts "REVIEW", @review
+		puts "Tags", tags
+
+		until index < 0 do
+			# content = content.strip.chomp(tags[index])
+			content.slice! tags[index]
+			index -= 1
+		end
+
+		@suggested_tags = Tag.find_adj_nouns_verbs( params[:content] )
+		puts "suggested_tags", @suggested_tags
+
+		args = {building_id: params[:building], tags: @suggested_tags }
+		puts "Suggested Args-=-=-=-=-=-=-=-=-=-=-", args
+		CounterJob.perform_async(args)
 
 		respond_to do |format|
       format.js
@@ -63,6 +96,7 @@ class QuadsController < ApplicationController
 		end
 		redirect_to quad_building_path(:id => building.id, :quad_id => params[:quad_id])
 	end
+
 
 	def do_search
 		puts "TESTING THE DO SEARCH"
