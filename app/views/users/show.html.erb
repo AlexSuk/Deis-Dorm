@@ -169,7 +169,7 @@
         <br>
         Room Type: (select at least one)
         </br>
-        <% ["Single", "Double", "Suite"].each do |roommate| %>
+        <% ["Single", "Double", "Triple", "Suite"].each do |roommate| %>
           <%= check_box_tag "room_type[]", roommate, true, {:multiple => true} %>
           <span><%=roommate%></span>
           <br>
