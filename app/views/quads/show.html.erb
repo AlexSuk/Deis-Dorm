@@ -22,15 +22,14 @@
       <div class="row new-review">
         <ul class="nav nav-tabs" role="tablist">
           <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
-          <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photos</a></li>
+          <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photo</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="comment">
-            <%# puts "WHAAAAA!?~!?~!?~!?~!?~!??~?!?~?!?~!?~!?", params %>
+          <div role="tabpanel" class="tab-pane fade in active" id="comment">
             <%= render(partial: 'new_post') %>
           </div>
-          <div role="tabpanel" class="tab-pane" id="photos">
+          <div role="tabpanel" class="tab-pane fade" id="photos">
             <%= render(partial: 'new_photos') %>
           </div>
         </div>
@@ -42,7 +41,7 @@
 
 
       <% @buildings.each do |building| %>
-        <div class="row building">
+        <div class="row building class-year">
           <div class="row" id="<%= building.name%>">
             <h2><%= link_to building.name, quad_building_path(@quad.id, building.id) %> </h2>
           </div>
@@ -58,19 +57,16 @@
           </div>
 
           <div class="row" >
-            <%= button_tag%>
+            <p>Button to go to blueprint </p>
           </div>
           <div class="row" >
             <h3>Personality</h3>
-            <p>Words to describe building</p>
+            <p>        Tags to describe the building</p>
             <h3>Reviews</h3>
 
           </div>
         </div>
       <% end %>
-
-
-
 
     </div>
   </div>

@@ -89,9 +89,10 @@ ActiveRecord::Schema.define(version: 20160414170213) do
     t.string   "years_available"
     t.string   "room_type"
     t.string   "gender"
-    t.decimal  "price",             precision: 8, scale: 2
+    t.decimal  "price",             precision: 6, scale: 2
     t.float    "area"
     t.string   "dimensions"
+    t.integer  "floor"
     t.integer  "rough_housing_num"
     t.integer  "building_id"
     t.float    "cleanliness"

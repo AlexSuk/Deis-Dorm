@@ -1,0 +1,8 @@
+<h3>Tags</h3>
+
+<%if @tags.nil? || @tags.length == 0%>
+	<p>No Matches Found</p>
+<% else %>
+	<p><%= @tags.length %> matches found</p>
+  
+<% end %>

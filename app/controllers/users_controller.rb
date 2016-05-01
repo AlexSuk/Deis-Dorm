@@ -29,6 +29,12 @@ class UsersController < ApplicationController
         gon.user["double"] = false
       end
 
+      if @current.pref_room_type.include? "Triple"
+        gon.user["triple"] = true
+      else
+        gon.user["triple"] = false
+      end
+
       if @current.pref_room_type.include? "Suite"
         gon.user["suite"] = true
       else
@@ -37,6 +43,7 @@ class UsersController < ApplicationController
     else
       gon.user["single"] = false
       gon.user["double"] = false
+      gon.user["triple"] = false
       gon.user["suite"] = false
     end
   end
