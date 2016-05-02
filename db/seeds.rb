@@ -143,7 +143,7 @@ CSV.foreach("db/room_data.csv") do |row|
         Room.create(number: "#{row[0]}", building_id: building, floor: "#{row[1]}", 
             years_available: "#{row[2]}", room_type: "#{row[3]}", gender: "#{row[4]}", 
             price: "#{row[5]}", rough_housing_num: "#{row[6]}", kitchen: has_kitchen, 
-            laundry: has_laundry, ac: has_ac, area: "#{row[11]}", location: "#{row[12]}"
+            laundry: has_laundry, ac: has_ac, area: "#{row[11]}", location: "#{row[12]}",
             cleanliness: 3, noisiness: 3, light: 3, social: 3, issues: 3, general_rating: 3)
     end
 end
