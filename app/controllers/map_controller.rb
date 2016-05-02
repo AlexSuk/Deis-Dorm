@@ -11,4 +11,8 @@ class MapController < ApplicationController
     end
   end
 
+  def zoom 
+    
+  end
+
 end

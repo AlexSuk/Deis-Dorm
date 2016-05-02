@@ -3013,7 +3013,7 @@ var test = {
 
 var json_array = gon.buildings;
 var places_of_interest = [
-  {lat: 42.366327, lng: -71.258744, name: "Dunkin' Donuts", infowindow: "food info and shop info"},
+  {lat: 42.363196, lng: -71.260464, name: "Dunkin' Donuts", infowindow: "food info and shop info"},
   {lat: 42.367854, lng: -71.258671, name: "Starbucks", infowindow: "Starbucks in Farber Library"},
   {lat: 42.365730, lng: -71.260188, name: "Einstein Bros Bagels",infowindow: "Selling bagels and softdrinks here"},
   {lat: 42.368043, lng: -71.256617, name: "Usdan Dinning Hall", infowindow: "Lower Usdan Dinning hall"},
@@ -3072,6 +3072,9 @@ function initMap() {
         bldg = json_array[i];
       }
     }
+  //   map.data.addListener('click', function(event){
+  //    window.location.href = "/quads/1#ziv 127";
+  //  })
     var contentString = '<h4>'+bldg["name"]+'</h4>'+'<p>'+bldg["infowindow"]+'</p>'+
                         '<a href="http://google.com" type="button" class="btn btn-primary">Learn More</a>'
     var infowindow = new google.maps.InfoWindow({
