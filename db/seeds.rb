@@ -98,7 +98,7 @@ Building.all.each do |b|
 end
 
 # =========== REVIEWS ==============#
-$redis.flushall
+# $redis.flushall
 CSV.foreach("db/reviews.csv") do |row|
 		user = User.create( user_name: Faker::Internet.user_name,
 				password_digest: BCrypt::Password.create(Faker::Internet.password),
@@ -117,7 +117,7 @@ CSV.foreach("db/reviews.csv") do |row|
       review.tag_list.add(tags)
 			review.save
 			args = {building_id: building_id, tags: tags }
-			TagCounterJob.perform_async(args)
+			# TagCounterJob.perform_async(args)
     end
 end
 
@@ -143,9 +143,9 @@ CSV.foreach("db/room_data.csv") do |row|
         if row[9].include? "false"
             has_ac = false
         end
-        Room.create(number: "#{row[0]}", building_id: building, floor: "#{row[1]}", 
-            years_available: "#{row[2]}", room_type: "#{row[3]}", gender: "#{row[4]}", 
-            price: "#{row[5]}", rough_housing_num: "#{row[6]}", kitchen: has_kitchen, 
+        Room.create(number: "#{row[0]}", building_id: building, floor: "#{row[1]}",
+            years_available: "#{row[2]}", room_type: "#{row[3]}", gender: "#{row[4]}",
+            price: "#{row[5]}", rough_housing_num: "#{row[6]}", kitchen: has_kitchen,
             laundry: has_laundry, ac: has_ac, area: "#{row[11]}", location: "#{row[12]}",
             cleanliness: 3, noisiness: 3, light: 3, social: 3, issues: 3, general_rating: 3)
     end
