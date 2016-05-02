@@ -1,0 +1,7 @@
+/*!
+  jQuery #hashtags v0.5.0
+	(c) 2013 Simon Nussbaumer - admin@thurnax.com
+	updated: 2015-24-07
+	license: GNU LESSER GENERAL PUBLIC LICENSE
+*/
+!function(t){t.fn.hashtags=function(){console.log("Hashtags"),t(this).wrap('<div class="jqueryHashtags"><div class="highlighter"></div></div>').unwrap().before('<div class="highlighter"></div>').wrap('<div class="typehead"></div></div>'),t(this).addClass("theSelector"),t(this).on("keyup",function(){var a=t(this).val();console.log("Hashtagskey"),t(this).parent().parent().find(".highlighter").css("width",t(this).css("width")),a=a.replace(/\n/g,"<br>"),a.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?#([a-zA-Z0-9]+)/g)||a.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?@([a-zA-Z0-9]+)/g)||a.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?#([\u0600-\u06FF]+)/g)||a.match(/(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?@([\u0600-\u06FF]+)/g)||(a=a.match(/#(([a-zA-Z0-9]+)|([\u0600-\u06FF]+))#/g)?a.replace(/#(([a-zA-Z0-9]+)|([\u0600-\u06FF]+))#(([a-zA-Z0-9]+)|([\u0600-\u06FF]+))/g,'<span class="hashtag">#$1</span>'):a.replace(/#(([a-zA-Z0-9]+)|([\u0600-\u06FF]+))/g,'<span class="hashtag">#$1</span>')),t(this).parent().parent().find(".highlighter").html(a)}),t(this).parent().prev().on("click",function(){t(this).parent().find(".theSelector").focus()})}}(jQuery);

@@ -33,7 +33,7 @@ class QuadsController < ApplicationController
 	def create_post
 		puts "create_post"
 		@quad = params[:quad_id]
-		building = Building.find(params[:building])
+		# building = Building.find(params[:building])
 		# room_num = building.rooms.where("number LIKE ?", "%#{params[:room]}%")
 		# room = building.rooms.where(number: params[:room])
 		# if room.nil?
@@ -57,6 +57,10 @@ class QuadsController < ApplicationController
 		@review.tag_list.add(tags)
 		@review.save
 
+		args = {building_id: params[:building], tags: tags }
+		puts "Args-=-=-=-=-=-=-=-=-=-=-", args
+		CounterJob.perform_async(args)
+
 		puts "User", session[:user_id]
 		puts "REVIEW", @review
 		puts "Tags", tags
@@ -69,6 +73,10 @@ class QuadsController < ApplicationController
 
 		@suggested_tags = Tag.find_adj_nouns_verbs( params[:content] )
 		puts "suggested_tags", @suggested_tags
+
+		args = {building_id: params[:building], tags: @suggested_tags }
+		puts "Suggested Args-=-=-=-=-=-=-=-=-=-=-", args
+		CounterJob.perform_async(args)
 
 		respond_to do |format|
       format.js
