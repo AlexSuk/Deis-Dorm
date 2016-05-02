@@ -1,13 +1,14 @@
 <div class = "row">
 	<br></br>
-    <h2> Your Most Prefered Rooms: </h2>
+    <h2> Your Ideal Room Matches: </h2>
 </div>
 <br>
 <div class = "row">
 	<table class = "table table-bordered table-striped">
 		<thead>
 		    <tr>
-		      <th> Name </th>
+		      <th> Room# </th>
+		      <th> Building </th>
 		    </tr>
 		</thead>
 
@@ -15,6 +16,7 @@
 		    <% @rooms.each do |room| %>
 		      <tr>
 		        <td><%= room.number %></td>
+		        <td><%= @buildings[@rooms.index(room)].name %></td>
 		      </tr>
 		    <% end %>
 		</tbody>
