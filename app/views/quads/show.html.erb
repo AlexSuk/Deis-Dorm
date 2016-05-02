@@ -61,7 +61,15 @@
           </div>
           <div class="row" >
             <h3>Personality</h3>
-            <p>        Tags to describe the building</p>
+              <% if @building_tags[building.id].empty? %>
+                <p> Not enough reviews for this building yet. Help out! </p>
+              <% else %>
+                <% @building_tags[building.id].each do |t, count| %>
+                  <span style="color:#336699;"> #<%= t %> </span>
+                <% end %>
+              <% end %>
+
+            <!-- <p>        Tags to describe the building</p> -->
             <h3>Reviews</h3>
 
           </div>

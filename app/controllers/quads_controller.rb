@@ -12,10 +12,15 @@ class QuadsController < ApplicationController
 	def show
 		@quad = Quad.find(params[:id])
 		@buildings = @quad.buildings
-		@building = Building.new
 		@picture = Picture.new
-		@review_text = ""
-		@tags = Tag.find_adj_nouns_verbs(@review_text)
+		@building_tags = {}
+		@buildings.each do |build|
+			tags = $redis.hgetall("b_#{build.id}")
+			puts tags
+			top_tags = tags.sort_by { |k,v| -v }.reverse.to_h
+			@building_tags[build.id] = top_tags
+		end
+
 	end
 
 	def new_post
@@ -58,8 +63,7 @@ class QuadsController < ApplicationController
 		@review.save
 
 		args = {building_id: params[:building], tags: tags }
-		puts "Args-=-=-=-=-=-=-=-=-=-=-", args
-		CounterJob.perform_async(args)
+		TagCounterJob.perform_async(args)
 
 		puts "User", session[:user_id]
 		puts "REVIEW", @review
@@ -76,7 +80,7 @@ class QuadsController < ApplicationController
 
 		args = {building_id: params[:building], tags: @suggested_tags }
 		puts "Suggested Args-=-=-=-=-=-=-=-=-=-=-", args
-		CounterJob.perform_async(args)
+		TagCounterJob.perform_async(args)
 
 		respond_to do |format|
       format.js

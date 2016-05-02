@@ -3,20 +3,16 @@
 
 <%= puts "buildings", @buildings %>
 
-<% @suggested_tags.each do |tag| %>
-<p><%= tag %> </p>
-<% end %>
+<%= form_tag create_post_quads_path, method: "get", remote: true, id: 'quad_new_comment' do %>
 
-<!-- <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary active">
-    <input type="checkbox" autocomplete="off" checked> Checkbox 1 (pre-checked)
-  </label>
-  <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off"> Checkbox 2
-  </label>
-  <label class="btn btn-primary">
-    <input type="checkbox" autocomplete="off"> Checkbox 3
-  </label>
-</div> -->
+  <div class="" data-toggle="buttons">
+    <% @suggested_tags.keys.each do |tag| %>
+      <label class="btn btn-primary tag-btn">
+        <input type="checkbox" autocomplete="off" value="<%=tag%>"> <%=tag%>
+        <%= check_box_tag "tags[]", tag, true, {:multiple => true}, autocomplete:"off" %>
+      </label>
+    <% end %>
+
+  </div>
 
 <%= link_to "Write new review", new_post_quads_path(quad_id: @quad), method: :get %>

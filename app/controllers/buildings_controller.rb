@@ -3,15 +3,15 @@ class BuildingsController < ApplicationController
 
   def show
     @building = Building.find(params[:id])
+    user_array = @building.reviews.map { |r| r.user_id}
     @users = User.find(@building.reviews.map { |r| r.user_id })
     @users_map = {}
     @users.each do |user|
-      users[user.id] = user
+      @users_map[user.id] = user
     end
-    # @reviews_users = Hash[@building.reviews.zip(@users)]
     @reviews_users = {}
-    @reviews.each do |review|
-      
+    @building.reviews.each do |review|
+      @reviews_users[review] = @users_map[review.user_id]
     end
 
     @picture = Picture.new

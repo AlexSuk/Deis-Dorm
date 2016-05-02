@@ -39,7 +39,6 @@
   <%# review = @building.reviews[2] %>
     <div class="row">
       <span>
-        <% unless user.nil? %>
         <% if user.icon_content_type.nil? %>
           <%= image_tag user.icon_file_name, id: "profile-pic", size: "50" %>
         <% else %>
@@ -48,7 +47,6 @@
 
       </span>
       <span><h5> <%= link_to user.user_name, user_path(user.id) %> </h5></span>
-      <% end %>
       <span> Rating: <%= review.rating %> </span>
 
       <span>
