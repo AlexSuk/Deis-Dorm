@@ -64,7 +64,7 @@ class Room < ActiveRecord::Base
 			valid_rooms = Room.year_filtered_array(3)
 		end	
 
-		valid_rooms.each do |room|
+		valid_rooms.reverse.each do |room|
 			if room.gender != gender || !room_type.include?("#{room.room_type}")
 				valid_rooms.delete(room)
 			elsif housing_num.to_i > 0
