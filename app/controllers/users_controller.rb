@@ -15,27 +15,28 @@ class UsersController < ApplicationController
     gon.user["pref_noise"] = @current.pref_noise
     gon.user["pref_location"] = @current.pref_location
     gon.user["pref_ac"] = @current.pref_ac
+    gon.user["pref_social"] = @current.pref_social
 
     if @current.pref_room_type
-      if @current.pref_room_type.include? "Single"
+      if @current.pref_room_type.include? "single"
         gon.user["single"] = true
       else
         gon.user["single"] = false
       end
 
-      if @current.pref_room_type.include? "Double"
+      if @current.pref_room_type.include? "double"
         gon.user["double"] = true
       else
         gon.user["double"] = false
       end
 
-      if @current.pref_room_type.include? "Triple"
+      if @current.pref_room_type.include? "triple"
         gon.user["triple"] = true
       else
         gon.user["triple"] = false
       end
 
-      if @current.pref_room_type.include? "Suite"
+      if @current.pref_room_type.include? "suite"
         gon.user["suite"] = true
       else
         gon.user["suite"] = false
@@ -49,7 +50,13 @@ class UsersController < ApplicationController
   end
 
   def find_rooms
-    @rooms = Room.individual_search("PARAMS")
+    @rooms = Array.new
+    @rooms = Room.individual_search(params)
+    @buildings = Array.new
+    @buildings.clear
+    @rooms.each do |room|
+      @buildings.push(Building.find(room.building_id))
+    end
     @current = User.find_by id: session[:user_id]
 
     #create hash for setting user preferences with only specific fields
@@ -60,6 +67,7 @@ class UsersController < ApplicationController
     u_params[:pref_noise] = params[:pref_noise]
     u_params[:pref_location] = params[:pref_location]
     u_params[:pref_ac] = params[:pref_ac]
+    u_params[:pref_social] = params[:pref_social]
     u_params[:housing_number] = params[:housing_number]
     u_params[:pref_year] = params[:pref_year]
     u_params[:pref_gender] = params[:pref_gender]
