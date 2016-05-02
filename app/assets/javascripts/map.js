@@ -672,11 +672,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-<<<<<<< HEAD
         "name": "Pomerantz",
-=======
-        "name": "North Pomerantz",
->>>>>>> be34ccfcd0ad376409149c036d8ee348738dd58b
         "color": "grey"
       },
       "geometry": {
