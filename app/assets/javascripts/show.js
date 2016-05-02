@@ -6,10 +6,11 @@ $(document).ready(function(){
     $("#pref4").val(gon.user["pref_noise"]);
     $("#pref5").val(gon.user["pref_location"]);
     $("#pref6").val(gon.user["pref_ac"]);
-    $('input[value=Single]').prop("checked",gon.user["single"]);
-    $('input[value=Double]').prop("checked",gon.user["double"]);
-    $('input[value=Triple]').prop("checked",gon.user["triple"]);
-    $('input[value=Suite]').prop("checked",gon.user["suite"]);
+    $("#pref7").val(gon.user["pref_social"]);
+    $('input[value=single]').prop("checked",gon.user["single"]);
+    $('input[value=double]').prop("checked",gon.user["double"]);
+    $('input[value=triple]').prop("checked",gon.user["triple"]);
+    $('input[value=suite]').prop("checked",gon.user["suite"]);
   }
 
   $('input[type=range]').each(function(index,value){updateRangeValue(value)});

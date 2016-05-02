@@ -127,7 +127,6 @@ CSV.foreach("db/room_data.csv") do |row|
     has_ac = true
 
     if row[0].include? "&"
-        puts "#{row[1]}"
         building = Building.find_by(name: "#{row[1]}").id
     else
         if row[7].include? "false"
