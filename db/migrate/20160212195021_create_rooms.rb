@@ -11,6 +11,8 @@ class CreateRooms < ActiveRecord::Migration
       t.integer :floor
       t.integer :rough_housing_num
       t.integer :building_id
+      t.string :x_coordinate
+      t.string :y_coordinate
 
       t.float :cleanliness
       t.float :noisiness
