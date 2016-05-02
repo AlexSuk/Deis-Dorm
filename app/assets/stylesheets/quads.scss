@@ -121,6 +121,21 @@ textarea {
   // padding-bottom: 15px;
 }
 
+.tag-btn {
+  background-color: #efefef;
+  color: #010101;
+}
+
+.tag-btn.active,
+.tag-btn.active:hover,
+.tag-btn.active:focus,
+.tag-btn.active:visited {
+  background-color: #003366;
+  color: #fff;
+}
+
+// =================== OTHER ============
+
 .container {
   padding-top: 20px;
   background-color: #fff;
