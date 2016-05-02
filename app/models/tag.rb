@@ -9,7 +9,7 @@ class Tag < ActiveRecord::Base
       verb_tags.delete("'m")
       verb_tags.delete("was")
       verb_tags.delete("is")
-      tags = tags.merge verb_tags.sort_by { |k,v| -v }[0..0]
+      tags = tags.merge Hash[verb_tags.sort_by { |k,v| -v }[0..0]]
       tags = tags.merge Hash[($tgr.get_adjectives(tagged)).sort_by { |k,v| -v }[0..2]]
     end
   end

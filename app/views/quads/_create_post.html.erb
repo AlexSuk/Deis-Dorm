@@ -9,10 +9,10 @@
     <% @suggested_tags.keys.each do |tag| %>
       <label class="btn btn-primary tag-btn">
         <input type="checkbox" autocomplete="off" value="<%=tag%>"> <%=tag%>
-        <%= check_box_tag "tags[]", tag, true, {:multiple => true}, autocomplete:"off" %>
+        <%= check_box_tag "tags[]", tag, true, {:multiple => true} %>
       </label>
     <% end %>
 
   </div>
-
+<% end %>
 <%= link_to "Write new review", new_post_quads_path(quad_id: @quad), method: :get %>
