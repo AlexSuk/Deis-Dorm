@@ -142,7 +142,7 @@ CSV.foreach("db/room_data.csv") do |row|
         end
         Room.create(number: "#{row[0]}", building_id: building, floor: "#{row[1]}", years_available: "#{row[2]}", room_type: "#{row[3]}", gender: "#{row[4]}", price: "#{row[5]}", rough_housing_num: "#{row[6]}", kitchen: has_kitchen, laundry: has_laundry, ac: has_ac, area: "#{row[11]}")
     end
-end 
+end
 
 # (0..100).each do |i|
 # 	a_user_name = Faker::Internet.user_name
