@@ -1,24 +1,65 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCusYXvwnjlf3T9iXvhGbfi_W-tPFunBvI&callback=initMap"
   type="text/javascript"></script>
 
+<head>
 <style>
 
-#sidebar_container{position:absolute;left:820px;top:120px;padding:5px;background-color:white;width:300px;border-radius:3px;}
-.dormbldg{border-top:solid 1px #CCC;cursor:pointer}
-#search{border:0;width:290px;}
-#search:focus{box-shadow:none;outline:0 none;}
+#sidebar_container{
+  position:absolute;
+  left:840px;
+  top:170px;
+  padding:5px;
+  bottom:0;
+  background-color:white;
+  width:330px;
+  height: 417px;
+  border-radius:3px;
+  overflow-y: scroll;
+  border: 3px solid white;
+}
 
+.dormbldg{
+  border-top:solid 1px #CCC;
+  cursor:pointer
+}
+
+#search{
+  position: fixed;
+  border: 3px solid lightblue;
+  width:300px;
+  top: 140px;
+}
+
+#search:focus{
+  background-color: lightblue;
+  position: absolute;
+  box-shadow:none;
+  outline:0 none;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  text-align: center;
+}
 </style>
+</head>
+
+<body>
 <h1>Map</h1>
 
-<div style='width: 800px;'>
+<div>
   Places of Interest: <input type="checkbox" id="places_of_interest_box" onclick="interestMarkersBox(this)"/>
   Keep Markers: <input type="checkbox" id="keep_markers_box" onclick="keepMarkers(this)"/>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+  <div id="map" style='width: 800px; height: 450px;left: 30px;border: 3px solid white;'></div>
 
 </div>
 <div id='sidebar_container'>
-  <input type="text" id="search" placeholder="Search...">
+  <input type="text" id="search" placeholder="Search Dorm Building...">
 </div>
+</body>
 
+<%= include_gon %>
 <%= javascript_include_tag "map" %>

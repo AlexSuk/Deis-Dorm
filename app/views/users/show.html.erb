@@ -66,9 +66,9 @@
         <div class="col-md-6">
           Gender Preference:<%= select_tag(:pref_gender,
               options_for_select(
-                [['Male Only', "Male"],
-                 ['Female Only', "Female"],
-                 ["Mixed Gender", "Mixed"]], @current.pref_gender), class: "form-control", include_blank: true) %>
+                [['Male Only', "male"],
+                 ['Female Only', "female"],
+                 ["Mixed Gender", "mixed"]], @current.pref_gender), class: "form-control", include_blank: true) %>
           <br>
         </div>
       </div>
@@ -92,7 +92,7 @@
       <br>
       <div class="row">
         <div class="col-md-8">
-          <p>Rate the Importance of Price: (1: irrelevant 10: low price needed)</p>
+          <p>Rate the Importance of Price: (0: irrelevant 10: low price needed)</p>
           <div class="range-wrapper">
             <input type="range" name="pref_price" min="0" max="10" id="pref1"/>
             <div class="text">1</div>
@@ -104,7 +104,7 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
-          <p>Rate the Importance of Room Cleanliness: (1: irrelevant 10: must be clean)</p>
+          <p>Rate the Importance of Room Cleanliness: (0: irrelevant 10: must be clean)</p>
           <div class="range-wrapper">
             <input type="range" name="pref_clean" min="0" max="10" id="pref2"/>
             <div class="text">1</div>
@@ -116,7 +116,7 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
-          <p>Rate the Importance of Room Size: (1: irrelevant 10: must be spacious)</p>
+          <p>Rate the Importance of Room Size: (0: irrelevant 10: must be spacious)</p>
           <div class="range-wrapper">
             <input type="range" name="pref_size" min="0" max="10" id="pref3"/>
             <div class="text">1</div>
@@ -128,7 +128,7 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
-          <p>Rate the Importance of Noise Level: (1: can be very loud  10: must be silent)</p>
+          <p>Rate the Importance of Noise Level: (0: can be very loud  10: must be silent)</p>
           <div class="range-wrapper">
             <input type="range" name="pref_noise" min="0" max="10" id="pref4"/>
             <div class="text">1</div>
@@ -152,7 +152,7 @@
       </div>
       <div class ="row">
         <div class="col-md-8">
-          <p>Rate the Importance of Having Air Conditioning: (1: willing to live without  10: necessity)
+          <p>Rate the Importance of Having Air Conditioning: (0: willing to live without  10: necessity)
           <br>
           Note: This will only likely matter at the beginning and ending of the year. All dorms have heating.
           </p>
@@ -166,10 +166,22 @@
         </div>
       </div>
       <div class ="row">
+        <div class="col-md-8">
+          <p>Rate the Importance of Socializing: (0: isolated 10: easy to meet people/socialize/party) </p>
+          <div class="range-wrapper">
+            <input type="range" name="pref_social" min="0" max="10" id="pref7"/>
+            <div class="text">1</div>
+            <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+      <div class ="row">
         <br>
         Room Type: (select at least one)
         </br>
-        <% ["Single", "Double", "Triple", "Suite"].each do |roommate| %>
+        <% ["single", "double", "triple", "suite"].each do |roommate| %>
           <%= check_box_tag "room_type[]", roommate, true, {:multiple => true} %>
           <span><%=roommate%></span>
           <br>
@@ -182,7 +194,8 @@
         <br>
       </div>
       <div class="row">
-          <%= submit_tag "Submit Preferences", class: "btn btn-primary" %>
+          <%= submit_tag "Submit Preferences", class: "btn btn-primary", id: "submit_button" %>
+          <br></br>
       </div>
     <% end %>
     <% end %>
