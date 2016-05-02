@@ -17,9 +17,7 @@
 // var donut = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/d_logo.png';
 // var einstein = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/e_logo.png';
 // var map;
-// =======
-//
-// >>>>>>> a7a24e8eb9286100a2add448326641f2ddbda3c1
+
 var test = {
   "type": "FeatureCollection",
   "features": [
@@ -672,11 +670,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-<<<<<<< HEAD
         "name": "Pomerantz",
-=======
-        "name": "North Pomerantz",
->>>>>>> be34ccfcd0ad376409149c036d8ee348738dd58b
         "color": "grey"
       },
       "geometry": {
@@ -3159,11 +3153,13 @@ function create_interest_marker(places) {
     // });
     var latlng = {lat: places[i]["lat"], lng: places[i]["lng"]};
     //change marker icons
-    var icon_image = donut;
+    var icon_image = brandeis_logo;
     if (places[i]["name"] === "Starbucks"){
       icon_image = starbucks;
     } else if (places[i]["name"] === "Einstein Bros Bagels"){
       icon_image = einstein;
+    } else if (places[i]["name"] === "Dunkin' Donuts"){
+      icon_image = donut;
     }
     var marker = new google.maps.Marker({
       position: latlng,
