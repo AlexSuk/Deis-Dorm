@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :map
+  resources :map 
 
   resources :forum
 

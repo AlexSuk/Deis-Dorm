@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#require 'faker'
+User.create(user_name: "flash2", password_digest: BCrypt::Password.create('123'), email: "idk@idk.com", admin?: true)
 require 'faker'
 require 'csv'
 
