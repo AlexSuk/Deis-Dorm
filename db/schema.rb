@@ -153,6 +153,11 @@ ActiveRecord::Schema.define(version: 20160414170213) do
     t.string   "pref_gender"
     t.string   "pref_bedtime"
     t.string   "pref_room_type"
+    t.integer  "choice_one"
+    t.integer  "choice_two"
+    t.integer  "choice_three"
+    t.integer  "choice_four"
+    t.integer  "choice_five"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

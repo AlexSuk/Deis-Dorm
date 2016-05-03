@@ -8,6 +8,7 @@
 		<thead>
 		    <tr>
 		      <th> Room# </th>
+		      <th> Quad </th>
 		      <th> Building </th>
 		    </tr>
 		</thead>
@@ -16,6 +17,7 @@
 		    <% @rooms.each do |room| %>
 		      <tr>
 		        <td><%= room.number %></td>
+		        <td><%= @quads[@rooms.index(room)].name %></td>
 		        <td><%= @buildings[@rooms.index(room)].name %></td>
 		      </tr>
 		    <% end %>
