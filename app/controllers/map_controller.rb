@@ -6,13 +6,14 @@ class MapController < ApplicationController
     @buildings = Building.all
     @buildings.each do |b|
       bldg = Hash.new
-      bldg = {:lat => b["latitude"], :lng => b["longitude"], :name => b["name"], :infowindow => b["description"]}
+      bldg_id = Building.find_by(name: "#{b["name"]}").id
+      bldg = {:lat => b["latitude"], :lng => b["longitude"], :name => b["name"], :infowindow => b["description"], :quad_id => b["quad_id"], :id => bldg_id}
       gon.buildings << bldg
     end
   end
 
-  def zoom 
-    
+  def zoom
+
   end
 
 end
