@@ -23,6 +23,11 @@ class Room < ActiveRecord::Base
 		sorted_room_prices = room_prices.sort_by{|e| e[1]}
 
 		rooms.each do |room|
+			puts params[:pref_clean] + " --1"
+			puts params[:pref_noise] + " --2"
+			puts params[:pref_location] + " --3"
+			puts params[:pref_social] + " --4"
+
 			score = (params[:pref_clean].to_i * room.cleanliness) + (params[:pref_noise].to_i * room.noisiness) + (params[:pref_location].to_i * room.location) + (params[:pref_social].to_i * room.social) + (4 * room.light) + (5 * room.issues) + (6 * room.general_rating)
 			
 			if room.kitchen == true && room.laundry == true

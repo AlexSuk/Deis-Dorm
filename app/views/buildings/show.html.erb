@@ -1,9 +1,8 @@
 <%= stylesheet_link_tag "buildings", media: "all", "data-turbolinks-track" => "reload" %>
 
 <div class="container">
-
+  <h4><%= link_to "Dorms", quads_path %>><%= link_to @quad.name, quad_path(@quad.id)%>><%= link_to @building.name, quad_building_path(@quad.id, @building.id) %></h4>
   <h1> <%= @building.name %> </h1>
-
   <h3> <%= @building.description %> </h3>
 
   <% unless session[:user_id].nil? %>

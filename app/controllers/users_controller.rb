@@ -54,8 +54,12 @@ class UsersController < ApplicationController
     @rooms = Room.individual_search(params)
     @buildings = Array.new
     @buildings.clear
+    @quads = Array.new
+    @quads.clear
     @rooms.each do |room|
-      @buildings.push(Building.find(room.building_id))
+      building = Building.find(room.building_id)
+      @buildings.push(building)
+      @quads.push(Quad.find(building.quad_id))
     end
     @current = User.find_by id: session[:user_id]
 
@@ -73,6 +77,22 @@ class UsersController < ApplicationController
     u_params[:pref_gender] = params[:pref_gender]
     u_params[:pref_bedtime] = params[:pref_bedtime]
     u_params[:pref_room_type] = params[:room_type]
+
+    if @rooms.size > 0
+      u_params[:choice_one] = @rooms[0].id
+    end
+    if @rooms.size > 1
+      u_params[:choice_two] = @rooms[1].id
+    end
+    if @rooms.size > 2
+      u_params[:choice_three] = @rooms[2].id
+    end
+    if @rooms.size > 3
+      u_params[:choice_four] = @rooms[3].id
+    end
+    if @rooms.size > 4
+      u_params[:choice_five] = @rooms[4].id
+    end
 
     respond_to do |format|
       if @current.update_attributes(u_params)

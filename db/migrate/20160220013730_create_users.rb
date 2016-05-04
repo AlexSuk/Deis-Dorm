@@ -21,6 +21,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :pref_bedtime
       t.string :pref_room_type
 
+      t.integer :choice_one
+      t.integer :choice_two
+      t.integer :choice_three
+      t.integer :choice_four
+      t.integer :choice_five
+
       t.timestamps null: false
     end
   end
