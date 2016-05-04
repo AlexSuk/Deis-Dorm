@@ -84,8 +84,8 @@ h1 {
     var img=document.getElementById("img");
 
     var addMode=true;
-    var id_counter = 1;
-    var emptyRoomCounter = 1;
+    var emptyRoomCounter = 0;
+    var firstVisit = 0;
 
     filled_rooms = gon.all_dots;
     for (var i = 0; i < filled_rooms.length; i++) {
@@ -96,19 +96,21 @@ h1 {
       newDot.style.top=filled_rooms[i]['y_coordinate']
       document.body.appendChild(newDot);
     }
-
     emptyRooms = gon.empty_locations;
+
     
-    document.getElementById("assistant").innerHTML = "Please locate room: " + emptyRooms[0]['number'] + " with ID :" + emptyRooms[0]['id'];  
-      
-      
+    document.getElementById("assistant").innerHTML = "Please locate room: " + emptyRooms[0]['number'] + " with ID :" + emptyRooms[emptyRoomCounter]['id'] + " at building: " + emptyRooms[0]['building_name'] + " on Floor: " + emptyRooms[emptyRoomCounter]['floor'];  
+    
+          
     img.onclick=function(ev){
       if(!addMode){
         return;
       }
       var newDot=document.getElementById("assistant");
-      newDot.innerHTML = "Please locate room: " + emptyRooms[emptyRoomCounter]['number'] + " with ID :" + emptyRooms[emptyRoomCounter]['id'];  
-      emptyRoomCounter = emptyRoomCounter + 1;
+      
+        newDot.innerHTML = "Please locate room: " + emptyRooms[emptyRoomCounter+1]['number'] + " with ID :" + emptyRooms[emptyRoomCounter+1]['id'] + " at building: " + emptyRooms[emptyRoomCounter+1]['building_name'] + " on Floor: " + emptyRooms[emptyRoomCounter+1]['floor'];  
+      
+      
       var newCircle=document.createElement("div");
       newCircle.className="circle";
       // newCircle.style.left=ev.clientX-20+"px"
@@ -119,7 +121,8 @@ h1 {
       console.log(ev);
       newCircle.onclick=poo;
       document.body.appendChild(newCircle);
-      var path = "../rooms/" + id_counter;
+      var path = "../rooms/" + emptyRooms[emptyRoomCounter]['id'];
+      console.log(path);
 
 
       $.ajax({
@@ -133,7 +136,8 @@ h1 {
             alert('error posting rooms');
           }
       });
-      id_counter = id_counter + 1;
+
+      emptyRoomCounter = emptyRoomCounter + 1;
     }
     
     // $.ajax({

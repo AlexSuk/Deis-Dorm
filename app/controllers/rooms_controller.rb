@@ -24,7 +24,7 @@ before_action :set_search, only: [:update, :room_params]
 		filled_coord= Room.where("x_coordinate is not NULL")
 		filled_coord.each do |each_room|
 			room_info = Hash.new
-			room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number} 
+			room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number, :floor => each_room.floor} 
 			gon.all_dots_user << room_info
 		end
 
@@ -80,7 +80,7 @@ before_action :set_search, only: [:update, :room_params]
 
 			filled_coord.each do |each_room|
 				room_info = Hash.new
-				room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number} 
+				room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number,:floor => each_room.floor} 
 				gon.all_dots << room_info
 			end
 
@@ -95,8 +95,9 @@ before_action :set_search, only: [:update, :room_params]
 
 		empty_rooms.each do |empty_room|
 			room_info = Hash.new
-			empty_room_building_temp = Building.where(:id =>  empty_room.building_id)
-			room_info = {:id => empty_room.id, :x_coordinate => empty_room.x_coordinate, :y_coordinate => empty_room.y_coordinate, :number => empty_room.number, :building_name => empty_room_building_temp.name} 
+			empty_room_building_array = Building.where(:id =>  empty_room.building_id)
+			empty_room_building_temp = empty_room_building_array[0]
+			room_info = {:id => empty_room.id, :x_coordinate => empty_room.x_coordinate, :y_coordinate => empty_room.y_coordinate, :number => empty_room.number, :building_name => empty_room_building_temp.name, :floor => empty_room.floor} 
 			gon.empty_locations << room_info
 		end
 
