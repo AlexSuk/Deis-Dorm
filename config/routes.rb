@@ -35,10 +35,6 @@ Rails.application.routes.draw do
 
   resources :map
 
-  resources :forum
-
-  resources :profile
-
   resources :pictures
 
   resources :quads do

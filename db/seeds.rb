@@ -152,7 +152,7 @@ CSV.foreach("db/reviews.csv") do |row|
 	room = Room.find_by(building_id: building.id, number: row[2])
 	if room.nil?
 		counter += 1
-		room = Room.create(number: row[2], building_id: building.id, years_available: building.years, 
+		room = Room.create(number: row[2], building_id: building.id, years_available: building.years, floor: row[2][0].to_i 
 			gender: "mixed", kitchen: false, laundry: false, ac: false, area: 160, location: 3, room_type: "double",
 			issues: 3)
 	end
