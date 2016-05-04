@@ -42,18 +42,20 @@ body {
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
 }
 </style>
 </head>
 
 <body>
-<h1>Map</h1>
+<div class = "container" id = "title_div">
+  <h1>Map</h1>
+</div>
 
-<div>
+<div class = "container">
   Places of Interest: <input type="checkbox" id="places_of_interest_box" onclick="interestMarkersBox(this)"/>
   Keep Markers: <input type="checkbox" id="keep_markers_box" onclick="keepMarkers(this)"/>
-  <div id="map" style='width: 800px; height: 450px;left: 30px;border: 3px solid white;'></div>
+  <div id="map" style='width: 800px; height: 450px;border: 3px solid white;'></div>
 
 </div>
 <%= link_to 'Advanced Search', rooms_path %>
