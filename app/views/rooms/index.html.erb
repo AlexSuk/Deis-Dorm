@@ -9,8 +9,23 @@ body {
 h1 {
   text-align: center;
 }
-.circle{border-radius:20px;width:40px;height:40px;position:absolute;background-color:red;opacity:0.5}
 
+
+#sidebar_container{
+  position:absolute;
+  left:1050px;
+  top:300px;
+  padding:5px;
+  bottom:0;
+  background-color:white;
+  width:330px;
+  height: 417px;
+  border-radius:3px;
+  overflow-y: scroll;
+  border: 3px solid white;
+}
+
+.map_container{width: 900px; height: 750px; background-color: #d3d3d3}
 </style>
 </head>
 
@@ -24,23 +39,24 @@ h1 {
   <br>
   <div>
 
-  <h1>Listing Searches</h1>
 
   <%= form_tag rooms_path, :method => 'get', :id => "floor_search" do %>
     <p>
       <%= select_tag :building, options_for_select(@buildings), :include_blank => true, data: {
-        remote: true,
+        
         url: url_for(rooms_path)
       } %>
 
       <%= select_tag :floor, options_for_select(@floors), :include_blank => true, data: {
-        remote: true,
+        
         url: url_for(rooms_path)
       } %>
 
       <%= submit_tag "Search", class: "btn btn-default"  %>
     </p>
   <%end%>
+
+  <div class = 'map_container'>
 
    <%if @chooser == 1 %>
     <img id="img" src= "assets/Ziv 127Floor 1.png">
@@ -56,85 +72,11 @@ h1 {
     <img id="img" src="">
   <%end%>
 
+  </div>
 
-
-  
-  <br>
-
-  <%if @current_u.admin? == true%>
-    <div style="padding:10px;border:1px solid #CCC;display:inline-block;cursor:pointer" onclick="toggle()" id="toggler">Adding</div>
-
-  <%else%>
-    Enjoy the view!
-  <%end%>
 
 
 <%= link_to 'Back', map_index_path %>
 
 </body>
 
-<script type="text/javascript">
-
-    var img=document.getElementById("img");
-    var addMode=true;
-    var id_counter = 1;
-
-
-
-    img.onclick=function(ev){
-      if(!addMode){
-        return;
-      }
-      console.log("please enter " + id_counter);
-      var newCircle=document.createElement("div");
-      newCircle.className="circle";
-      // newCircle.style.left=ev.clientX-20+"px"
-      // newCircle.style.top=ev.clientY-20+"px"
-      var offset = $(this).offset();
-      newCircle.style.left=(ev.pageX-20) + "px";
-      newCircle.style.top=(ev.pageY-20) + "px";
-      console.log(ev);
-      newCircle.onclick=poo;
-      document.body.appendChild(newCircle);
-      var path = "../rooms/" + id_counter;
-
-
-      $.ajax({
-          type: "PUT",
-          url: path,
-          dataType: 'script',
-          data: {
-            room: {x_coordinate: (ev.pageX-20) + "px", y_coordinate: (ev.pageY-20) + "px"}
-          },
-          error: function() {
-            alert('error posting rooms');
-          }
-      });
-      id_counter = id_counter + 1;
-    }
-    // $.ajax({
-    //     type: "POST",
-    //     dataType: "script",
-    //     url: '/rooms/1',
-    //     contentType: 'application/json',
-    //     data: JSON.stringify({ room:{x_coordinate:"45",y_coordinate:"50"}, _method:'put' })
-    // }).done(function( msg )
-    //         {
-    //             alert( "Data Saved: " + msg );
-    //         });
-
-    function poo(ev){
-      if(addMode){
-        console.log("ev");
-      }else{
-        document.body.removeChild(ev.target);
-      }
-      
-    }
-
-    function toggle(){
-      addMode=!addMode;
-      document.getElementById("toggler").textContent=addMode?"Adding":"Removing";
-    }
-
-</script>
