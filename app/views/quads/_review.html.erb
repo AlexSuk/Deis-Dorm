@@ -1,0 +1,34 @@
+<% unless @review.nil? || @rev_user.nil? %>
+  <div>
+    <span>
+    <% (1..10).each do |star| %>
+      <% unless star == (@review.rating * 2) %>
+        <input name="<%=@r%>" type="radio" class="star {split:2}" disabled="disabled"/>
+      <% else %>
+        <input name="<%=@r%>" type="radio" class="star {split:2}" disabled="disabled" checked="checked"/>
+      <% end %>
+    <% end %>
+    </span>
+    <span class="rating-as-num"><%= @review.rating %> </span>
+  </div>
+  <div class="media">
+    <div class="media-left media-middle">
+      <% if @rev_user.icon_content_type.nil? %>
+        <%= image_tag @rev_user.icon_file_name, size: "30" %>
+      <% else %>
+        <%= image_tag @rev_user.icon.url(:thumb), size: "30" %>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <h5> <%= link_to @rev_user.user_name, user_path(@rev_user.id) %> </h5>
+    </div>
+  </div>
+
+  <div class="cut-text">
+    <%= @review.text %>
+  </div>
+  <%= link_to "Read more...", quad_building_path(@quad.id, @review.building_id) %>
+<% else %>
+  <p> No reviews yet. You can write one above </p>
+  <p>...</p>
+<% end %>

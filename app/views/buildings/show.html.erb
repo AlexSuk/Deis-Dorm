@@ -40,9 +40,9 @@
     <div class="row">
       <span>
         <% if user.icon_content_type.nil? %>
-          <%= image_tag user.icon_file_name, id: "profile-pic", size: "50" %>
+          <%= image_tag user.icon_file_name, id: "profile-pic", size: "30" %>
         <% else %>
-          <%= image_tag user.icon.url(:thumb), id: "profile-pic" %>
+          <%= image_tag user.icon.url(:thumb), id: "profile-pic", size: "30" %>
         <% end %>
 
       </span>
