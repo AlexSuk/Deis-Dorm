@@ -3,6 +3,7 @@
 <body>
   <div class="container">
     <div class="col-md-3" style="padding-right: 100px;">
+      <br></br>
       <div class="row">
         <% if @user.icon_content_type.nil? %>
           <%= image_tag @user.icon_file_name, id: "profile-pic", size: "200" %>
