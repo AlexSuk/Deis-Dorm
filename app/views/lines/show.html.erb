@@ -1,33 +1,34 @@
-<h1>We are at the Show Page</h1>
+<%= stylesheet_link_tag "lines", media: "all", "data-turbolinks-track" => "reload" %>
 
+<body>
+  <div class="container">
+    <div class ="main_post">
+      <h2><strong><%= @line.name %></strong></h2>
+      <p><%= @line.description %></p>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @line.name %>
-</p>
+    <div class ="main_post">
+      <h4><strong>Comments</strong></h4>
+      <%= render @line.posts %>
+    </div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @line.description %>
-</p>
+    <div class ="main_post">
+      <h5><strong>Add a comment:</strong></h5>
+      <%= form_for([@board, @line, @line.posts.build], multipart: true) do |f| %>
 
- <h2>Comments</h2>
-<%= render @line.posts %>
+        <p>
+          <%= f.text_area :text %>
+        </p>
+        <p>
+          <%= f.file_field :image %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+      <% end %>
 
-<h2>Add a comment:</h2>
-<%= form_for([@board, @line, @line.posts.build], multipart: true) do |f| %>
-
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
-  <p>
-    <%= f.file_field :image %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Edit', edit_board_line_path(@board, @line) %> |
-<%= link_to 'Back', board_lines_path %>
+      <%= link_to 'Back to Threads', board_lines_path %>
+    </div>
+    <br></br>
+  </div>
+</body>

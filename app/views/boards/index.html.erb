@@ -1,8 +1,11 @@
+<%= stylesheet_link_tag "boards", media: "all", "data-turbolinks-track" => "reload" %>
+
 <body>
   <div class = "container">
     <h1>Forum Page</h1>
-
-
+  </div>
+  <div class = "container">
+    <div id="the_table">
       <table class = "table table-bordered table-striped">
       <thead>
           <tr>
@@ -19,7 +22,8 @@
      -->    
         </tr>
       <% end %>
-    </table>
+      </table>
+    </div>
     <br></br>
   </div>
 </body>
