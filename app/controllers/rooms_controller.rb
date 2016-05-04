@@ -17,24 +17,26 @@ before_action :set_search, only: [:update, :room_params]
 			i = i+1
 		end
 
-		gon.all_dots = Room.where("x_coordinate is NOT NULL")
+		gon.all_dots_user = Array.new
 
-		chosen_building = params[:building]
-		chosen_floor = params[:floor]
-		chosen_file = "#{chosen_building}#{chosen_floor}"
-		if chosen_file.eql?"Ziv 127Floor 1"
-			@chooser = 1
-		elsif chosen_file.eql?"Ziv 127Floor 2"
-			@chooser = 2
-		elsif chosen_file.eql?"Ziv 127Floor 3"
-			@chooser = 3
-		elsif chosen_file.eql?"Ziv 127Floor 4"
-			@chooser = 4
-		elsif chosen_file.eql?"Ziv 127Floor 5"
-			@chooser = 5
-		else 
-			@chooser = 6
+
+		filled_coord= Room.where("")
+		filled_coord= Room.where("x_coordinate is not NULL")
+		filled_coord.each do |each_room|
+			room_info = Hash.new
+			room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number} 
+			gon.all_dots_user << room_info
 		end
+
+		@chosen_building_user = params[:building]	
+		@chosen_floor_user = params[:floor]
+		chosen_file_temp = "assets/#{@chosen_building_user}#{@chosen_floor_user}"
+		if @chosen_building_user == "" || @chosen_floor_user == "" 
+			@chosen_file_user = ""
+		else
+			@chosen_file_user = chosen_file_temp.gsub!(/\s+/, '')
+		end
+		
 	end
 
 	def index2
@@ -52,11 +54,60 @@ before_action :set_search, only: [:update, :room_params]
 			i = i+1
 		end
 
-		gon.all_dots = Room.where("x_coordinate is NOT NULL")
+
+		gon.all_dots = Array.new
 
 		@chosen_building = params[:building]
 		@chosen_floor = params[:floor]
-		# @chosen_file = "#{@chosen_building}#{@chosen_floor}"
+		room_building_array = Building.where(:name => @chosen_building)
+		room_building = room_building_array[0]
+
+		if @chosen_building != nil
+			if @chosen_building!="" && @chosen_floor!=""
+
+				get_floor_array = @chosen_floor.strip.split(/\s+/)
+				get_floor = get_floor_array[1].to_i
+
+				filled_coord = Room.where(:building_id => room_building.id)
+				filled_coord = filled_coord.where(:floor => get_floor)
+				filled_coord= filled_coord.where("x_coordinate is not NULL")
+			
+			else
+				filled_coord= Array.new
+			
+					
+			end
+
+			filled_coord.each do |each_room|
+				room_info = Hash.new
+				room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number} 
+				gon.all_dots << room_info
+			end
+
+		end
+
+
+		
+
+
+		gon.empty_locations = Array.new
+		empty_rooms= Room.where("x_coordinate is NULL")
+
+		empty_rooms.each do |empty_room|
+			room_info = Hash.new
+			empty_room_building_temp = Building.where(:id =>  empty_room.building_id)
+			room_info = {:id => empty_room.id, :x_coordinate => empty_room.x_coordinate, :y_coordinate => empty_room.y_coordinate, :number => empty_room.number, :building_name => empty_room_building_temp.name} 
+			gon.empty_locations << room_info
+		end
+
+				
+		
+		chosen_file_temp = "../assets/#{@chosen_building}#{@chosen_floor}"
+		if @chosen_building == "" || @chosen_floor == "" 
+			@chosen_file = ""
+		else
+			@chosen_file = chosen_file_temp.gsub!(/\s+/, '')
+		end
 	end
 
 	def show

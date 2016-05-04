@@ -1,6 +1,20 @@
 <head>
 <style>
 
+#assistant{
+
+  left:30px;
+  top:100px;
+  padding:5px;
+  bottom:0;
+  border: 3px solid white;
+  border-radius:3px;
+  background-color:#d3d3d3;
+  width:600px;
+  height: 100px;
+  font-size: 150%;
+  font-family: 'Times New Roman', Times, serif;
+}
 
 body {
   background-color: lightblue;
@@ -10,21 +24,9 @@ h1 {
   text-align: center;
 }
 .circle{border-radius:20px;width:40px;height:40px;position:absolute;background-color:blue;opacity:0.5}
-
-#sidebar_container{
-  position:absolute;
-  left:1050px;
-  top:300px;
-  padding:5px;
-  bottom:0;
-  background-color:white;
-  width:330px;
-  height: 417px;
-  border-radius:3px;
-  overflow-y: scroll;
-  border: 3px solid white;
-}
-.map_container{width: 900px; height: 750px; background-color: #d3d3d3}
+.circle:hover{background-color:#d3d3d3}
+  
+.map_container{width: 1200px; height: 1200px; background-color: #d3d3d3}
 </style>
 </head>
 
@@ -33,19 +35,20 @@ h1 {
 
 <h1>Advanced Search</h1>
 
-  <div style="background-color: #d3d3d3;font-size: 150%;font-family: "Times New Roman", Times, serif;opacity:40%;"> Please enter your search, this page is for admins only</div>
-
+  <div style="background-color: #d3d3d3;font-size: 150%;font-family: 'Times New Roman', Times, serif;opacity:40%;border:3px solid white;width:500px;"> Please enter your search, this page is for admins only</div>
+  <br>
+  <div id = "assistant" ></div>
   <br>
   <div>
 
   <%= form_tag rooms_index2_path, :method => 'get', :id => "floor_search2" do %>
     <p>
-      <%= select_tag :building1, options_for_select(@buildings2), :include_blank => true, data: {
+      <%= select_tag :building, options_for_select(@buildings2), :include_blank => true, data: {
         
         url: url_for(rooms_path)
       } %>
 
-      <%= select_tag :floor2, options_for_select(@floors2), :include_blank => true, data: {
+      <%= select_tag :floor, options_for_select(@floors2), :include_blank => true, data: {
         
         url: url_for(rooms_path)
       } %>
@@ -54,12 +57,13 @@ h1 {
     </p>
   <%end%>
 
+  
   <div class = 'map_container'>
-    <%if @chosen_building.eql?%>
-      <img id="img" src= "../assets/Ziv 127Floor 1.png">
+  
+    <img id="img" src= <%=@chosen_file%>>
     
-    <%end%>
-</div>
+    
+  </div>
 
 
 
@@ -72,20 +76,39 @@ h1 {
 <%= link_to 'Back', map_index_path %>
 
 </body>
-
+<%= include_gon %>
 <script type="text/javascript">
 
+  //if(this.getAttribute('id')=="calc"){
+
     var img=document.getElementById("img");
+
     var addMode=true;
     var id_counter = 1;
+    var emptyRoomCounter = 1;
 
+    filled_rooms = gon.all_dots;
+    for (var i = 0; i < filled_rooms.length; i++) {
+      var newDot=document.createElement("div");
+      newDot.className="circle";
+      newDot.id = filled_rooms[i]["id"];
+      newDot.style.left=filled_rooms[i]['x_coordinate'];
+      newDot.style.top=filled_rooms[i]['y_coordinate']
+      document.body.appendChild(newDot);
+    }
 
-
+    emptyRooms = gon.empty_locations;
+    
+    document.getElementById("assistant").innerHTML = "Please locate room: " + emptyRooms[0]['number'] + " with ID :" + emptyRooms[0]['id'];  
+      
+      
     img.onclick=function(ev){
       if(!addMode){
         return;
       }
-      console.log("please enter " + id_counter);
+      var newDot=document.getElementById("assistant");
+      newDot.innerHTML = "Please locate room: " + emptyRooms[emptyRoomCounter]['number'] + " with ID :" + emptyRooms[emptyRoomCounter]['id'];  
+      emptyRoomCounter = emptyRoomCounter + 1;
       var newCircle=document.createElement("div");
       newCircle.className="circle";
       // newCircle.style.left=ev.clientX-20+"px"
@@ -112,6 +135,7 @@ h1 {
       });
       id_counter = id_counter + 1;
     }
+    
     // $.ajax({
     //     type: "POST",
     //     dataType: "script",

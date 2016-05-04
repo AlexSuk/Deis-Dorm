@@ -25,7 +25,10 @@ h1 {
   border: 3px solid white;
 }
 
-.map_container{width: 900px; height: 750px; background-color: #d3d3d3}
+.map_container{width: 1200px; height: 1200px; background-color: #d3d3d3}
+
+.circle{border-radius:20px;width:40px;height:40px;position:absolute;background-color:blue;opacity:0.5}
+.circle:hover{background-color:#d3d3d3}
 </style>
 </head>
 
@@ -56,21 +59,9 @@ h1 {
     </p>
   <%end%>
 
-  <div class = 'map_container'>
-
-   <%if @chooser == 1 %>
-    <img id="img" src= "assets/Ziv 127Floor 1.png">
-  <%elsif @chooser == 2 %>
-    <img id="img" src= "assets/Ziv 127Floor 2.png">
-  <%elsif @chooser == 3 %>
-    <img id="img" src= "assets/Ziv 127Floor 3.png">
-  <%elsif @chooser == 4 %>
-    <img id="img" src= "assets/Ziv 127Floor 4.png">
-  <%elsif @chooser == 5 %>
-    <img id="img" src= "assets/Ziv 127Floor 5.png">
-  <%else%>
-    <img id="img" src="">
-  <%end%>
+ 
+  <img id="img" src= <%=@chosen_file_user%>>
+ 
 
   </div>
 
@@ -79,4 +70,27 @@ h1 {
 <%= link_to 'Back', map_index_path %>
 
 </body>
+<%= include_gon %>
+<script type="text/javascript">
 
+  //if(this.getAttribute('id')=="calc"){
+
+    var img=document.getElementById("img");
+
+    var addMode=true;
+    var id_counter = 1;
+    var emptyRoomCounter = 1;
+
+    filled_rooms = gon.all_dots_user;
+    for (var i = 0; i < filled_rooms.length; i++) {
+      var newDot=document.createElement("div");
+      newDot.className="circle";
+      newDot.id = filled_rooms[i]["id"];
+      newDot.style.left=filled_rooms[i]['x_coordinate'];
+      newDot.style.top=filled_rooms[i]['y_coordinate']
+      document.body.appendChild(newDot);
+    }
+
+    
+
+</script>
