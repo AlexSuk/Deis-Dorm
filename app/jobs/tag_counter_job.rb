@@ -1,6 +1,6 @@
 class TagCounterJob
   include SuckerPunch::Job
-  workers 4
+  workers 2
 
   def perform(args)
     building_id = args[:building_id]

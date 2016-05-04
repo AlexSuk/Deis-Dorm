@@ -6,6 +6,7 @@
   <div class="container-fluid">
 
     <div class="row" >
+      <h4><%= link_to "Dorms", quads_path %>><%= link_to @quad.name, quad_path(@quad.id)%></h4>
       <h1><%= @quad.name%></h1>
     </div>
 
@@ -19,10 +20,12 @@
 
 
     <div class="col-md-8" id="rightCol">
+      <% unless session[:user_id].nil? %>
       <div class="row new-review">
         <ul class="nav nav-tabs" role="tablist">
           <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
           <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photo</a></li>
+          <li><a href="+-#adv-review" aria-controls="adv-review" role="tab" data-toggle="tab">Advanced Review</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
@@ -32,13 +35,16 @@
           <div role="tabpanel" class="tab-pane fade" id="photos">
             <%= render(partial: 'new_photos') %>
           </div>
+          <div role="tabpanel" class="tab-pane fade" id="adv-review">
+            <%= render(partial: 'new_post') %>
+          </div>
         </div>
       </div>
+      <% end %>
 
       <div class="row" id="reviews">
 
       </div>
-
 
       <% @buildings.each do |building| %>
         <div class="row building class-year">
