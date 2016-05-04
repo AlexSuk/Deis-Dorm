@@ -13,8 +13,6 @@
     <% end %>
   </div>
 
-  <h4><%= link_to "Dorms", quads_path %></h4>
-
   <div class="col-md-2">
     <%= form_tag(do_search_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
       <h4>Room type</h4>
@@ -35,6 +33,9 @@
   </div>
 
   <div class="col-md-10">
+    <ol class="breadcrumb">
+      <li class="active">Quads</li>
+    </ol>
     <div class="row class-year">
       <h3>Freshman</h3>
       <div class="media">

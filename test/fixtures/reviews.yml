@@ -2,7 +2,6 @@
 
 one:
   text: MyText
-  up_vote: 1
   rating: 1
   user_id: 1
   building_id: 1
@@ -10,7 +9,6 @@ one:
 
 two:
   text: MyText
-  up_vote: 1
   rating: 1
   user_id: 1
   building_id: 1

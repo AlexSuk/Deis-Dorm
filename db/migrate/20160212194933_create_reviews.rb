@@ -2,7 +2,6 @@ class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
       t.text :text
-      t.integer :up_vote
       t.float :rating
       t.integer :user_id
       t.integer :building_id

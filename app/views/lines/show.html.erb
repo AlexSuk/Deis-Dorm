@@ -2,6 +2,11 @@
 
 <body>
   <div class="container">
+    <ol class="breadcrumb">
+      <li><%= link_to "Threads", boards_path %></li>
+      <li><%= link_to @board.name, board_lines_path(@board.id) %></li>
+      <li class="active"><%=@line.name%></li>
+    </ol>
     <div class ="main_post">
       <h2><strong><%= @line.name %></strong></h2>
       <p><%= @line.description %></p>

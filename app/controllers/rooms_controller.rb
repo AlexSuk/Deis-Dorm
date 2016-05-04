@@ -61,7 +61,8 @@ before_action :set_search, only: [:update, :room_params]
 
 	def show
     	@room = Room.find(params[:id])
-
+    	@building = Building.find(@room.building_id)
+    	@quad = Quad.find(@building.quad_id)
   	end
 
 	def update

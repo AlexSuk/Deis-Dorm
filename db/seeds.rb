@@ -56,9 +56,9 @@ Building.create(name: "Renfield", longitude: -71.2610296, latitude: 42.3674719, 
 
 #ridgewood buildings
 ridgewood = Quad.find_by(name: "Ridgewood")
-Building.create(name: "Ridgewood A", longitude: -71.2604928, latitude: 42.3640341, description: "Ridgewood has 3 Community Advisors (CAs) who engage resident in establishing active living and learning environments where each individual is invested in promoting the success and safety of all members of the community.  The CAs create and execute programs, address student concerns, and support the community when issues arise. Ridgewood shares an Area Coordinator (AC), a live-in full time professional staff member with an advanced degree, with Ziv.  The AC supervises the CAs, manages the residence halls, and holds regular office hours in the community office.", is_kind: "dorm", quad_id: ridgewood, years: ridgewood.years)
-Building.create(name: "Ridgewood B", longitude: -71.2611426, latitude: 42.3638964, description: "Ridgewood is comprised of primarily 4-person apartments, with a few 6-person apartments located in Ridgewood B.  All bedrooms in Ridgewood are single bedrooms, and all apartments are gender neutral.  Each apartment has a private bathroom, kitchen, and common area.  Kitchens are equipped with a stove, oven, dishwasher, full-sized refrigerator, and microwave.  Common areas are equipped with bar stools for the kitchen island, two chairs, and one love seat.  Six-person apartments have two additional chairs.", is_kind: "dorm", quad_id: ridgewood, years: ridgewood.years)
-Building.create(name: "Ridgewood C", longitude: -71.2607127, latitude: 42.3635757, description: "Located on the bottom floor of Ridgewood A is Ridgewood Commons, a large, open space with a kitchen, a large screen TV, and a hardwired audio-visual system.  Ridgewood Commons has a number of seating options open to anybody using the lounge, as well as additional seating provided to those who reserve the space.  All three Ridgewood buildings are equipped with a central air conditioning system.", is_kind: "dorm", quad_id: ridgewood, years: ridgewood.years)
+Building.create(name: "Ridgewood A", longitude: -71.2604928, latitude: 42.3640341, description: "Ridgewood has 3 Community Advisors (CAs) who engage resident in establishing active living and learning environments where each individual is invested in promoting the success and safety of all members of the community.  The CAs create and execute programs, address student concerns, and support the community when issues arise. Ridgewood shares an Area Coordinator (AC), a live-in full time professional staff member with an advanced degree, with Ziv.  The AC supervises the CAs, manages the residence halls, and holds regular office hours in the community office.", is_kind: "dorm", quad_id: ridgewood.id, years: ridgewood.years)
+Building.create(name: "Ridgewood B", longitude: -71.2611426, latitude: 42.3638964, description: "Ridgewood is comprised of primarily 4-person apartments, with a few 6-person apartments located in Ridgewood B.  All bedrooms in Ridgewood are single bedrooms, and all apartments are gender neutral.  Each apartment has a private bathroom, kitchen, and common area.  Kitchens are equipped with a stove, oven, dishwasher, full-sized refrigerator, and microwave.  Common areas are equipped with bar stools for the kitchen island, two chairs, and one love seat.  Six-person apartments have two additional chairs.", is_kind: "dorm", quad_id: ridgewood.id, years: ridgewood.years)
+Building.create(name: "Ridgewood C", longitude: -71.2607127, latitude: 42.3635757, description: "Located on the bottom floor of Ridgewood A is Ridgewood Commons, a large, open space with a kitchen, a large screen TV, and a hardwired audio-visual system.  Ridgewood Commons has a number of seating options open to anybody using the lounge, as well as additional seating provided to those who reserve the space.  All three Ridgewood buildings are equipped with a central air conditioning system.", is_kind: "dorm", quad_id: ridgewood.id, years: ridgewood.years)
 
 #north buildings
 north = Quad.find_by(name: "North")
@@ -152,7 +152,9 @@ CSV.foreach("db/reviews.csv") do |row|
 	room = Room.find_by(building_id: building.id, number: row[2])
 	if room.nil?
 		counter += 1
-		room = Room.create(number: row[2], building_id: building.id, years_available: building.years, gender: "mixed")
+		room = Room.create(number: row[2], building_id: building.id, years_available: building.years, 
+			gender: "mixed", kitchen: false, laundry: false, ac: false, area: 160, location: 3, room_type: "double",
+			issues: 3)
 	end
   review = Review.create(text: "#{row[5]}\n#{row[7]}",
       rating: (row[4].to_f / 2),
