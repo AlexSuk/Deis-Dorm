@@ -2,7 +2,11 @@
 
 <body>
   <div class ="container">
-  <h1>Thread Listing</h1>
+  <ol class="breadcrumb">
+    <li><%= link_to "Threads", boards_path %></li>
+    <li class="active"><%=@board.name%></li>
+  </ol>
+  <h1><%=@board.name%> Threads</h1>
    
   <div class ="new_thread"><h3><%= link_to 'Post New Thread', new_board_line_path(@board) %></h3></div>
   <table class="table table-bordered table-striped" id="the_table">
