@@ -1,19 +1,25 @@
-<h1>Forum Page</h1>
+<body>
+  <div class = "container">
+    <h1>Forum Page</h1>
 
 
-<table class="table">
-  <tr>
-    <th width="60%">Forum</th>
-    <th width="20%">Last Post</th>
-  </tr>
-  <% for board in @boards %>
-    <tr>
-      <td><h4><%= link_to (board.name), board_lines_path(board)  %></h4>
-        <%= board.description %></td>
-      <td class="right"></td>
-<!--       <td><%= link_to "Show", board %></td>
- -->    
-    </tr>
-  <% end %>
-</table>
- 
+      <table class = "table table-bordered table-striped">
+      <thead>
+          <tr>
+            <th width="60%"> Forum Boards </th>
+            <th width="20%"> Last Post </th>
+          </tr>
+      </thead>
+      <% for board in @boards %>
+        <tr>
+          <td><h4><%= link_to (board.name), board_lines_path(board)  %></h4>
+            <%= board.description %></td>
+          <td class="right"></td>
+    <!--       <td><%= link_to "Show", board %></td>
+     -->    
+        </tr>
+      <% end %>
+    </table>
+    <br></br>
+  </div>
+</body>

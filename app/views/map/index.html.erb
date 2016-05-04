@@ -72,11 +72,15 @@ h1 {
 </div>
 
 <div id='side_search'><input type="text" id="search" placeholder="Search Dorm Building..."></div>
-<%if @current_u.admin? == true%>
+<%if @current_u%>
+  <%if @current_u.admin? == true%>
     <div id='side_advanced_search'style="background-color: #d3d3d3"><%= link_to 'Advanced Search', rooms_index2_path %></div>
   <%else%>
     <div id='side_advanced_search' style="background-color: #d3d3d3"><%= link_to 'Advanced Search', rooms_path %></div>
   <%end%>
+<%else%>
+  <div id='side_advanced_search' style="background-color: #d3d3d3"><%= link_to 'Advanced Search', rooms_path %></div>
+<%end%>
 <div id='sidebar_container'>
 </div>
 <br></br>

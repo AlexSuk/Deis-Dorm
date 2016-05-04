@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background-color: #e6f2ff;
+}
+
 
 table tr th {background:#222; color:#fff; padding:0; border:#111 solid 1px;}
 table tr td {border:1px #ccc solid; padding:5px;}
