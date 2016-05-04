@@ -1,23 +1,3 @@
-// <<<<<<< HEAD
-// var json_array = [
-//   { lat: 42.364018, lng: -71.260718, name: 'Ridgewood', infowindow: "Here is Ridgewood Quad."},
-//   { lat: 42.369610, lng: -71.255711, name: 'North', infowindow: "Here is North Quad." },
-//   { lat: 42.367565, lng: -71.255646, name: 'Castle', infowindow: "Here is a beautiful Castle." }
-// ];
-// var places_of_interest = [
-//   {lat: 42.366327, lng: -71.258744, name: "Dunkin' Donuts", infowindow: "food info and shop info"},
-//   {lat: 42.367854, lng: -71.258671, name: "Starbucks", infowindow: "Starbucks in Farber Library"},
-//   {lat: 42.365730, lng: -71.260188, name: "Einstein Bros Bagels",infowindow: "Selling bagels and softdrinks here"},
-//   {lat: 42.368043, lng: -71.256617, name: "Usdan Dinning Hall", infowindow: "Lower Usdan Dinning hall"},
-//   {lat: 42.366412, lng: -71.260546, name: "Sherman Dinning Hall", infowindow: "Student dinning hall"}
-// ];
-// var markers = [];
-// var brandeis_logo = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/brandeis_logo.png';
-// var starbucks = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/s_logo.png';
-// var donut = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/d_logo.png';
-// var einstein = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_icons/e_logo.png';
-// var map;
-
 var test = {
   "type": "FeatureCollection",
   "features": [
@@ -43,18 +23,33 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-        "naem": "Ridgewood B",
+        "name": "Ridgewood B",
         "color": "blue"
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [-71.260888, 42.363692],
-            [-71.261032, 42.363591],
-            [-71.260551, 42.363424],
-            [-71.260446, 42.363567],
-            [-71.260888, 42.363692]
+            [
+           -71.26143948175013,
+           42.36394661632301
+         ],
+         [
+           -71.26142607070506,
+           42.36378806978264
+         ],
+         [
+           -71.26094595529139,
+           42.36384356111729
+         ],
+         [
+           -71.26086012460291,
+           42.3639941802071
+         ],
+         [
+           -71.26143948175013,
+           42.36394661632301
+         ]
           ]
         ]
       }
@@ -69,11 +64,26 @@ var test = {
         "type": "Polygon",
         "coordinates": [
           [
-            [-71.261439, 42.363941],
-            [-71.261404, 42.363784],
-            [-71.260931, 42.363840],
-            [-71.260856, 42.363981],
-            [-71.261439, 42.363941]
+            [
+            -71.26089231111109,
+            42.36370285085185
+          ],
+          [
+            -71.2610371503979,
+            42.36359583156577
+          ],
+          [
+            -71.26055971719325,
+            42.36343133860393
+          ],
+          [
+            -71.26046315766871,
+            42.363574031318485
+          ],
+          [
+            -71.26089231111109,
+            42.36370285085185
+          ]
           ]
         ]
       }
@@ -106,7 +116,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Villiage B",
+        "name": "Village B",
         "color": "red"
       },
       "geometry": {
@@ -238,7 +248,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Ziv A",
+        "name": "Ziv 127",
         "color": "yellow"
       },
       "geometry": {
@@ -304,7 +314,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Ziv B",
+        "name": "Ziv 128",
         "color": "yellow"
       },
       "geometry": {
@@ -370,7 +380,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Ziv C",
+        "name": "Ziv 129",
         "color": "yellow"
       },
       "geometry": {
@@ -436,7 +446,7 @@ var test = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Ziv D",
+        "name": "Ziv 130",
         "color": "yellow"
       },
       "geometry": {
@@ -3050,10 +3060,6 @@ function initMap() {
     });
   });
 
-
-  // When the user hovers, tempt them to click by outlining the letters.
-  // Call revertStyle() to remove all overrides. This will use the style rules
-  // defined in the function passed to setStyle()
   map.data.addListener('mouseover', function(event) {
     map.data.revertStyle();
     map.data.overrideStyle(event.feature, {strokeWeight: 5});
@@ -3066,23 +3072,27 @@ function initMap() {
   map.data.addListener('click', function(event){
     var bldg;
     var bldgName = event.feature.getProperty('name');
+    //find the corresponding building information array
     for (var i = 0; i < json_array.length; i++) {
       var name = json_array[i]["name"];
       if (bldgName === name ){
         bldg = json_array[i];
       }
     }
-  //   map.data.addListener('click', function(event){
-  //    window.location.href = "/quads/1#ziv 127";
-  //  })
-    var contentString = '<h4>'+bldg["name"]+'</h4>'+'<p>'+bldg["infowindow"]+'</p>'+
-                        '<a href="http://google.com" type="button" class="btn btn-primary">Learn More</a>'
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
+    var infowindow = createInfowindow(bldg);
     infowindow.setPosition(event.latLng);
     infowindow.open(map);
   })
+}
+
+function createInfowindow(place_hash){
+  var contentString = '<h4>'+place_hash["name"]+'</h4>'+
+                      '<p>'+place_hash["infowindow"]+'<IMG BORDER="0" ALIGN="Left" SRC="https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/'+place_hash["id"]+'.jpg" SIZE="175x131" height="131" width="175">'+'</p>'+
+                      '<a href="/quads/'+place_hash["quad_id"]+'/buildings/'+place_hash["id"]+'"'+' type="button" class="btn btn-primary">Learn More</a>'
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+  return infowindow;
 }
 
 function createSidebar(json_array){
@@ -3114,13 +3124,9 @@ function controlMarkers(markerArray, map){
   }
 }
 
+//create a single marker and its infowindow
 function create(hash){
-  var contentString = '<h4>'+hash["name"]+'</h4>'+'<p>'+hash["infowindow"]+'</p>'+
-                      '<a href="http://google.com" type="button" class="btn btn-primary">Learn More</a>'
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString
-    // content: hash["infowindow"]
-  });
+  var infowindow = createInfowindow(hash);
   var latlng = {lat: hash["lat"], lng: hash["lng"]};
   var marker = new google.maps.Marker({
     position: latlng,
@@ -3151,9 +3157,6 @@ var firstTime = true;
 // create an array to store all markers of places_of_interest
 function create_interest_marker(places) {
   for (var i = 0; i< places.length; i ++){
-    // var infowindow = new google.maps.InfoWindow({
-    //   content: places[i]["infowindow"]
-    // });
     var latlng = {lat: places[i]["lat"], lng: places[i]["lng"]};
     //change marker icons
     var icon_image = brandeis_logo;
@@ -3170,33 +3173,16 @@ function create_interest_marker(places) {
       icon: icon_image
     });
     //add infowindow functionality
-    var place = places[i]
-    console.log(place);
-    marker.addListener('click', function(place, latlng) {
-      console.log("click on the icons");
-      console.log(place);
-      console.log(latlng);
-      openInfowindow(places[i], latlng);
-
-      // infowindow.open(map, marker);
-    });
+    // var infowindow = createInfowindow(places[i]);
+    // marker.addListener('click', function() {
+    //   infowindow.open(map, marker);
+    // });
     interest_markers.push(marker);
   }
   firstTime = false;
 }
 
-function openInfowindow(place_hash, latlng){
-  console.log(place_hash);
-  var contentString = '<h4>'+place_hash["name"]+'</h4>'+'<p>'+place_hash["infowindow"]+'</p>'+
-                      '<a href="http://google.com" type="button" class="btn btn-primary">Learn More</a>'
-  var infowindow = new google.maps.InfoWindow({
-    content: contentString
-  });
-  infowindow.setPosition(latlng);
-  infowindow.open(map);
-}
-
-// == shows all markers of places_of_interest and ensures the checkbox is checked ==
+// shows all markers of places_of_interest
 function show(places_of_interest) {
   if (firstTime){
     create_interest_marker(places_of_interest);
@@ -3215,11 +3201,12 @@ function stopAnimation(marker) {
         marker.setAnimation(null);
     }, 1420);
 }
-// == hides all markers of  places_of_interest, and ensures the checkbox is cleared ==
+// hides all markers of  places_of_interest
 function hide(places_of_interest) {
   controlMarkers(interest_markers, null);
 }
 
+// check if the "Keep Markers" checkbox is checked
 function keepMarkers(box){
   if (box.checked){
     ifKeep = map;
@@ -3229,7 +3216,6 @@ function keepMarkers(box){
     markers = [];
   }
 }
-
 
 // == a checkbox has been clicked ==
 function interestMarkersBox(box) {

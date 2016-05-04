@@ -3,6 +3,7 @@ class BuildingsController < ApplicationController
 
   def show
     @building = Building.find(params[:id])
+    @quad = Quad.find(@building.quad_id)
     user_array = @building.reviews.map { |r| r.user_id}
     @users = User.find(@building.reviews.map { |r| r.user_id })
     @users_map = {}
