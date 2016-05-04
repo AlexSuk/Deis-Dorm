@@ -6,7 +6,6 @@
   <div class="container-fluid">
 
     <div class="row" >
-      <h4><%= link_to "Dorms", quads_path %>><%= link_to @quad.name, quad_path(@quad.id)%></h4>
       <h1><%= @quad.name%></h1>
     </div>
 
@@ -20,6 +19,12 @@
 
 
     <div class="col-md-8" id="rightCol">
+      <div class="row">
+        <ol class="breadcrumb">
+          <li><%= link_to "Quads", quads_path %></li>
+          <li class="active"><%=@quad.name%></li>
+        </ol>
+      </div>
       <% unless session[:user_id].nil? %>
       <div class="row new-review">
         <ul class="nav nav-tabs" role="tablist">
