@@ -1,0 +1,264 @@
+/* jQuery.Rating Plugin CSS - http://www.fyneworks.com/jquery/star-rating/ */
+
+div.rating-cancel,div.star-rating{float:left;width:17px;height:15px;text-indent:-999em;cursor:pointer;display:block;background:transparent;overflow:hidden}
+div.rating-cancel,div.rating-cancel a{background:url(/assets/delete-32cd2462f0572cc6d63fba76837141950a47108f0015cee8f116f69002d1019f.gif) no-repeat 0 -16px}
+div.star-rating,div.star-rating a{background:url(/assets/star-da9da3d2326fb755cf70f2fcf3e95613ad4f917b8e563afc4d32dadc775e3b46.gif) no-repeat 0 0px}
+div.rating-cancel a,div.star-rating a{display:block;width:16px;height:100%;background-position:0 0px;border:0}
+div.star-rating-on a{background-position:0 -16px!important}
+div.star-rating-hover a{background-position:0 -32px}
+/* Read Only CSS */
+div.star-rating-readonly a{cursor:default !important}
+/* Partial Star CSS */
+div.star-rating{background:transparent!important;overflow:hidden!important}
+/* END jQuery.Rating Plugin CSS */
+/*
+
+ */
+
+/* line 12, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+body {
+  background-color: #e6f2ff;
+  position: relative;
+}
+
+/* line 17, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+textarea {
+  resize: none;
+  background-color: #fff;
+}
+
+/* line 22, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.media-body {
+  padding-bottom: 16px;
+}
+
+/* line 26, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.media-heading {
+  margin-bottom: -6px;
+}
+
+/* line 30, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.media-sub-heading .building-link a:link,
+.media-sub-heading .building-link a:visited {
+  color: #646363;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom-style: none;
+  -webkit-transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
+  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
+}
+
+/* line 39, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.media-sub-heading .building-link a:hover {
+  color: #ababab;
+  font-size: 21px;
+  border-bottom: 1px solid #979797;
+  -webkit-transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
+  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
+}
+
+/* line 46, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.media-sub-heading {
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+/* line 51, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.building-link {
+  font-size: 21px;
+  color: #ababab;
+}
+
+/* line 56, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.class-year {
+  background-color: #fff;
+  margin: 30px 0;
+  padding: 10px 30px;
+}
+
+/* line 62, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.class-year h3 {
+  margin-top: 10px;
+}
+
+/* line 66, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#leftCol {
+  margin-right: 10px;
+  background-color: #fff;
+}
+
+/* line 71, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#rightCol {
+  margin-left: 20px;
+}
+
+/* line 75, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.nav-tabs li.active a,
+.nav-tabs li.active a:hover,
+.nav-tabs li.active a:focus,
+.nav-tabs li.active a:visited {
+  background-color: #003366;
+  color: #fff;
+}
+
+/* line 95, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.new-review {
+  background-color: #fff;
+}
+
+/* line 100, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#comment {
+  padding-left: 20px;
+}
+
+/* line 106, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.comment-top {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* line 112, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.comment-tab {
+  float: left;
+  padding-top: 10px;
+  padding-left: 10px;
+  display: inline;
+}
+
+/* line 124, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.tag-btn {
+  background-color: #efefef;
+  color: #010101;
+}
+
+/* line 129, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.tag-btn.active,
+.tag-btn.active:hover,
+.tag-btn.active:focus,
+.tag-btn.active:visited {
+  background-color: #003366;
+  color: #fff;
+}
+
+/* line 139, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.container {
+  padding-top: 20px;
+  background-color: #fff;
+}
+
+/* line 144, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead {
+  min-height: 270px;
+  background-color: #000044;
+  color: #aaaacc;
+}
+
+/* line 150, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead h1 {
+  font-size: 55px;
+  line-height: 1;
+}
+
+/* line 155, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#masthead .well {
+  margin-top: 13%;
+  background-color: #111155;
+  border-color: #000033;
+}
+
+/* line 161, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.icon-bar {
+  background-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 166, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+  #masthead h1 {
+    font-size: 100px;
+  }
+}
+/* line 171, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright {
+  background-color: #111155;
+  color: #fff;
+}
+
+/* line 176, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright a, #masthead a, #masthead .lead {
+  color: #aaaacc;
+}
+
+/* line 180, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.navbar-bright li > a:hover {
+  background-color: #000033;
+}
+
+/* line 202, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.affix {
+  top: 150;
+  width: 150px;
+  background-color: #fff;
+}
+
+/* line 208, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.affix-top {
+  width: 150px;
+  background-color: #fff;
+}
+
+/* line 213, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.affix-bottom {
+  width: 150px;
+  position: absolute;
+  background-color: #fff;
+}
+
+/* line 219, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#sidebar li.active {
+  border: 0 #eee solid;
+  border-right-width: 4px;
+}
+
+/* line 224, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+#mainCol h2 {
+  padding-top: 55px;
+  margin-top: -55px;
+}
+
+/* line 231, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.jqueryHashtags .highlighter {
+  white-space: pre-wrap;
+  color: transparent;
+  overflow: hidden;
+  position: absolute;
+  padding-left: 7px;
+  padding-top: 5px;
+  line-height: 20px;
+}
+
+/* line 243, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.jqueryHashtags .theSelector {
+  background-color: transparent;
+  position: relative;
+  direction: ltr;
+  resize: none !important;
+  -webkit-transition: height 0.2s;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 4px 6px;
+  vertical-align: middle;
+  min-height: 48px !important;
+  line-height: 20px;
+}
+
+/* line 261, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/quads.scss */
+.jqueryHashtags .hashtag {
+  background: -webkit-linear-gradient(#dce6f8, #bdcff1);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px #a3bcea;
+  font-size: 14px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 20px;
+}

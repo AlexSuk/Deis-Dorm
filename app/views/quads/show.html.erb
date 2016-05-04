@@ -6,7 +6,6 @@
   <div class="container-fluid">
 
     <div class="row" >
-      <h4><%= link_to "Dorms", quads_path %>><%= link_to @quad.name, quad_path(@quad.id)%></h4>
       <h1><%= @quad.name%></h1>
     </div>
 
@@ -20,12 +19,17 @@
 
 
     <div class="col-md-8" id="rightCol">
+      <div class="row">
+        <ol class="breadcrumb">
+          <li><%= link_to "Quads", quads_path %></li>
+          <li class="active"><%=@quad.name%></li>
+        </ol>
+      </div>
       <% unless session[:user_id].nil? %>
       <div class="row new-review">
         <ul class="nav nav-tabs" role="tablist">
           <li class="active"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Write a Review</a></li>
           <li><a href="+-#photos" aria-controls="photos" role="tab" data-toggle="tab">Upload Photo</a></li>
-          <li><a href="+-#adv-review" aria-controls="adv-review" role="tab" data-toggle="tab">Advanced Review</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
@@ -35,25 +39,63 @@
           <div role="tabpanel" class="tab-pane fade" id="photos">
             <%= render(partial: 'new_photos') %>
           </div>
-          <div role="tabpanel" class="tab-pane fade" id="adv-review">
-            <%= render(partial: 'new_post') %>
-          </div>
         </div>
       </div>
       <% end %>
 
       <div class="row" id="reviews">
-
+        <div class="col-md-3 review">
+          <h4>Most Positive Review</h4>
+          <% @r = "pos" %>
+          <% @review = @pos %>
+          <% @rev_user = @pos_user %>
+          <%= render(partial: 'review') %>
+        </div>
+        <div class="col-md-3 review">
+          <h4>Most Negative Review</h4>
+          <% @r = "neg" %>
+          <% @review = @neg %>
+          <% @rev_user = @neg_user %>
+          <%= render(partial: 'review') %>
+        </div>
+        <div class="col-md-3 review">
+          <h4>Most Recent Review</h4>
+          <% @r = "recent" %>
+          <% @review = @recent %>
+          <% @rev_user = @recent_user %>
+          <%= render(partial: 'review') %>
+        </div>
       </div>
 
       <% @buildings.each do |building| %>
         <div class="row building class-year">
-          <div class="row" id="<%= building.name%>">
-            <h2><%= link_to building.name, quad_building_path(@quad.id, building.id) %> </h2>
+          <div class="row name-rating" id="<%= building.name%>">
+            <div class="media">
+              <div class="media-left media-middle">
+                <h2><%= link_to building.name, quad_building_path(@quad.id, building.id) %> </h2>
+              </div>
+              <div class="media-body media-middle">
+                  <% unless @building_ratings[building.id].nil? %>
+                    <span>
+                    <% (1..10).each do |star| %>
+                      <% unless star == (@building_ratings[building.id] * 2) %>
+                        <input name="<%=building.name%>" type="radio" class="star {split:2}" disabled="disabled"/>
+                      <% else %>
+                        <input name="<%=building.name%>" type="radio" class="star {split:2}" disabled="disabled" checked="checked"/>
+                      <% end %>
+                    <% end %>
+                    </span>
+                    <span class="rating-as-num"><%= @building_ratings[building.id] %> </span>
+                  <% else %>
+                    <p> Not enough reviews </p>
+                  <% end %>
+                </span>
+              </div>
+            </div>
           </div>
           <div class="row" >
             <div class="media">
-              <div class="media-left media-middle">
+              <div class="media-left media-top">
                 <%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/#{building.id}.jpg", class: "media-object", size:"175x131"%>
               </div>
               <div class="media-body">
@@ -74,10 +116,6 @@
                   <span style="color:#336699;"> #<%= t %> </span>
                 <% end %>
               <% end %>
-
-            <!-- <p>        Tags to describe the building</p> -->
-            <h3>Reviews</h3>
-
           </div>
         </div>
       <% end %>

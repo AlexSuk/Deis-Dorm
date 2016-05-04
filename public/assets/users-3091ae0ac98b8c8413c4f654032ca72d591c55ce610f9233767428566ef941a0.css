@@ -1,0 +1,18 @@
+/* line 5, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/users.scss */
+body {
+  background-color: #e6f2ff;
+}
+
+/* line 9, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/users.scss */
+.general_grouping {
+  background-color: white;
+  border-radius: 7px;
+  padding-left: 10px;
+  padding-bottom: 3px;
+  top: 5px;
+}
+
+/* line 17, /home/jmaeda/Dropbox/cosi166b_jmaeda/Deis-Dorms/app/assets/stylesheets/users.scss */
+.a_table {
+  background-color: #F2F2F2;
+}

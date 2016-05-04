@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :map 
+  resources :map
 
   resources :forum
 
@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     collection do
       get 'do_search'
       get 'create_post'
-      get 'new_post'
+      get 'add_tags'
       put 'create_photos'
       get 'new_photos'
     end

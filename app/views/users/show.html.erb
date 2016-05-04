@@ -1,206 +1,213 @@
-<div class="container">
-  <div class="col-md-3" style="padding-right: 100px;">
-    <div class="row">
-      <% if @user.icon_content_type.nil? %>
-        <%= image_tag @user.icon_file_name, id: "profile-pic", size: "200" %>
-      <% else %>
-        <%= image_tag @user.icon.url(:square), id: "profile-pic" %>
-      <% end %>
-    </div>
-    <div class="row">
-      <h3> <%= @user.user_name %> </h3>
-    </div>
-    <div class="row">
-      <% if @user.id == session[:user_id] %>
-      <%= form_for(@user, multipart: true) do |f| %>
-        <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= stylesheet_link_tag "users", media: "all", "data-turbolinks-track" => "reload" %>
 
-            <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
+<body>
+  <div class="container">
+    <div class="col-md-3" style="padding-right: 100px;">
+      <br></br>
+      <div class="row">
+        <% if @user.icon_content_type.nil? %>
+          <%= image_tag @user.icon_file_name, id: "profile-pic", size: "200" %>
+        <% else %>
+          <%= image_tag @user.icon.url(:square), id: "profile-pic" %>
+        <% end %>
+      </div>
+      <div class="row">
+        <h3> <%= @user.user_name %> </h3>
+      </div>
+      <div class="row">
+        <% if @user.id == session[:user_id] %>
+        <%= form_for(@user, multipart: true) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.file_field :icon %>
+          </div>
+          <div class="actions">
+            <%= f.submit %>
           </div>
         <% end %>
-
-        <div class="field">
-          <%= f.file_field :icon %>
+        <% end %>
+      </div>
+      <br></br>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <h2>Bio</h2>
+      </div>
+      <div class="row">
+        <%=@user.bio%>
+      </div>
+      <% if session[:user_id] == @user.id %>
+      <div class="row">
+        <div id = "room_results">
+          <%= render "render_room_results" %>
         </div>
-        <div class="actions">
-          <%= f.submit %>
+      </div>
+      <div class="row">
+        <h2>Personal Room Search</h2>
+      </div>
+      <%= form_tag(users_find_path, method: "put", remote: "true", role: "form", class: "form") do %>
+        <div class ="row">
+          <div class="col-md-6">
+            Year:<%= select_tag(:pref_year,
+                options_for_select(
+                  [["Freshman", "Freshman"],
+                   ["Sophomore", "Sophomore"],
+                   ["Junior", "Junior"],
+                   ["Senior", "Senior"]], @current.pref_year), class: "form-control", include_blank: true) %>
+            <br>
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-6">
+            Gender Preference:<%= select_tag(:pref_gender,
+                options_for_select(
+                  [['Male Only', "male"],
+                   ['Female Only', "female"],
+                   ["Mixed Gender", "mixed"]], @current.pref_gender), class: "form-control", include_blank: true) %>
+            <br>
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-6">
+            Bedtime:<%= select_tag(:pref_bedtime,
+                options_for_select(
+                  [['Before 8pm', "7:00PM"],
+                   ['8:00PM', "8:00PM"],
+                   ['9:00PM', "9:00PM"],
+                   ['10:00PM', "10:00PM"],
+                   ['11:00PM', "11:00PM"],
+                   ['12:00AM', "12:00AM"],
+                   ['1:00AM', "1:00AM"],
+                   ['2:00AM', "2:00AM"],
+                   ['3:00AM', "3:00AM"],
+                   ['After 3AM', "4:00AM"]], @current.pref_bedtime), class: "form-control", include_blank: true) %>
+            <br>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-8">
+            <p>Rate the Importance of Price: (0: irrelevant 10: low price needed)</p>
+            <div class="range-wrapper">
+              <input type="range" name="pref_price" min="0" max="10" id="pref1"/>
+              <div class="text">1</div>
+              <br>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-8">
+            <p>Rate the Importance of Room Cleanliness: (0: irrelevant 10: must be clean)</p>
+            <div class="range-wrapper">
+              <input type="range" name="pref_clean" min="0" max="10" id="pref2"/>
+              <div class="text">1</div>
+              <br>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-8">
+            <p>Rate the Importance of Room Size: (0: irrelevant 10: must be spacious)</p>
+            <div class="range-wrapper">
+              <input type="range" name="pref_size" min="0" max="10" id="pref3"/>
+              <div class="text">1</div>
+              <br>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-8">
+            <p>Rate the Importance of Noise Level: (0: can be very loud  10: must be silent)</p>
+            <div class="range-wrapper">
+              <input type="range" name="pref_noise" min="0" max="10" id="pref4"/>
+              <div class="text">1</div>
+              <br>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-8">
+            <p>Rate the Importance of being in a Convenient Location on Campus: </p>
+            <div class="range-wrapper">
+              <input type="range" name="pref_location" min="0" max="10" id="pref5"/>
+              <div class="text">1</div>
+              <br>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-8">
+            <p>Rate the Importance of Having Air Conditioning: (0: willing to live without  10: necessity)
+            <br>
+            Note: This will only likely matter at the beginning and ending of the year. All dorms have heating.
+            </p>
+            <div class="range-wrapper">
+              <input type="range" name="pref_ac" min="0" max="10" id="pref6"/>
+              <div class="text">1</div>
+              <br>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class ="row">
+          <div class="col-md-8">
+            <p>Rate the Importance of Socializing: (0: isolated 10: easy to meet people/socialize/party) </p>
+            <div class="range-wrapper">
+              <input type="range" name="pref_social" min="0" max="10" id="pref7"/>
+              <div class="text">1</div>
+              <br>
+            </div>
+          </div>
+          <div class="col-md-4">
+          </div>
+        </div>
+        <div class ="row">
+          <br>
+          Room Type: (select at least one)
+          </br>
+          <% ["single", "double", "triple", "suite"].each do |roommate| %>
+            <%= check_box_tag "room_type[]", roommate, true, {:multiple => true} %>
+            <span><%=roommate%></span>
+            <br>
+          <% end %>
+        </div>
+        <div class ="row">
+          <br>
+          Housing Number: (optional)  <%= number_field_tag :housing_number, @current.housing_number%>
+          <br>
+          <br>
+        </div>
+        <div class="row">
+            <%= submit_tag "Submit Preferences", class: "btn btn-primary", id: "submit_button" %>
+            <br></br>
         </div>
       <% end %>
       <% end %>
     </div>
   </div>
-  <div class="col-md-9">
-    <div class="row">
-      <h2>Bio</h2>
-    </div>
-    <div class="row">
-      <%=@user.bio%>
-    </div>
-    <% if session[:user_id] == @user.id %>
-    <div class="row">
-      <div id = "room_results">
-      </div>
-    </div>
-    <div class="row">
-      <h2>Personal Room Search</h2>
-    </div>
-    <%= form_tag(users_find_path, method: "put", remote: "true", role: "form", class: "form") do %>
-      <div class ="row">
-        <div class="col-md-6">
-          Year:<%= select_tag(:pref_year,
-              options_for_select(
-                [["Freshman", "Freshman"],
-                 ["Sophomore", "Sophomore"],
-                 ["Junior", "Junior"],
-                 ["Senior", "Senior"]], @current.pref_year), class: "form-control", include_blank: true) %>
-          <br>
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-6">
-          Gender Preference:<%= select_tag(:pref_gender,
-              options_for_select(
-                [['Male Only', "male"],
-                 ['Female Only', "female"],
-                 ["Mixed Gender", "mixed"]], @current.pref_gender), class: "form-control", include_blank: true) %>
-          <br>
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-6">
-          Bedtime:<%= select_tag(:pref_bedtime,
-              options_for_select(
-                [['Before 8pm', "7:00PM"],
-                 ['8:00PM', "8:00PM"],
-                 ['9:00PM', "9:00PM"],
-                 ['10:00PM', "10:00PM"],
-                 ['11:00PM', "11:00PM"],
-                 ['12:00AM', "12:00AM"],
-                 ['1:00AM', "1:00AM"],
-                 ['2:00AM', "2:00AM"],
-                 ['3:00AM', "3:00AM"],
-                 ['After 3AM', "4:00AM"]], @current.pref_bedtime), class: "form-control", include_blank: true) %>
-          <br>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of Price: (0: irrelevant 10: low price needed)</p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_price" min="0" max="10" id="pref1"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of Room Cleanliness: (0: irrelevant 10: must be clean)</p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_clean" min="0" max="10" id="pref2"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of Room Size: (0: irrelevant 10: must be spacious)</p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_size" min="0" max="10" id="pref3"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of Noise Level: (0: can be very loud  10: must be silent)</p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_noise" min="0" max="10" id="pref4"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of being in a Convenient Location on Campus: </p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_location" min="0" max="10" id="pref5"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of Having Air Conditioning: (0: willing to live without  10: necessity)
-          <br>
-          Note: This will only likely matter at the beginning and ending of the year. All dorms have heating.
-          </p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_ac" min="0" max="10" id="pref6"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <div class="col-md-8">
-          <p>Rate the Importance of Socializing: (0: isolated 10: easy to meet people/socialize/party) </p>
-          <div class="range-wrapper">
-            <input type="range" name="pref_social" min="0" max="10" id="pref7"/>
-            <div class="text">1</div>
-            <br>
-          </div>
-        </div>
-        <div class="col-md-4">
-        </div>
-      </div>
-      <div class ="row">
-        <br>
-        Room Type: (select at least one)
-        </br>
-        <% ["single", "double", "triple", "suite"].each do |roommate| %>
-          <%= check_box_tag "room_type[]", roommate, true, {:multiple => true} %>
-          <span><%=roommate%></span>
-          <br>
-        <% end %>
-      </div>
-      <div class ="row">
-        <br>
-        Housing Number: (optional)  <%= number_field_tag :housing_number, @current.housing_number%>
-        <br>
-        <br>
-      </div>
-      <div class="row">
-          <%= submit_tag "Submit Preferences", class: "btn btn-primary", id: "submit_button" %>
-          <br></br>
-      </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
+</body>
 
 <%= javascript_include_tag "show" %>
 <%= include_gon %>

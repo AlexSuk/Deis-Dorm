@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20160414170213) do
 
   create_table "reviews", force: :cascade do |t|
     t.text     "text"
-    t.integer  "up_vote"
     t.float    "rating"
     t.integer  "user_id"
     t.integer  "building_id"
