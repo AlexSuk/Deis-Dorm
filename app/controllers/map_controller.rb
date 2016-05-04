@@ -2,6 +2,7 @@ class MapController < ApplicationController
   skip_before_action :authorize
 
   def index
+    @current_u = User.find_by(id: session[:user_id])
     gon.buildings = Array.new
     @buildings = Building.all
     @buildings.each do |b|

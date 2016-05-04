@@ -6,13 +6,13 @@
 
 #sidebar_container{
   position:absolute;
-  left:840px;
-  top:170px;
+  left:805px;
+  top:80px;
   padding:5px;
   bottom:0;
   background-color:white;
   width:330px;
-  height: 417px;
+  height: 393px;
   border-radius:3px;
   overflow-y: scroll;
   border: 3px solid white;
@@ -23,43 +23,74 @@
   cursor:pointer
 }
 
+.rel{
+  position: relative;
+}
+
+#side_advanced_search{
+  position:absolute;
+  text-align: center;
+  left:805px;
+  top:54px;
+  width:330px;
+}
+
+#side_search{
+  position:absolute;
+  left:805px;
+  top:22px;
+  width:330px;
+}
+
 #search{
-  position: fixed;
-  border: 3px solid lightblue;
-  width:300px;
-  top: 140px;
+  border: 3px solid white;
+  width:330px;
+  top: 130px;
 }
 
 #search:focus{
   background-color: white;
-  position: fixed;
   box-shadow:none;
   outline:0 none;
 }
 
 body {
-  background-color: lightblue;
+  background-color: #e6f2ff;
 }
 
 h1 {
-  text-align: center;
+  text-align: left;
 }
 </style>
 </head>
 
 <body>
-<h1>Map</h1>
-
-<div>
-  Places of Interest: <input type="checkbox" id="places_of_interest_box" onclick="interestMarkersBox(this)"/>
-  Keep Markers: <input type="checkbox" id="keep_markers_box" onclick="keepMarkers(this)"/>
-  <div id="map" style='width: 800px; height: 450px;left: 30px;border: 3px solid white;'></div>
-
+<div class = "container" id = "title_div">
+  <h1>Campus Map</h1>
 </div>
-<%= link_to 'Advanced Search', rooms_path %>
-<div id='sidebar_container'>
-  <input type="text" id="search" placeholder="Search Dorm Building...">
+
+<div class = "container">
+  <div class = "rel">
+    Places of Interest: <input type="checkbox" id="places_of_interest_box" onclick="interestMarkersBox(this)"/>
+    Keep Markers: <input type="checkbox" id="keep_markers_box" onclick="keepMarkers(this)"/>
+    <div id="map" style='width: 800px; height: 450px;border: 3px solid white;'></div>
+    <div id='side_search'><input type="text" id="search" placeholder="Search Dorm Building..."></div>
+    <%if @current_u%>
+      <%if @current_u.admin? == true%>
+        <div id='side_advanced_search'style="background-color: #d3d3d3"><%= link_to 'Advanced Search', rooms_index2_path %></div>
+      <%else%>
+        <div id='side_advanced_search' style="background-color: #d3d3d3"><%= link_to 'Advanced Search', rooms_path %></div>
+      <%end%>
+    <%else%>
+      <div id='side_advanced_search' style="background-color: #d3d3d3"><%= link_to 'Advanced Search', rooms_path %></div>
+    <%end%>
+    <div id='sidebar_container'>
+    </div>
+  </div>
 </div>
+
+
+<br></br>
 </body>
 
 <%= include_gon %>

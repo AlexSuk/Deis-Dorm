@@ -1,26 +1,30 @@
+<%= stylesheet_link_tag "users", media: "all", "data-turbolinks-track" => "reload" %>
+
 <div class = "row">
 	<br></br>
     <h2> Your Ideal Room Matches: </h2>
 </div>
 <br>
 <div class = "row">
-	<table class = "table table-bordered table-striped">
-		<thead>
-		    <tr>
-		      <th> Room# </th>
-		      <th> Quad </th>
-		      <th> Building </th>
-		    </tr>
-		</thead>
+	<div class ="a_table">
+		<table class = "table table-bordered table-striped">
+			<thead>
+			    <tr>
+			      <th> Room# </th>
+			      <th> Quad </th>
+			      <th> Building </th>
+			    </tr>
+			</thead>
 
-		<tbody>
-		    <% @rooms.each do |room| %>
-		      <tr>
-		        <td><%= room.number %></td>
-		        <td><%= @quads[@rooms.index(room)].name %></td>
-		        <td><%= @buildings[@rooms.index(room)].name %></td>
-		      </tr>
-		    <% end %>
-		</tbody>
-	</table>
+			<tbody>
+			    <% @rooms.each do |room| %>
+			      <tr>
+			        <td><%= room.number %></td>
+			        <td><%= @quads[@rooms.index(room)].name %></td>
+			        <td><%= @buildings[@rooms.index(room)].name %></td>
+			      </tr>
+			    <% end %>
+			</tbody>
+		</table>
+	</div>
 </div>

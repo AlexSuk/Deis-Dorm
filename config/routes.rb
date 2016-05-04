@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   resources :tags
 
   put 'users/find' => "users#find_rooms"
+
+  get 'rooms/index2' => "rooms#index2"
   resources :users
 
   resources :boards do

@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
 before_action :set_search, only: [:update, :room_params]
 	def index
 
-		@current_u = User.find_by(id: session[:user_id])
+		
 		buildings_temp = Building.all
 		@buildings = Array.new
 		buildings_temp.each do |x|
@@ -37,15 +37,34 @@ before_action :set_search, only: [:update, :room_params]
 		end
 	end
 
+	def index2
+		buildings_temp = Building.all
+		@buildings2 = Array.new
+		buildings_temp.each do |x|
+			@buildings2 << x.name
+
+		end
+		@floors2 = Array.new
+		i = 1;
+		while i < 6 do
+			temp_floor = "Floor #{i}"
+			@floors2 << temp_floor
+			i = i+1
+		end
+
+		gon.all_dots = Room.where("x_coordinate is NOT NULL")
+
+		@chosen_building = params[:building]
+		@chosen_floor = params[:floor]
+		# @chosen_file = "#{@chosen_building}#{@chosen_floor}"
+	end
+
 	def show
     	@room = Room.find(params[:id])
 
-  end
+  	end
 
 	def update
-	  	puts "testing-=================fjdsmfjkdsnfjkdsnfjksdnfkjsndjfndsjknfjksdnfkjnsdjkfnsdjkfndskjfnjksdnfjkdsnfkj"
-	    puts "DOES IT NOT REACH HERE"
-	    puts "#{@room.number} Hello?"
 
 	    respond_to do |format|
 	      if @room.update_attributes(room_params)

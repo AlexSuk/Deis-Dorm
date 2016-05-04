@@ -17,6 +17,21 @@ class UsersController < ApplicationController
     gon.user["pref_ac"] = @current.pref_ac
     gon.user["pref_social"] = @current.pref_social
 
+    @rooms = Array.new
+    @rooms.push(Room.find(@current.choice_one)) if @current.choice_one != nil
+    @rooms.push(Room.find(@current.choice_two)) if @current.choice_two != nil
+    @rooms.push(Room.find(@current.choice_three)) if @current.choice_three != nil
+    @rooms.push(Room.find(@current.choice_four)) if @current.choice_four != nil
+    @rooms.push(Room.find(@current.choice_five)) if @current.choice_five != nil
+
+    @buildings = Array.new
+    @quads = Array.new
+    @rooms.each do |room|
+      building = Building.find(room.building_id)
+      @buildings.push(building)
+      @quads.push(Quad.find(building.quad_id))
+    end
+
     if @current.pref_room_type
       if @current.pref_room_type.include? "single"
         gon.user["single"] = true
@@ -53,9 +68,7 @@ class UsersController < ApplicationController
     @rooms = Array.new
     @rooms = Room.individual_search(params)
     @buildings = Array.new
-    @buildings.clear
     @quads = Array.new
-    @quads.clear
     @rooms.each do |room|
       building = Building.find(room.building_id)
       @buildings.push(building)
@@ -78,21 +91,11 @@ class UsersController < ApplicationController
     u_params[:pref_bedtime] = params[:pref_bedtime]
     u_params[:pref_room_type] = params[:room_type]
 
-    if @rooms.size > 0
-      u_params[:choice_one] = @rooms[0].id
-    end
-    if @rooms.size > 1
-      u_params[:choice_two] = @rooms[1].id
-    end
-    if @rooms.size > 2
-      u_params[:choice_three] = @rooms[2].id
-    end
-    if @rooms.size > 3
-      u_params[:choice_four] = @rooms[3].id
-    end
-    if @rooms.size > 4
-      u_params[:choice_five] = @rooms[4].id
-    end
+    @rooms.size > 0 ? u_params[:choice_one] = @rooms[0].id : u_params[:choice_one] = nil
+    @rooms.size > 1 ? u_params[:choice_two] = @rooms[1].id : u_params[:choice_two] = nil
+    @rooms.size > 2 ? u_params[:choice_three] = @rooms[2].id : u_params[:choice_three] = nil
+    @rooms.size > 3 ? u_params[:choice_four] = @rooms[3].id : u_params[:choice_four] = nil
+    @rooms.size > 4 ? u_params[:choice_five] = @rooms[4].id : u_params[:choice_five] = nil
 
     respond_to do |format|
       if @current.update_attributes(u_params)

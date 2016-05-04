@@ -1,22 +1,29 @@
-<h1>Listing articles</h1>
- 
- <%= link_to 'New Post', new_board_line_path(@board) %>
-<table class="table">
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
- 
-  <% @topics.each do |topic| %>
-    <tr>
-      <td><h5><%= link_to (topic.name), board_line_url(@board, topic)  %></h5>
-      <% user = User.find_by(id: topic.user_id) %>
-      By: <%= user.user_name %> </td>
-      <td><%= topic.description %></td>
-      
-      
-    </tr>
-  <% end %>
-</table>
+<%= stylesheet_link_tag "lines", media: "all", "data-turbolinks-track" => "reload" %>
 
-<%= link_to 'Back', boards_path %>
+<body>
+  <div class ="container">
+  <h1>Thread Listing</h1>
+   
+  <div class ="new_thread"><h3><%= link_to 'Post New Thread', new_board_line_path(@board) %></h3></div>
+  <table class="table table-bordered table-striped" id="the_table">
+    <thead>
+          <tr>
+            <th width="60%"> Title </th>
+            <th width="40%"> Text </th>
+          </tr>
+      </thead>
+   
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><h4><%= link_to (topic.name), board_line_url(@board, topic)  %></h4>
+        <% user = User.find_by(id: topic.user_id) %>
+        By: <%= user.user_name %> </td>
+        <td><%= topic.description %></td> 
+      </tr>
+    <% end %>
+  </table>
+
+  <%= link_to 'Back to Boards', boards_path %>
+  <br></br>
+  </div>
+</body>
