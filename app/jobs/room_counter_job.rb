@@ -7,6 +7,11 @@ class RoomCounterJob
   end
 
   def self.synchronous(args)
+    room = args[:room]
+    c_rating = args[:cleanliness]
+    n_rating = args[:noisiness]
+    l_rating = args[:light]
+    s_rating = args[:socialness]
     room_stats = $redis.hgetall("r_#{room.id}")
 
     c_avg = calc_avg("c", c_rating, room_stats)
