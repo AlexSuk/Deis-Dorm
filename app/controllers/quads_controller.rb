@@ -10,27 +10,32 @@ class QuadsController < ApplicationController
   end
 
 	def show
+		puts "SHOW", params
 		@quad = Quad.find(params[:id])
 		@buildings = @quad.buildings
 		@picture = Picture.new
 		@building_tags = {}
 		@buildings.each do |build|
 			tags = $redis.hgetall("b_#{build.id}")
-			puts tags
 			top_tags = tags.sort_by { |k,v| -v }.reverse.to_h
 			@building_tags[build.id] = top_tags
 		end
 
 	end
 
-	def new_post
-		puts "new_post"
-		@buildings = Quad.find(params[:quad_id]).buildings
-		redirect_to quad_path(params[:quad_id])
-		# @buildings = Quad.find(params[:id]).buildings
-		#
+	def add_tags
+		if !params[:selected_tags].nil? && !params[:selected_tags].empty?
+			args = {building_id: params[:building_id], tags: params[:selected_tags] }
+			review = Review.find(params[:review])
+			review.tag_list.add(params[:selected_tags])
+			review.save
+			TagCounterJob.perform_async(args)
+		end
+		if params[:format] == "3"
+			render 'add_tags'
+		end
 		# respond_to do |format|
-		# 	format.js
+		# 	# format.js { render "alert('Hello Rails');" }
 		# 	format.html { render :partial => 'new_post' }
     # end
 	end
@@ -38,7 +43,7 @@ class QuadsController < ApplicationController
 	def create_post
 		puts "create_post"
 		@quad = params[:quad_id]
-		# building = Building.find(params[:building])
+		@building_id = params[:building]
 		# room_num = building.rooms.where("number LIKE ?", "%#{params[:room]}%")
 		# room = building.rooms.where(number: params[:room])
 		# if room.nil?
@@ -50,7 +55,7 @@ class QuadsController < ApplicationController
 
 		@review = Review.create(text: content,
 		 						user_id: session[:user_id],
-								building_id: params[:building],
+								building_id: @building_id,
 								room_id: params[:room],
 								rating: params[:rating])
 		# else
@@ -62,25 +67,14 @@ class QuadsController < ApplicationController
 		@review.tag_list.add(tags)
 		@review.save
 
-		args = {building_id: params[:building], tags: tags }
+		args = {building_id: @building_id, tags: tags }
 		TagCounterJob.perform_async(args)
 
-		puts "User", session[:user_id]
-		puts "REVIEW", @review
-		puts "Tags", tags
-
 		until index < 0 do
-			# content = content.strip.chomp(tags[index])
 			content.slice! tags[index]
 			index -= 1
 		end
-
 		@suggested_tags = Tag.find_adj_nouns_verbs( params[:content] )
-		puts "suggested_tags", @suggested_tags
-
-		args = {building_id: params[:building], tags: @suggested_tags }
-		puts "Suggested Args-=-=-=-=-=-=-=-=-=-=-", args
-		TagCounterJob.perform_async(args)
 
 		respond_to do |format|
       format.js
@@ -88,17 +82,13 @@ class QuadsController < ApplicationController
 
 	end
 
-	def new_photos
-
-	end
-
 	def create_photos
 		building = Building.find(params[:building_id])
 		@picture = building.pictures.build(picture_params)
 		if @picture.save
-			flash[:notice] = "Successfully created comment."
+			flash[:notice] = "Successfully added photo"
 		end
-		redirect_to quad_building_path(:id => building.id, :quad_id => params[:quad_id])
+		redirect_to quad_path(:id => params[:quad_id])
 	end
 
 

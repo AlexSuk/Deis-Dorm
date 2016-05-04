@@ -140,7 +140,7 @@ end
 
 puts "Loading reviews"
 # =========== REVIEWS ==============#
-# $redis.flushall
+$redis.flushall
 counter = 0
 CSV.foreach("db/reviews.csv") do |row|
 	user = User.create( user_name: Faker::Internet.user_name,
@@ -166,7 +166,7 @@ CSV.foreach("db/reviews.csv") do |row|
     review.tag_list.add(tags)
 		review.save
 		args = {building_id: building.id, tags: tags }
-		# TagCounterJob.perform_async(args)
+		TagCounterJob.perform_async(args)
   end
 	gen_rating = Review.where(room_id: room.id).average(:rating)
 	unless gen_rating.nil?
@@ -174,7 +174,7 @@ CSV.foreach("db/reviews.csv") do |row|
 	end
 	args = {room: room, cleanliness: row[8].to_f, noisiness: row[9].to_f, light: row[11].to_f, socialness: row[10].to_f}
 	RoomCounterJob.synchronous(args)
-	# RoomIncrJob.synchronous(args)
+	RoomIncrJob.synchronous(args)
 end
 
 
