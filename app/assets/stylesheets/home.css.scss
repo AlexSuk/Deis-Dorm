@@ -34,10 +34,10 @@ body {
 }
 
 .cloud-container {
-  width: 550px;
-  height: 300px;
+  width: 600px;
+  height: 340px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.3) 50%);
-  top: 50%;   /* position at 50% of the parent */
+  top: 51%;   /* position at 50% of the parent */
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 30px;

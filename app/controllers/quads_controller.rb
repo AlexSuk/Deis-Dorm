@@ -3,8 +3,21 @@ class QuadsController < ApplicationController
   def index
     @all_quads = Quad.all
 		@quad_buildings = {}
+		puts "quad buildings ", @quad_buildings
+		puts "index", params
 		@all_quads.each do |quad|
-			@quad_buildings[quad] = quad.buildings
+			if params[:query].nil?
+				@quad_buildings[quad] = quad.buildings
+			else
+				query = params[:query]
+				puts "QUERYY YYYFEYSFYU HU"
+				@quad_buildings[quad] = quad.buildings.select { |building|
+																	query.insert(1, building.id)
+																	exist = Room.exists? query
+																	query.delete_at(1)
+																	exist
+																}
+			end
 		end
 
   end
@@ -95,8 +108,14 @@ class QuadsController < ApplicationController
 
 
 	def do_filter
-		puts "TESTING THE DO SEARCH"
-
+		puts params
+		puts params["ac"]
+		puts params[:ac]
+		args = {type: params[:type], price: params[:price], gender: params[:gender], ac: params[:ac], kitchen: params[:kitchen], laundry: params[:laundry]}
+		puts args
+		query = Quad.filter_query(args)
+		puts "query", query.inspect
+		redirect_to quads_path(query: query)
 	end
 
 	private

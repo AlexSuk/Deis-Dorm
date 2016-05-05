@@ -13,12 +13,17 @@ textarea {
   background-color: #fff;
 }
 
+.filter-col {
+  background: #fff;
+  margin-top: 18px;
+}
+
 .media-body {
   padding-bottom: 16px;
 }
 
 .media-heading {
-  margin-bottom: -6px;
+  margin-bottom: -4px;
 }
 
 .name-rating .media .media-left {
@@ -31,6 +36,21 @@ textarea {
 
 .name-rating .media  {
   margin-top: -18px;
+}
+
+.media-body .quad-link a:link,
+.media-body .quad-link a:visited {
+  color: #336699;
+  font-size: 21px;
+  text-decoration: none;
+  border-bottom-style: none;
+  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
+}
+
+.media-body .quad-link a:hover {
+  color: #3377aa;
+  font-size: 25px;
+  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
 }
 
 .media-sub-heading .building-link a:link,
@@ -63,6 +83,7 @@ textarea {
   background-color: #fff;
   margin: 30px 0;
   padding: 10px 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .class-year h3 {
@@ -91,6 +112,7 @@ textarea {
 
 .new-review {
   background-color: #fff;
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #comment {
@@ -128,8 +150,8 @@ textarea {
 .review {
   margin: 10px;
   padding: 8px;
-  border: 5px solid #efefef;
   background: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .cut-text {
