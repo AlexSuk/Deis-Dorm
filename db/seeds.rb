@@ -120,15 +120,15 @@ CSV.foreach("db/room_data.csv") do |row|
     if row[0].include? "&"
         building = Building.find_by(name: "#{row[1]}").id
     else
-        if row[7].include? "false"
+        if row[7].include? "FALSE"
             has_kitchen = false
         end
 
-        if row[8].include? "false"
+        if row[8].include? "FALSE"
             has_laundry = false
         end
 
-        if row[9].include? "false"
+        if row[9].include? "FALSE"
             has_ac = false
         end
         Room.create(number: "#{row[0]}", building_id: building, floor: "#{row[1]}",
@@ -141,7 +141,7 @@ end
 
 puts "Loading reviews"
 # =========== REVIEWS ==============#
-#$redis.flushall
+$redis.flushall
 counter = 0
 CSV.foreach("db/reviews.csv") do |row|
 	user = User.create( user_name: Faker::Internet.user_name,
@@ -169,7 +169,7 @@ CSV.foreach("db/reviews.csv") do |row|
     review.tag_list.add(tags)
 		review.save
 		args = {building_id: building.id, tags: tags }
-		#TagCounterJob.perform_async(args)
+		TagCounterJob.perform_async(args)
   end
 	gen_rating = Review.where(room_id: room.id).average(:rating)
 	unless gen_rating.nil?
@@ -177,7 +177,7 @@ CSV.foreach("db/reviews.csv") do |row|
 	end
 	args = {room: room, cleanliness: row[8].to_f, noisiness: row[9].to_f, light: row[11].to_f, socialness: row[10].to_f}
 	RoomCounterJob.synchronous(args)
-	#RoomIncrJob.synchronous(args)
+	RoomIncrJob.synchronous(args)
 end
 
 
