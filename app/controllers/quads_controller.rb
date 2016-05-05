@@ -10,9 +10,9 @@ class QuadsController < ApplicationController
 				@quad_buildings[quad] = quad.buildings
 			else
 				query = params[:query]
-				puts "QUERYY YYYFEYSFYU HU"
 				@quad_buildings[quad] = quad.buildings.select { |building|
 																	query.insert(1, building.id)
+																	puts query.inspect
 																	exist = Room.exists? query
 																	query.delete_at(1)
 																	exist

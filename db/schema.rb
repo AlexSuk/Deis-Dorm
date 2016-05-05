@@ -96,18 +96,18 @@ ActiveRecord::Schema.define(version: 20160414170213) do
     t.integer  "building_id"
     t.string   "x_coordinate"
     t.string   "y_coordinate"
-    t.float    "cleanliness"
-    t.float    "noisiness"
-    t.float    "light"
-    t.float    "social"
-    t.float    "location"
-    t.float    "issues"
-    t.float    "general_rating"
-    t.boolean  "kitchen"
-    t.boolean  "laundry"
-    t.boolean  "ac"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.float    "cleanliness",                               default: 3.0
+    t.float    "noisiness",                                 default: 3.0
+    t.float    "light",                                     default: 3.0
+    t.float    "social",                                    default: 3.0
+    t.float    "location",                                  default: 3.0
+    t.float    "issues",                                    default: 3.0
+    t.float    "general_rating",                            default: 3.0
+    t.boolean  "kitchen",                                   default: false
+    t.boolean  "laundry",                                   default: false
+    t.boolean  "ac",                                        default: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
   end
 
   create_table "taggings", force: :cascade do |t|
