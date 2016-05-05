@@ -49,14 +49,14 @@
           <% @r = "pos" %>
           <% @review = @pos %>
           <% @rev_user = @pos_user %>
-          <%= render(partial: 'review') %>
+          <%= render(partial: 'mini_review') %>
         </div>
         <div class="col-md-3 review">
           <h4>Most Negative Review</h4>
           <% @r = "neg" %>
           <% @review = @neg %>
           <% @rev_user = @neg_user %>
-          <%= render(partial: 'review') %>
+          <%= render(partial: 'mini_review') %>
         </div>
         <div class="col-md-3 review">
           <h4>Most Recent Review</h4>
