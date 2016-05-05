@@ -22,9 +22,8 @@ $.ajax({
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 42.366719, lng: -71.258604,},
-    zoom: 16,
-    icon: brandeis_logo
+    center: {lat: 42.366719, lng: -71.258604},
+    zoom: 16
   });
   createSidebar(json_array);
 
@@ -83,12 +82,12 @@ function createSidebar(json_array){
       createForSideBar(json);
     })
   });
-};
+}
 
 var ifKeep = null;
 function createForSideBar(obj){
   controlMarkers(markers, ifKeep);
-  if (ifKeep == null){
+  if (ifKeep === null){
     markers = [];
   }
   var marker = create(obj);
@@ -124,7 +123,7 @@ $("#search").on("input",function(ev){
   kids=$("#sidebar_container div");
   var query=$("#search").val().toLowerCase();
   for(var i=0;i<kids.length;i++){
-    var match=(kids[i].textContent.toLowerCase().indexOf(query)!=-1);
+    var match=(kids[i].textContent.toLowerCase().indexOf(query)!==-1);
     kids[i].style.display=match?"block":"none";
   }
 });
@@ -151,11 +150,6 @@ function create_interest_marker(places) {
       map: map,
       icon: icon_image
     });
-    //add infowindow functionality
-    // var infowindow = createInfowindow(places[i]);
-    // marker.addListener('click', function() {
-    //   infowindow.open(map, marker);
-    // });
     interest_markers.push(marker);
   }
   firstTime = false;
@@ -172,7 +166,7 @@ function show(places_of_interest) {
     marker.setAnimation(google.maps.Animation.BOUNCE);
     stopAnimation(marker);
   }
-  map.panTo({lat: 42.366719, lng: -71.258604,});
+  map.panTo({lat: 42.366719, lng: -71.258604});
 }
 
 function stopAnimation(marker) {
