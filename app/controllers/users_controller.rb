@@ -24,8 +24,12 @@ class UsersController < ApplicationController
     @rooms.push(Room.find(@current.choice_four)) if @current.choice_four != nil
     @rooms.push(Room.find(@current.choice_five)) if @current.choice_five != nil
 
-    @positives = get_positives(@rooms)
-    @negatives = get_negatives(@rooms)
+    @positives = Array.new
+    @negatives = Array.new
+    if @rooms.size > 0
+      @positives = get_positives(@rooms,@current)
+      @negatives = get_negatives(@rooms,@current)
+    end
 
     @buildings = Array.new
     @quads = Array.new
@@ -68,6 +72,7 @@ class UsersController < ApplicationController
   end
 
   def find_rooms
+    @current = User.find_by id: session[:user_id]
     @rooms = Array.new
     @rooms = Room.individual_search(params)
     @buildings = Array.new
@@ -77,7 +82,12 @@ class UsersController < ApplicationController
       @buildings.push(building)
       @quads.push(Quad.find(building.quad_id))
     end
-    @current = User.find_by id: session[:user_id]
+    @positives = Array.new
+    @negatives = Array.new
+    if @rooms.size > 0
+      @positives = get_positives(@rooms,@current)
+      @negatives = get_negatives(@rooms,@current)
+    end
 
     #create hash for setting user preferences with only specific fields
     u_params = Hash.new
@@ -169,10 +179,83 @@ class UsersController < ApplicationController
   end
 
   private
-    def get_positives(rooms)
+    #get something good to say about each room if possible
+    def get_positives(rooms,user)
+      preferences = sorted_preferences(user)
+      final_positive_responses = Array.new
+      rooms.each do |room|
+        results = Array.new
+        results = get_room_over_under(room,preferences)
+        
+        #push first positive result for each room
+        count = 0
+        results.each do |result|
+          if count == 0
+            if result[2].to_i > 0
+              final_positive_responses.push(result[1]) 
+              count = 1
+            end
+          end
+        end
+      end
+      return final_positive_responses
     end
 
-    def get_negatives(rooms)
+    #get something bad to say about each room if possible
+    def get_negatives(rooms,user)
+      preferences = sorted_preferences(user)
+      final_negative_responses = Array.new
+      rooms.each do |room|
+        results = Array.new
+        results = get_room_over_under(room,preferences)
+
+        #push first negative result for each room
+        count = 0
+        results.each do |result|
+          if count == 0
+            if result[2].to_i < 0
+              final_negative_responses.push(result[1]) 
+              count = 1
+            end
+          end
+        end
+      end
+      return final_negative_responses
+    end
+
+    #see if room qualities are over or under average
+    def get_room_over_under(room,preferences)
+      over_under = Array.new
+      preferences.each do |pref|
+        over_under.push([room.id,"Price", 4420 - room.price]) if pref[0] == "pref_price"
+        over_under.push([room.id,"Size", room.area - 100]) if pref[0] == "pref_size"
+        over_under.push([room.id,"Noise", room.cleanliness - 3]) if pref[0] == "pref_clean"
+        over_under.push([room.id,"Clean", room.noisiness - 3]) if pref[0] == "pref_noise"
+        over_under.push([room.id,"Location", room.location - 3]) if pref[0] == "pref_location"
+        over_under.push([room.id,"Social", room.social - 3]) if pref[0] == "pref_social"
+        if pref[0] == "Air Conditioning"
+          if room.ac == true
+            over_under.push([room.id,"pref_ac", 1])
+          else
+            over_under.push([room.id,"pref_ac", -1])
+          end
+        end
+      end
+      return over_under
+    end
+
+    #sort preferences based on user importance ratings
+    def sorted_preferences(user)
+      pref_array = Array.new
+      pref_array.push(["pref_price",user.pref_price])
+      pref_array.push(["pref_size",user.pref_size])
+      pref_array.push(["pref_clean",user.pref_clean])
+      pref_array.push(["pref_noise",user.pref_noise])
+      pref_array.push(["pref_location",user.pref_location])
+      pref_array.push(["pref_ac",user.pref_ac])
+      pref_array.push(["pref_social",user.pref_social])
+      pref_array.sort_by{|e| e[1]}.reverse
+      return pref_array
     end
 
     # Use callbacks to share common setup or constraints between actions.

@@ -24,8 +24,8 @@
 			        <td><%= link_to room.number, room_path(room.id) %></td>
 			        <td><%= link_to @quads[@rooms.index(room)].name, quad_path(@quads[@rooms.index(room)].id) %></td>
 			        <td><%= link_to @buildings[@rooms.index(room)].name, quad_building_path(@quads[@rooms.index(room)].id,@buildings[@rooms.index(room)].id) %></td>
-			        <td></td>
-			        <td></td>
+			        <td><%= @positives[@rooms.index(room)] %></td>
+			        <td><%= @negatives[@rooms.index(room)] %></td>
 			      </tr>
 			    <% end %>
 			</tbody>
