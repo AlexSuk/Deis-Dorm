@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "ensure at least one user remained" do
+    assert_not_equal User.count,0
+  end
+
 end
