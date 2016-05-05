@@ -9,6 +9,7 @@
 require 'faker'
 require 'csv'
 puts "Loading quads"
+User.create(user_name: "flash2", password_digest: BCrypt::Password.create('123'), email: "idk@idk.com", admin?: true)
 Quad.create(name: "Ziv", rating: 4.1, info: "Located on the southern ridge of campus, Ziv Quad is home to many students from our junior and senior classes. Named for Gladys and Sy Ziv, the Quad consists of four buildings: 127, 128, 129 (Mazer Hall), and 130. Ziv residents live in six-person suites. Each air-conditioned suite has six single bedrooms, a spacious common area and two private bathrooms.", years: "0011")
 Quad.create(name: "East", rating: 3.7, info: "TFound in a quiet wooded area of upper campus, East Quad is home to the majority of sophomores on campus. East Quad is comprised of four sections with six names: Hassenfeld-Krivof, Shapiro House, Pomerantz-Rubenstein and Swig, yet students refer to the main residence hall buildings as Hassenfeld and Pomerantz. East Quad is conveniently located across the street from Gosman Sports Center and steps away from the Health Center and the Intercultural Center. East was designed to maximize the potential of the residence living environment to become a tight-knit community. With open lounges on most floors, extended corridors, a community kitchen and large common areas, life in East is anything but dull. The top floors of East also provide residents with a clear, breathtaking view of the Boston skyline.", years: "0100")
 Quad.create(name: "Massell", rating: 5.0, info: "Massell Quad, encircling the Anne J. Kane Reflecting Pool and the Albert Yakus Meditation Area, consists of four residence halls: Shapiro, Usen, Deroy and Renfield. Massell Quad is comprised of first-year students and is home to the Beit Midrash Jewish study and prayer room. This space, located on the ground floor of Shapiro, is coordinated by students and provides a location for them to study and pray.", years: "1000")
@@ -152,7 +153,7 @@ CSV.foreach("db/reviews.csv") do |row|
 	room = Room.find_by(building_id: building.id, number: row[2])
 	if room.nil?
 		counter += 1
-		room = Room.create(number: row[2], building_id: building.id, years_available: building.years, 
+		room = Room.create(number: row[2], building_id: building.id, years_available: building.years, floor: row[2][0].to_i, 
 			gender: "mixed", kitchen: false, laundry: false, ac: false, area: 160, location: 3, room_type: "double",
 			issues: 3)
 	end

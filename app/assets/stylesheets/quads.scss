@@ -27,6 +27,22 @@ textarea {
   margin-bottom: -6px;
 }
 
+.name-rating .media .media-left {
+  // margin: 0px;
+  // padding: 0px;
+  width: 23%;
+}
+
+.name-rating .media .media-body {
+  // margin: 0px;
+  // padding: 0px;
+  padding-top: 30px;
+}
+
+.name-rating .media  {
+  margin-top: -18px;
+}
+
 .media-sub-heading .building-link a:link,
 .media-sub-heading .building-link a:visited {
   color: #646363;
@@ -90,7 +106,7 @@ textarea {
 //   background-color: #fff000;
 // }
 
-// =============== COMMENT/REVIEWS ==================
+// =============== NEW REVIEWS ==================
 
 .new-review {
   // background-color: #f0f5f5;
@@ -132,6 +148,28 @@ textarea {
 .tag-btn.active:visited {
   background-color: #003366;
   color: #fff;
+}
+
+// =================== REVIEWS =====================
+
+.review {
+  margin: 10px;
+  padding: 8px;
+  border: 5px solid #efefef;
+  background: #fff;
+}
+
+.cut-text {
+  // height: 50px;
+  // width: 100px;
+  // white-space: nowrap;
+  line-height: 1.2em; max-height: 2.4em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rating-as-num {
+  margin-left: 8px;
 }
 
 // =================== OTHER ============
