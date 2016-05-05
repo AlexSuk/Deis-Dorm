@@ -118,6 +118,18 @@ before_action :set_search, only: [:update, :room_params]
     	@room = Room.find(params[:id])
     	@building = Building.find(@room.building_id)
     	@quad = Quad.find(@building.quad_id)
+    	@reviews = Array.new
+    	@reviews = Review.all.where(room_id: @room.id)
+    	@users = User.find(@reviews.map { |r| r.user_id })
+	    @users_map = {}
+	    @users.each do |user|
+	      @users_map[user.id] = user
+	    end
+	    @reviews_users = {}
+	    @reviews.each do |review|
+	      @reviews_users[review] = @users_map[review.user_id]
+	    end
+	    @description = build_properties_string(@room)
   	end
 
 	def update
@@ -136,6 +148,41 @@ before_action :set_search, only: [:update, :room_params]
 		end
 	end
 	private
+		def build_properties_string(room)
+			response = ""
+			response += "This room is for"
+			years = Array.new
+			if room.years_available[0] == "1"
+				years.push " Freshmen"
+			end
+			if room.years_available[1] == "1"
+				years.push " Sophomores"
+			end
+			if room.years_available[2] == "1"
+				years.push " Juniors"	
+			end
+			if room.years_available[3] == "1"
+				years.push " Seniors"
+			end
+
+			years.each do |year|
+				response += year
+				if years.index(year) == years.size - 1
+					response += ". "
+				elsif years.size > 1
+					if years.index(year) == years.size - 2
+						response +=" and "
+					else
+						resposne +=","
+					end
+				else
+				end
+			end
+
+			response += "The room has an area of #{room.area} square feet. It is usually picked by housing number #{room.rough_housing_num}. This room can be used by the following gender(s): #{room.gender}."
+
+			return response
+		end
 
 		def set_search
      		@room = Room.find(params[:id])

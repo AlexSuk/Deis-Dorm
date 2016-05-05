@@ -2,7 +2,71 @@
 
 <body>
 	<div class = "container">
-		<h2>Quad: <%= @quad.name%><h2>
-		<h3><%=@building.name%> <%=@room.number%></h3>
+		<div class="row title_left">
+			<h2>Quad: <%= @quad.name%></h2>
+			<h3><%=@building.name%> <%=@room.number%></h3>
+			<h4><strong>General Rating: <%= @room.general_rating.round(2)%>/5</strong></h4>
+		</div>
+		<div class="row info-group">
+			<h4>General Information:</h4>
+			<p><%= @description%></p>
+			<p><strong>Has Kitchen:</strong> <%= @room.kitchen%><br>
+			   <strong>Has Laundry:</strong> <%= @room.laundry%><br>
+		       <strong>Has Air Conditioning:</strong> <%= @room.ac%><br>
+		    </p>
+		</div>
+		<div class="row info-group">
+			<h4>Ratings:</h4>
+			<div class="col-md-3">
+				Cleanliness: <%= @room.cleanliness.round(2)%><br>
+				Noisiness: <%= @room.noisiness.round(2)%><br>
+			</div>
+			<div class="col-md-3">
+				Lighting: <%= @room.light.round(2)%><br>
+				Socialness: <%= @room.social.round(2)%><br>
+			</div>
+			<div class="col-md-3">
+				Location Convenience: <%= @room.location.round(2)%><br>
+			</div>
+			<div class="col-md-3">
+			</div> 
+		</div>
+		<div class="row info-group">
+			<h4>Reviews:</h4>
+			<% if @reviews.size > 0%>
+				<% @reviews_users.each do |review, user| %>
+				    <div class="row">
+				      <span>
+				        <% if user.icon_content_type.nil? %>
+				          <%= image_tag user.icon_file_name, id: "profile-pic", size: "30" %>
+				        <% else %>
+				          <%= image_tag user.icon.url(:thumb), id: "profile-pic", size: "30" %>
+				        <% end %>
+
+				      </span>
+				      <span><h5> <%= link_to user.user_name, user_path(user.id) %> </h5></span>
+				      <span> Rating: <%= review.rating %> </span>
+
+				      <span>
+				        <% (1..10).each do |rating| %>
+				          <% unless rating == (review.rating * 2) %>
+				            <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled"/>
+				          <% else %>
+				            <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled" checked="checked"/>
+				          <% end %>
+				        <% end %>
+				      </span>
+				      <p> <%= review.text %> </p>
+				      <% review.tags.each do |tag| %>
+				        <span>#<%= tag %> </span>
+				      <% end %>
+				      <p class="datetime"> Posted <%= review.created_at.strftime('%b %d, %Y') %> </p>
+				    </div>
+				<% end %>
+			<% else %>
+				Currently no Reviews
+			<% end %>
+			<br>
+		</div>
 	</div>
 </body>
