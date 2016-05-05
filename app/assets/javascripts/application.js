@@ -22,4 +22,5 @@
 //= require jquery.hashtags
 //= require jquery-star-rating
 //= require jquery.autosize
+//= require jqcloud
 //= require_tree .

@@ -13,8 +13,9 @@ class MapController < ApplicationController
     @current_u = User.find_by(id: session[:user_id])
   end
 
-  def zoom
-
+  def serveGeojson
+    @data = File.read("app/assets/javascripts/brandeismap.json")
+    render :json => @data
   end
 
 end
