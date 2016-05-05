@@ -1,7 +1,6 @@
 class HomeController < ApplicationController
 	skip_before_action :authorize
   def index
-		puts "GOEJFISOJFES"
 		gon.cloud = Array.new
 		gon.counter = 0
 		tags = Tag.order("taggings_count DESC").limit(30)
