@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :tags
 
+  get 'geodata' => "map#serveGeojson"
+
   put 'users/find' => "users#find_rooms"
 
   get 'rooms/index2' => "rooms#index2"

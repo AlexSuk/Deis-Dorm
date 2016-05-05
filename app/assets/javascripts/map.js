@@ -14,11 +14,10 @@ var einstein = 'https://s3.amazonaws.com/deis-dorms-devel/pictures/static/map_ic
 var map;
 var geojsonData;
 $.ajax({
-	url:"https://gist.github.com/zcm0705/b0d8ccafd283307795664bb0a8b24e4b.js",
+	url:"/geodata",
 	success:function(data,status,jqXHR){
 		geojsonData=data;
-	},
-  async:false
+	}
 });
 
 function initMap() {
@@ -29,8 +28,6 @@ function initMap() {
   });
   createSidebar(json_array);
 
-  // map.data.loadGeoJson('https://gist.github.com/zcm0705/b0d8ccafd283307795664bb0a8b24e4b.js');
-  // map.data.addGeoJson(test);
   map.data.addGeoJson(geojsonData);
 
   map.data.setStyle(function(feature) {
