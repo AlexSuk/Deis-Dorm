@@ -13,15 +13,19 @@
 			      <th> Room# </th>
 			      <th> Quad </th>
 			      <th> Building </th>
+			      <th> Positive(s)</th>
+			      <th> Negative(s)</th>
 			    </tr>
 			</thead>
 
 			<tbody>
 			    <% @rooms.each do |room| %>
 			      <tr>
-			        <td><%= room.number %></td>
-			        <td><%= @quads[@rooms.index(room)].name %></td>
-			        <td><%= @buildings[@rooms.index(room)].name %></td>
+			        <td><%= link_to room.number, room_path(room.id) %></td>
+			        <td><%= link_to @quads[@rooms.index(room)].name, quad_path(@quads[@rooms.index(room)].id) %></td>
+			        <td><%= link_to @buildings[@rooms.index(room)].name, quad_building_path(@quads[@rooms.index(room)].id,@buildings[@rooms.index(room)].id) %></td>
+			        <td></td>
+			        <td></td>
 			      </tr>
 			    <% end %>
 			</tbody>

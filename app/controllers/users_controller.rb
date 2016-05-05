@@ -24,6 +24,9 @@ class UsersController < ApplicationController
     @rooms.push(Room.find(@current.choice_four)) if @current.choice_four != nil
     @rooms.push(Room.find(@current.choice_five)) if @current.choice_five != nil
 
+    @positives = get_positives(@rooms)
+    @negatives = get_negatives(@rooms)
+
     @buildings = Array.new
     @quads = Array.new
     @rooms.each do |room|
@@ -166,6 +169,12 @@ class UsersController < ApplicationController
   end
 
   private
+    def get_positives(rooms)
+    end
+
+    def get_negatives(rooms)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
