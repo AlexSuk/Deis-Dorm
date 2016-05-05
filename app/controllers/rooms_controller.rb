@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
 before_action :set_search, only: [:update, :room_params]
 	def index
 
-		
+
 		buildings_temp = Building.all
 		@buildings = Array.new
 		buildings_temp.each do |x|
@@ -24,19 +24,20 @@ before_action :set_search, only: [:update, :room_params]
 		filled_coord= Room.where("x_coordinate is not NULL")
 		filled_coord.each do |each_room|
 			room_info = Hash.new
-			room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number, :floor => each_room.floor} 
+			room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number, :floor => each_room.floor}
 			gon.all_dots_user << room_info
 		end
 
-		@chosen_building_user = params[:building]	
+		@chosen_building_user = params[:building]
 		@chosen_floor_user = params[:floor]
-		chosen_file_temp = "assets/#{@chosen_building_user}#{@chosen_floor_user}"
-		if @chosen_building_user == "" || @chosen_floor_user == "" 
+		# chosen_file_temp = "assets/#{@chosen_building_user}#{@chosen_floor_user}"
+		chosen_file_temp = "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/floor_plans/#{@chosen_building_user}#{@chosen_floor_user}.png"
+		if @chosen_building_user == "" || @chosen_floor_user == ""
 			@chosen_file_user = ""
 		else
 			@chosen_file_user = chosen_file_temp.gsub!(/\s+/, '')
 		end
-		
+
 	end
 
 	def index2
@@ -71,23 +72,23 @@ before_action :set_search, only: [:update, :room_params]
 				filled_coord = Room.where(:building_id => room_building.id)
 				filled_coord = filled_coord.where(:floor => get_floor)
 				filled_coord= filled_coord.where("x_coordinate is not NULL")
-			
+
 			else
 				filled_coord= Array.new
-			
-					
+
+
 			end
 
 			filled_coord.each do |each_room|
 				room_info = Hash.new
-				room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number,:floor => each_room.floor} 
+				room_info = {:id => each_room.id, :x_coordinate => each_room.x_coordinate, :y_coordinate => each_room.y_coordinate, :number => each_room.number,:floor => each_room.floor}
 				gon.all_dots << room_info
 			end
 
 		end
 
 
-		
+
 
 
 		gon.empty_locations = Array.new
@@ -97,16 +98,18 @@ before_action :set_search, only: [:update, :room_params]
 			room_info = Hash.new
 			empty_room_building_array = Building.where(:id =>  empty_room.building_id)
 			empty_room_building_temp = empty_room_building_array[0]
-			room_info = {:id => empty_room.id, :x_coordinate => empty_room.x_coordinate, :y_coordinate => empty_room.y_coordinate, :number => empty_room.number, :building_name => empty_room_building_temp.name, :floor => empty_room.floor} 
+			room_info = {:id => empty_room.id, :x_coordinate => empty_room.x_coordinate, :y_coordinate => empty_room.y_coordinate, :number => empty_room.number, :building_name => empty_room_building_temp.name, :floor => empty_room.floor}
 			gon.empty_locations << room_info
 		end
 
-				
-		
-		chosen_file_temp = "../assets/#{@chosen_building}#{@chosen_floor}"
-		if @chosen_building == "" || @chosen_floor == "" 
+
+
+		# chosen_file_temp = "../assets/#{@chosen_building}#{@chosen_floor}"
+		chosen_file_temp = "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/floor_plans/#{@chosen_building}#{@chosen_floor}.png"
+		if @chosen_building == "" || @chosen_floor == ""
 			@chosen_file = ""
 		else
+			puts "SUCCESS"
 			@chosen_file = chosen_file_temp.gsub!(/\s+/, '')
 		end
 	end
@@ -121,7 +124,7 @@ before_action :set_search, only: [:update, :room_params]
 
 	    respond_to do |format|
 	      if @room.update_attributes(room_params)
-	      
+
 	        format.html { redirect_to @room, notice: 'successfully updated.' }
 	        format.js
 	        format.json {render json: @room}
@@ -146,4 +149,3 @@ before_action :set_search, only: [:update, :room_params]
 	      # params.fetch(:room)
 	    end
 end
-
