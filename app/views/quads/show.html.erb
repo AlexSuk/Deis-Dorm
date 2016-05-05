@@ -34,7 +34,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane fade in active" id="comment">
-            <%= render(partial: 'new_post') %>
+            <%= render(partial: 'new_review') %>
           </div>
           <div role="tabpanel" class="tab-pane fade" id="photos">
             <%= render(partial: 'new_photos') %>
@@ -113,7 +113,7 @@
                 <p> Not enough reviews for this building yet. Help out! </p>
               <% else %>
                 <% @building_tags[building.id].each do |t, count| %>
-                  <span style="color:#336699;"> #<%= t %> </span>
+                  <span class="hash-tag"><%= t %> </span>
                 <% end %>
               <% end %>
           </div>

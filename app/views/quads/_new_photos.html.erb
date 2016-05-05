@@ -1,13 +1,15 @@
 <%= form_for(@picture, multipart: true, url: create_photos_quads_path, method:"put") do |f| %>
 
-  <div class="form-group comment-tab">
+  <div class="form-group comment-tab" style="margin-right:10px;">
     <%= select_tag :building_id, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= hidden_field_tag "quad_id", params[:id] %>
-    <%= f.submit "Upload" %>
+  <div style="margin:10px;">
+    <div class="field">
+      <%= f.file_field :image %>
+    </div>
+    <div class="actions">
+      <%= hidden_field_tag "quad_id", params[:id] %>
+      <%= f.submit "Upload", class: 'btn btn-success' %>
+    </div>
   </div>
 <% end %>

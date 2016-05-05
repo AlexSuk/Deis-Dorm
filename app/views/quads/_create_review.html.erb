@@ -14,9 +14,10 @@
     <% end %>
 
   </div>
+  <br></br>
   <div id="add-button">
-    <%= submit_tag "Add +", class: "form_submit" %>
+    <%= submit_tag "Add +", class: "form_submit btn btn-success" %>
   </div>
 <% end %>
-<%#= link_to "Write new review", new_post_quads_path(quad_id: @quad), method: :get %>
+<%#= link_to "Write new review", new_review_quads_path(quad_id: @quad), method: :get %>
 <%= link_to "Write new review", quad_path(@quad), method: :get %>

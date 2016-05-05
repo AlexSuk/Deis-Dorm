@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag "quads", media: "all", "data-turbolinks-track" => "reload" %>
+<%= javascript_include_tag "jquery.hashtags","data-turbolinks-track" => "reload" %>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('textarea').autosize();
+    $('textarea').hashtags();
+  });
+</script>
+
+<%= form_tag create_review_quad_buildings_path(quad_id: @quad.id, building_id: @building.id), method: "get", remote: true, id: 'building_new_comment' do %>
+  <div class="row" >
+    <ul class="comment-top">
+      <li class="form-group comment-tab">
+        <input name="rating" type="radio" class="star {split:2}" value="0.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="1.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="1.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="2.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="2.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="3.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="3.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="4.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="4.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="5.0" required/>
+      </li>
+
+      <li class="form-group comment-tab">
+        <%= text_field_tag :room, nil, placeholder: "Room #", class: 'form-control', id: 'room-num', size: 4 %>
+      </li>
+    </ul>
+  </div>
+  <div class="row col-md-12 comment-content form-group" >
+    <%= text_area_tag :content, nil, placeholder: "What's happening?\nMake sure to add some hashtags ^^ (e.g. #clean #quiet #thinwalls)", class: 'form-control', id: 'review-content' %>
+  </div>
+
+  <div class="col-md-1 form-group">
+    <%= hidden_field_tag 'quad_id', params[:id] %>
+    <%= submit_tag "Post", class: "form_submit btn btn-success" %>
+  </div>
+<% end %>

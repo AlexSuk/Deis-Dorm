@@ -3,15 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //= require jquery-star-rating
 
-.row {
-  // padding: 30px;
-  // border-bottom: 2px solid #b0e0e6 ;
-}
-
-
 body {
-	// padding-top:50px;
-  // background-color: #000;
   background-color: #e6f2ff;
   position: relative;
 }
@@ -20,71 +12,51 @@ textarea {
   resize:none;
 }
 
-.media-body {
-  padding-bottom: 16px;
+h2 {
+  border-bottom: 2px solid #e0e0e0;
 }
 
-.media-heading {
-  margin-bottom: -6px;
-}
-
-.media-sub-heading .building-link a:link,
-.media-sub-heading .building-link a:visited {
-  color: #646363;
-  font-size: 15px;
-  text-decoration: none;
-  // border-bottom: 1px solid #003366;
-  // margin-bottom: 1px;
-  border-bottom-style: none;
-  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
-}
-
-.media-sub-heading .building-link a:hover {
-  color: #ababab;
-  font-size: 21px;
-  // text-decoration: none;
-  border-bottom: 1px solid #979797;
-  transition: color 0.2s, border-bottom 0.2s, font-size 0.2s;
-}
-
-.media-sub-heading {
-  padding-left: 15px;
-  padding-bottom: 10px;
-}
-
-.building-link {
-  font-size: 21px;
-  color: #ababab;
-}
-
-.class-year {
-  background-color: #fff;
-  margin: 30px 0;
-  padding: 10px 30px;
-}
-
-.class-year h3 {
-  margin-top: 10px;
-}
-
-#leftCol {
-  margin-right: 10px;
-  background-color: #fff;
-}
-
-#rightCol {
-  margin-left: 20px;
+.nav-tabs li.active a,
+.nav-tabs li.active a:hover,
+.nav-tabs li.active a:focus,
+.nav-tabs li.active a:visited {
+  background-color: #003366;
+  color: #fff;
 }
 
 .new-review {
-  background-color: #f0f5f5;
   margin: 20px;
+  border: 5px solid #e7e7e7;
+}
+
+.rating-as-num {
+  margin-left: 8px;
 }
 
 #comment {
-  // background-color: blue;
   padding-left: 20px;
-  // padding-top: 10px;
+}
+
+#building-new-comment {
+  background-color: #e6f2ff;
+}
+
+.one-review {
+  border-bottom: 2px solid #ededed;
+  padding-top: 8px;
+  margin: 0 10px;
+}
+
+.rating {
+  margin-top: 8px;
+}
+
+.hash-tag {
+  color:#336699;
+}
+
+.datetime {
+  float: right;
 }
 
 .comment-top {
@@ -94,15 +66,23 @@ textarea {
 }
 
 .comment-tab {
-  // background-color: yellow;
   float: left;
   padding-top: 10px;
   padding-left: 10px;
   display: inline;
 }
 
-.comment-content {
-  // padding-bottom: 15px;
+.tag-btn {
+  background-color: #efefef;
+  color: #010101;
+}
+
+.tag-btn.active,
+.tag-btn.active:hover,
+.tag-btn.active:focus,
+.tag-btn.active:visited {
+  background-color: #003366;
+  color: #fff;
 }
 
 .container {

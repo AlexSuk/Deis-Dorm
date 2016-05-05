@@ -43,12 +43,12 @@ class QuadsController < ApplicationController
 		if params[:format] == "3" then render 'add_tags' end
 		# respond_to do |format|
 		# 	# format.js { render "alert('Hello Rails');" }
-		# 	format.html { render :partial => 'new_post' }
+		# 	format.html { render :partial => 'new_review' }
     # end
 	end
 
-	def create_post
-		puts "create_post"
+	def create_review
+		puts "create_review"
 		@quad = params[:quad_id]
 		@building_id = params[:building]
 		room = Room.where("building_id = ? AND number LIKE ?", @building_id, "%#{params[:room]}%").first
@@ -89,17 +89,17 @@ class QuadsController < ApplicationController
 		if @picture.save
 			flash[:notice] = "Successfully added photo"
 		end
-		redirect_to quad_path(:id => params[:quad_id])
+		redirect_to quad_building_path(params[:quad_id], params[:building_id])
+		# redirect_to "quad/#{params[:quad_id]}/building/#{params[:building_id]}#photos"
 	end
 
 
-	def do_search
+	def do_filter
 		puts "TESTING THE DO SEARCH"
 
 	end
 
 	private
-
 		def picture_params
 			params.require(:picture).permit(:image)
 		end

@@ -7,7 +7,10 @@
     <li class="active"><%=@building.name%></li>
   </ol>
   <h1> <%= @building.name %> </h1>
-  <h3> <%= @building.description %> </h3>
+  <% @tags.each do |tag, count| %>
+    <span class="hash-tag">#<%=tag%> </span>
+  <% end %>
+  <h4> <%= @building.description %> </h4>
 
   <% unless session[:user_id].nil? %>
   <div class="row new-review">
@@ -18,7 +21,7 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="comment">
-        <%= render(partial: 'new_post') %>
+        <%= render(partial: 'new_review') %>
       </div>
       <div role="tabpanel" class="tab-pane" id="photos">
         <%= render(partial: 'new_photos') %>
@@ -27,7 +30,7 @@
   </div>
   <% end %>
 
-  <h2> Photos </h2>
+  <h2 id="photos"> Photos </h2>
 
   <% @building.pictures.each do |photo| %>
     <% if photo.image_content_type.nil? %>
@@ -38,35 +41,42 @@
   <% end %>
 
   <h2> Reviews </h2>
-
+  <% if @reviews_users.empty? then %>
+    <h3>There are no reviews yet. Write a review above!</h3>
+  <% end %>
   <% @reviews_users.each do |review, user| %>
-  <%# review = @building.reviews[2] %>
-    <div class="row">
-      <span>
-        <% if user.icon_content_type.nil? %>
-          <%= image_tag user.icon_file_name, id: "profile-pic", size: "30" %>
-        <% else %>
-          <%= image_tag user.icon.url(:thumb), id: "profile-pic", size: "30" %>
-        <% end %>
-
-      </span>
-      <span><h5> <%= link_to user.user_name, user_path(user.id) %> </h5></span>
-      <span> Rating: <%= review.rating %> </span>
-
-      <span>
-        <% (1..10).each do |rating| %>
-          <% unless rating == (review.rating * 2) %>
-            <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled"/>
+    <div class="row one-review">
+      <div class="media col-md-2 ">
+        <div class="media-left media-middle">
+          <% if user.icon_content_type.nil? %>
+            <%= image_tag user.icon_file_name, id: "profile-pic", size: "30" %>
           <% else %>
-            <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled" checked="checked"/>
+            <%= image_tag user.icon.url(:thumb), id: "profile-pic", size: "30" %>
           <% end %>
+        </div>
+        <div class="media-body media-middle">
+          <h5> <%= link_to user.user_name, user_path(user.id) %> </h5>
+        </div>
+      </div>
+      <div class="col-md-2 rating">
+        <span>
+          <% (1..10).each do |rating| %>
+            <% unless rating == (review.rating * 2) %>
+              <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled"/>
+            <% else %>
+              <input name="<%=review.id%>" type="radio" class="star {split:2}" disabled="disabled" checked="checked"/>
+            <% end %>
+          <% end %>
+        </span>
+        <span class="rating-as-num"><%= review.rating %> </span>
+      </div>
+      <div class="col-md-12">
+        <p> <%= review.text %> </p>
+        <% review.tags.each do |tag| %>
+          <span class="hash-tag">#<%= tag %> </span>
         <% end %>
-      </span>
-      <p> <%= review.text %> </p>
-      <% review.tags.each do |tag| %>
-        <span>#<%= tag %> </span>
-      <% end %>
-      <p class="datetime"> Posted <%= review.created_at.strftime('%b %d, %Y') %> </p>
+        <p class="datetime"> Posted <%= review.created_at.strftime('%b %d, %Y') %> </p>
+      </div>
     </div>
   <% end %>
 

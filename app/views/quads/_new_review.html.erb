@@ -9,20 +9,20 @@
   });
 </script>
 
-<%= form_tag create_post_quads_path, method: "get", remote: true, id: 'quad_new_comment' do %>
+<%= form_tag create_review_quads_path, method: "get", remote: true, id: 'quad_new_comment' do %>
   <div class="row" >
     <ul class="comment-top">
       <li class="form-group comment-tab">
-        <input name="rating" type="radio" class="star {split:2}" value="0.5"/>
-        <input name="rating" type="radio" class="star {split:2}" value="1.0"/>
-        <input name="rating" type="radio" class="star {split:2}" value="1.5" />
-        <input name="rating" type="radio" class="star {split:2}" value="2.0"/>
-        <input name="rating" type="radio" class="star {split:2}" value="2.5"/>
-        <input name="rating" type="radio" class="star {split:2}" value="3.0"/>
-        <input name="rating" type="radio" class="star {split:2}" value="3.5"/>
-        <input name="rating" type="radio" class="star {split:2}" value="4.0"/>
-        <input name="rating" type="radio" class="star {split:2}" value="4.5"/>
-        <input name="rating" type="radio" class="star {split:2}" value="5.0"/>
+        <input name="rating" type="radio" class="star {split:2}" value="0.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="1.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="1.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="2.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="2.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="3.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="3.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="4.0" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="4.5" required/>
+        <input name="rating" type="radio" class="star {split:2}" value="5.0" required/>
       </li>
       <li class="form-group comment-tab">
         <%= select_tag :building, options_from_collection_for_select(@buildings, :id, :name), prompt: "Building",  id: "subject", class: "form-control" %>
@@ -39,6 +39,6 @@
 
   <div class="col-md-1 form-group">
     <%= hidden_field_tag 'quad_id', params[:id] %>
-    <%= submit_tag "Post", class: "form_submit" %>
+    <%= submit_tag "Post", class: "form_submit btn btn-success" %>
   </div>
 <% end %>

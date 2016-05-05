@@ -41,14 +41,18 @@ Rails.application.routes.draw do
 
   resources :quads do
     collection do
-      get 'do_search'
-      get 'create_post'
+      get 'create_review'
       get 'add_tags'
+      get 'do_filter'
       put 'create_photos'
-      get 'new_photos'
     end
-    resources :buildings
-
+    resources :buildings do
+      collection do
+        get 'create_review'
+        get 'add_tags'
+        put 'create_photos'
+      end
+    end
   end
 
   resources :rooms

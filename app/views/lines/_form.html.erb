@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "lines", media: "all", "data-turbolinks-track" => "reload" %>
 
 <br></br>
-<div class="container" id="new_post">
+<div class="container" id="new_review">
   <h1>New Post</h1>
   <%= form_for([@board, @line]) do |f| %>
     <% if @line.errors.any? %>

@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <%= form_tag(do_search_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
+    <%#= form_tag(do_search_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
 
     <div class="input-group">
       <input name="keywords" type="text"  class="form-control" placeholder="Keywords for quads, buildings, rooms, etc."/>
@@ -10,11 +10,11 @@
         <%= button_tag "", type: 'submit', class: "btn btn-default glyphicon glyphicon-search pull-right" %>
       </span>
     </div>
-    <% end %>
+    <%# end %>
   </div>
 
   <div class="col-md-2">
-    <%= form_tag(do_search_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
+    <%= form_tag(do_filter_quads_path, method: "get", remote: true, role: "form", class: "form") do %>
       <h4>Room type</h4>
       <% ["Single", "Double", "Suite"].each do |roommate| %>
         <%= check_box_tag "a[]", roommate, true, {:multiple => true} %>
@@ -33,9 +33,6 @@
   </div>
 
   <div class="col-md-10">
-    <ol class="breadcrumb">
-      <li class="active">Quads</li>
-    </ol>
     <div class="row class-year">
       <h3>Freshman</h3>
       <div class="media">

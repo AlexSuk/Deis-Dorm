@@ -3,12 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 //= require jquery-star-rating
 
-.row {
-  // padding: 30px;
-  // border-bottom: 2px solid #b0e0e6 ;
-}
-
-
 body {
   background-color: #e6f2ff;
   position: relative;
@@ -28,14 +22,10 @@ textarea {
 }
 
 .name-rating .media .media-left {
-  // margin: 0px;
-  // padding: 0px;
   width: 23%;
 }
 
 .name-rating .media .media-body {
-  // margin: 0px;
-  // padding: 0px;
   padding-top: 30px;
 }
 
@@ -96,27 +86,15 @@ textarea {
   color: #fff;
 }
 
-.nav-tabs li a {
-  // border: medium none;
-  // background-color: #eeeeee;
-}
-
-
-// .nav-tabs li a:hover{
-//   background-color: #fff000;
-// }
 
 // =============== NEW REVIEWS ==================
 
 .new-review {
-  // background-color: #f0f5f5;
   background-color: #fff;
 }
 
 #comment {
-  // background-color: blue;
   padding-left: 20px;
-  // padding-top: 10px;
 }
 
 .comment-top {
@@ -126,15 +104,10 @@ textarea {
 }
 
 .comment-tab {
-  // background-color: yellow;
   float: left;
   padding-top: 10px;
   padding-left: 10px;
   display: inline;
-}
-
-.comment-content {
-  // padding-bottom: 15px;
 }
 
 .tag-btn {
@@ -160,9 +133,6 @@ textarea {
 }
 
 .cut-text {
-  // height: 50px;
-  // width: 100px;
-  // white-space: nowrap;
   line-height: 1.2em; max-height: 2.4em;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -170,6 +140,10 @@ textarea {
 
 .rating-as-num {
   margin-left: 8px;
+}
+
+.hash-tag {
+  color:#336699;
 }
 
 // =================== OTHER ============
@@ -219,24 +193,6 @@ textarea {
   background-color:#000033;
 }
 
-// .affix-top,.affix{
-// 	position: static;
-// }
-
-// @media (min-width: 979px) {
-//   #sidebar.affix-top {
-//     position: fixed;
-//   	// margin-top:30px;
-//   	width:175px;
-//   }
-//
-//   #sidebar.affix {
-//     position: fixed;
-//     // top:70px;
-//     width:175px;
-//   }
-// }
-
 .affix {
   top: 150;
   width: 150px;
@@ -273,8 +229,6 @@ textarea {
 	position: absolute;
 	padding-left:7px;
 	padding-top:5px;
-	// font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	// font-size:14px;
 	line-height:20px;
 }
 
@@ -282,8 +236,6 @@ textarea {
 	background-color: transparent;
 	position: relative;
 	direction: ltr;
-	// font-size:14px;
-	// font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	resize:none !important;
 	-webkit-transition: height 0.2s;
 	border: 1px solid #cccccc;
@@ -298,7 +250,6 @@ textarea {
 
 .jqueryHashtags .hashtag{
 	background: -webkit-linear-gradient(#dce6f8, #bdcff1);
-  // background: #FFFF00;
 	border-radius: 2px;
 	box-shadow: 0 0 0 1px #a3bcea;
 	font-size:14px;
