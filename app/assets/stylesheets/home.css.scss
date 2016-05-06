@@ -34,8 +34,9 @@ body {
 }
 
 .cloud-container {
-  width: 600px;
+  width: 580px;
   height: 340px;
+	max-width: 1140px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.3) 59%, rgba(0, 0, 0, 0.3) 50%);
   top: 51%;   /* position at 50% of the parent */
   left: 50%;
@@ -52,7 +53,7 @@ body {
     // width: 1140px;
     width: 100%;
     top: 60%;   /* position at 50% of the parent */
-    left: 55%;
+    left: 54%;
     transform: translate(-50%, -50%); /* translate -50% of this box, not the parent */
 }
 
