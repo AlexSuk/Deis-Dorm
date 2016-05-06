@@ -1,7 +1,7 @@
 class QuadsController < ApplicationController
 	skip_before_action :authorize
-  def index
-    @all_quads = Quad.all
+	def index
+		@all_quads = Quad.all
 		@quad_buildings = {}
 		puts "quad buildings ", @quad_buildings
 		puts "index", params
@@ -16,11 +16,10 @@ class QuadsController < ApplicationController
 																	exist = Room.exists? query
 																	query.delete_at(1)
 																	exist
-																}
+				}
 			end
 		end
-
-  end
+	end
 
 	def show
 		@quad = Quad.find(params[:id])
@@ -57,7 +56,7 @@ class QuadsController < ApplicationController
 		# respond_to do |format|
 		# 	# format.js { render "alert('Hello Rails');" }
 		# 	format.html { render :partial => 'new_review' }
-    # end
+		# end
 	end
 
 	def create_review
@@ -71,13 +70,13 @@ class QuadsController < ApplicationController
 		index = tags.size - 1
 
 		@review = Review.create(text: content,
-		 						user_id: session[:user_id],
+								user_id: session[:user_id],
 								building_id: @building_id,
 								room_id: room.nil? ? nil : room.id,
 								rating: params[:rating])
 		tags = tags.map { |t|
 			t[1..-1]
-	  }
+		}
 		@review.tag_list.add(tags)
 		@review.save
 
@@ -91,8 +90,8 @@ class QuadsController < ApplicationController
 		@suggested_tags = Tag.find_adj_nouns_verbs( params[:content] )
 
 		respond_to do |format|
-      format.js
-    end
+			format.js
+		end
 
 	end
 

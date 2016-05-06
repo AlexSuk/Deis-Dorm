@@ -186,13 +186,13 @@ class UsersController < ApplicationController
       rooms.each do |room|
         results = Array.new
         results = get_room_over_under(room,preferences)
-        
+
         #push first positive result for each room
         count = 0
         results.each do |result|
           if count == 0
             if result[2].to_i > 0
-              final_positive_responses.push(result[1]) 
+              final_positive_responses.push(result[1])
               count = 1
             end
           end
@@ -214,7 +214,7 @@ class UsersController < ApplicationController
         results.each do |result|
           if count == 0
             if result[2].to_i < 0
-              final_negative_responses.push(result[1]) 
+              final_negative_responses.push(result[1])
               count = 1
             end
           end
@@ -272,4 +272,4 @@ class UsersController < ApplicationController
   #   def set_s3_direct_post
   #     @s3_direct_post = S3_BUCKET.presigned_post(key: "user/#{session[:user_id]}/${filename}", success_action_status: '201', acl: 'public-read')
   #   end
- end
+  end

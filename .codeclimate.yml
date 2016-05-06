@@ -8,3 +8,5 @@ exclude_paths:
 - test/**/*
 - "**/vendor/**/*"
 - ".byebug_history"
+- "app/assets/javascripts/jquery.ui.widget.js"
+- db/**/*
