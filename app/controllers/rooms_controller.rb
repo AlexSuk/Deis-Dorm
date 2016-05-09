@@ -30,9 +30,6 @@ before_action :set_search, only: [:update, :room_params]
 
 		@chosen_building_user = params[:building]
 		@chosen_floor_user = params[:floor]
-		# chosen_file_temp = "assets/#{@chosen_building_user}#{@chosen_floor_user}"
-		puts @chosen_building_user
-		puts @chosen_floor_user
 		chosen_file_temp = "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/floor_plans/#{@chosen_building_user}#{@chosen_floor_user}.png"
 		if @chosen_building_user == "" || @chosen_floor_user == ""
 			@chosen_file_user = ""
@@ -111,7 +108,6 @@ before_action :set_search, only: [:update, :room_params]
 		if @chosen_building == "" || @chosen_floor == ""
 			@chosen_file = ""
 		else
-			puts "SUCCESS"
 			@chosen_file = chosen_file_temp.gsub!(/\s+/, '')
 		end
 	end

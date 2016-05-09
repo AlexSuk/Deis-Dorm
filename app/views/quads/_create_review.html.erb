@@ -1,14 +1,11 @@
 <h3> Thanks for the review! </h3>
-<p> Would you like to write another review? </p>
 
-<%= puts "buildings", @buildings %>
-
+<p> Would you like to add some more hashtags? </p>
 <%= form_tag add_tags_quads_path(review: @review.id, building_id: @building_id), method: "get", remote: true, id: 'quad_new_comment' do %>
 
   <div class="" data-toggle="buttons">
     <% @suggested_tags.keys.each do |tag| %>
       <label class="btn btn-primary tag-btn">
-        <!-- <input type="checkbox" autocomplete="off" value="<%=tag%>"> <%=tag%> -->
         <%= check_box_tag "selected_tags[]", tag, false, {:multiple => true} %><%=tag %>
       </label>
     <% end %>
@@ -19,5 +16,6 @@
     <%= submit_tag "Add +", class: "form_submit btn btn-success" %>
   </div>
 <% end %>
-<%#= link_to "Write new review", new_review_quads_path(quad_id: @quad), method: :get %>
+
+<p> Would you like to write another review? </p>
 <%= link_to "Write new review", quad_path(@quad), method: :get %>

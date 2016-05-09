@@ -7,13 +7,25 @@ class Quad < ActiveRecord::Base
 
     unless args[:type].nil?
       args[:type].each do |type|
-
+				query += " AND type = ? "
+				values.push type.downcase
       end
     end
     unless args[:price].nil?
-      args[:price].each do |type|
-
+			min = Float::INFINITY
+			max = 0
+      args[:price].each do |price|
+				prices = price.gsub(/[$,]/, "").split("-")
+				if prices[0].to_f < min
+					min = prices[0].to_f
+				end
+				if prices[1].to_f > max
+					max = prices[1].to_f
+				end
       end
+			query += " AND price > ? AND price < ? "
+			values.push min
+			values.push max
     end
     unless args[:gender].nil?
       args[:gender].each do |type|

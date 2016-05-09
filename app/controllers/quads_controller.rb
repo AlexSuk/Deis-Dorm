@@ -3,8 +3,6 @@ class QuadsController < ApplicationController
 	def index
 		@all_quads = Quad.all
 		@quad_buildings = {0 => {}, 1 => {}, 2 => {}, 3 => {}}
-		puts "quad buildings ", @quad_buildings
-		puts "index", params
 		@all_quads.each do |quad|
 			(0..3).each do |year|
 				if quad.years[year] == "1"
@@ -12,13 +10,9 @@ class QuadsController < ApplicationController
 				end
 			end
 		end
-		puts @quad_buildings
 	end
 
 	def show
-		# if !params[:query].nil?
-		# 	redirect_to quads_path(query: params[:query])
-		# end
 		@quad = Quad.find(params[:id])
 		building_ids = @quad.buildings.map { |b| b.id }
 		all_building_reviews = Review.where(building_id: building_ids)
@@ -57,7 +51,6 @@ class QuadsController < ApplicationController
 	end
 
 	def create_review
-		puts "create_review"
 		@quad = params[:quad_id]
 		@building_id = params[:building]
 		room = Room.where("building_id = ? AND number LIKE ?", @building_id, "%#{params[:room]}%").first
@@ -99,14 +92,10 @@ class QuadsController < ApplicationController
 			flash[:notice] = "Successfully added photo"
 		end
 		redirect_to quad_building_path(params[:quad_id], params[:building_id])
-		# redirect_to "quad/#{params[:quad_id]}/building/#{params[:building_id]}#photos"
 	end
 
 
 	def do_filter
-		puts params
-		puts params["ac"]
-		puts params[:ac]
 		args = {type: params[:type], price: params[:price], gender: params[:gender], ac: params[:ac], kitchen: params[:kitchen], laundry: params[:laundry]}
 		query = Quad.filter_query(args)
 
@@ -115,10 +104,8 @@ class QuadsController < ApplicationController
 		@all_quads.each do |quad|
 			buildings = quad.buildings.select { |building|
 																query.insert(1, building.id)
-																puts query.inspect
 																exist = Room.exists? query
 																query.delete_at(1)
-																puts "#{building.id} #{exist}"
 																exist
 			}
 			unless buildings.empty?
@@ -131,7 +118,6 @@ class QuadsController < ApplicationController
 		end
 
 		respond_to do |format|
-			# format.html { redirect_to quads_path(query: query) }
 			format.js
 		end
 

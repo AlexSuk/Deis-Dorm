@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#quad_new_comment input").keyup(function(){return $.get($("#quad_new_comment").attr("action"),$("#quad_new_comment").serialize(),null,"script"),!1});$("#sidebar").affix({offset:{top:280}}),console.log("INIT PAGE"),$("body").scrollspy({target:"#sidebar",offset:200})});

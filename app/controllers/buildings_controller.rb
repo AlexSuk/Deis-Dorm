@@ -19,7 +19,6 @@ class BuildingsController < ApplicationController
   end
 
   def create_review
-		puts "create_review"
     @quad_id = params[:quad_id]
 		@building_id = params[:building_id]
 		room = Room.where("building_id = ? AND number LIKE ?", @building_id, "%#{params[:room]}%").first

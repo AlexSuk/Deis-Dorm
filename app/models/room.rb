@@ -1,14 +1,13 @@
 class Room < ActiveRecord::Base
 	def self.individual_search(params)
 		rooms = Array.new
-		puts params[:room_type]
 		rooms = Room.valid_rooms(params[:pref_year], params[:room_type], params[:pref_gender], params[:housing_number])
 		room_scores = Array.new
 		room_areas = Array.new
 		room_prices = Array.new
-		
+
 		rooms.each do |room|
-			if room.room_type == "single" 
+			if room.room_type == "single"
 				room_areas.push([room.id,room.area])
 			elsif room.room_type == "suite"
 				room_areas.push([room.id,room.area])
@@ -27,7 +26,7 @@ class Room < ActiveRecord::Base
 
 		rooms.each do |room|
 			score = (params[:pref_clean].to_i * room.cleanliness) + (params[:pref_noise].to_i * room.noisiness) + (params[:pref_location].to_i * room.location) + (params[:pref_social].to_i * room.social) + (4 * room.light) + (5 * room.issues) + (6 * room.general_rating)
-			
+
 			if room.kitchen == true && room.laundry == true
 				score += 32
 			elsif room.kitchen == true || room.laundry == true
@@ -61,7 +60,7 @@ class Room < ActiveRecord::Base
 		else
 			results = Room.where(id: [sorted_room_scores[0][0],sorted_room_scores[1][0], sorted_room_scores[2][0], sorted_room_scores[3][0], sorted_room_scores[4][0]])
 		end
-		return results.reverse		
+		return results.reverse
 	end
 
 	def self.valid_rooms(year,room_type,gender,housing_num)
@@ -74,10 +73,10 @@ class Room < ActiveRecord::Base
 			valid_rooms = Room.year_filtered_array(2)
 		else
 			valid_rooms = Room.year_filtered_array(3)
-		end	
+		end
 
 		valid_rooms.reverse.each do |room|
-			if !room.gender.include? gender 
+			if !room.gender.include? gender
 				valid_rooms.delete(room)
 			elsif !room_type.include? room.room_type
 				valid_rooms.delete(room)
