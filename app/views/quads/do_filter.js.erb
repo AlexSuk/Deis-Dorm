@@ -1,0 +1,16 @@
+// $('#quads-by-year').hide(500)
+// setTimeout(function() {
+// 	$('#quads-by-year').html("<%= escape_javascript (render(partial: 'quads_by_year')) %>").show('slow');
+//
+// }, 500);
+
+$('#quads-by-year').fadeOut(300)
+setTimeout(function() {
+	$('#quads-by-year').html("<%= escape_javascript (render(partial: 'quads_by_year')) %>").fadeIn(300);
+}, 300);
+
+// $('#quads-by-year').slideUp(500)
+// setTimeout(function() {
+// 	$('#quads-by-year').html("<%= escape_javascript (render(partial: 'quads_by_year')) %>").slideDown(500);
+//
+// }, 500);

@@ -46,12 +46,12 @@ h1 {
   <%= form_tag rooms_path, :method => 'get', :id => "floor_search" do %>
     <p>
       <%= select_tag :building, options_for_select(@buildings), :include_blank => true, data: {
-        
+
         url: url_for(rooms_path)
       } %>
 
       <%= select_tag :floor, options_for_select(@floors), :include_blank => true, data: {
-        
+
         url: url_for(rooms_path)
       } %>
 
@@ -59,9 +59,9 @@ h1 {
     </p>
   <%end%>
 
- 
-  <img id="img" src= <%=@chosen_file_user%>>
- 
+	<h2><%=@chosen_file_user%>...</h2>
+  <img id="img" src="<%=@chosen_file_user%>" alt="Sorry, the file for that building and floor has yet to be uploaded">
+
 
   </div>
 
@@ -91,6 +91,6 @@ h1 {
       document.body.appendChild(newDot);
     }
 
-    
+
 
 </script>

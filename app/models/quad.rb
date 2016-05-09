@@ -22,15 +22,15 @@ class Quad < ActiveRecord::Base
     end
     unless args[:ac].nil?
       query += " AND ac = ? "
-      values.push args[:ac]
+      values.push args[:ac].downcase == "true" ? true : false
     end
     unless args[:kitchen].nil?
       query += " AND kitchen = ? "
-      values.push args[:kitchen]
+      values.push args[:kitchen].downcase == "true" ? true : false
     end
     unless args[:laundry].nil?
       query += " AND laundry = ? "
-      values.push args[:laundry]
+      values.push args[:laundry].downcase == "true" ? true : false
     end
     values.unshift query
     return values

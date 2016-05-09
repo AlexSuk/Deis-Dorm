@@ -104,8 +104,8 @@
             </div>
           </div>
 
-          <div class="row" >
-            <p>Button to go to blueprint </p>
+          <div class="row text-center" >
+						<%= button_to "Blueprint", rooms_path(), params: {building: building.name, floor: "Floor 2"}, :method => "get", class: "btn-blueprint btn btn-primary"%>
           </div>
           <div class="row" >
             <h3>Personality</h3>

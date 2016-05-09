@@ -2,26 +2,23 @@ class QuadsController < ApplicationController
 	skip_before_action :authorize
 	def index
 		@all_quads = Quad.all
-		@quad_buildings = {}
+		@quad_buildings = {0 => {}, 1 => {}, 2 => {}, 3 => {}}
 		puts "quad buildings ", @quad_buildings
 		puts "index", params
 		@all_quads.each do |quad|
-			if params[:query].nil?
-				@quad_buildings[quad] = quad.buildings
-			else
-				query = params[:query]
-				@quad_buildings[quad] = quad.buildings.select { |building|
-																	query.insert(1, building.id)
-																	puts query.inspect
-																	exist = Room.exists? query
-																	query.delete_at(1)
-																	exist
-				}
+			(0..3).each do |year|
+				if quad.years[year] == "1"
+					@quad_buildings[year][quad] = quad.buildings
+				end
 			end
 		end
+		puts @quad_buildings
 	end
 
 	def show
+		# if !params[:query].nil?
+		# 	redirect_to quads_path(query: params[:query])
+		# end
 		@quad = Quad.find(params[:id])
 		building_ids = @quad.buildings.map { |b| b.id }
 		all_building_reviews = Review.where(building_id: building_ids)
@@ -111,10 +108,33 @@ class QuadsController < ApplicationController
 		puts params["ac"]
 		puts params[:ac]
 		args = {type: params[:type], price: params[:price], gender: params[:gender], ac: params[:ac], kitchen: params[:kitchen], laundry: params[:laundry]}
-		puts args
 		query = Quad.filter_query(args)
-		puts "query", query.inspect
-		redirect_to quads_path(query: query)
+
+		@all_quads = Quad.all
+		@quad_buildings = {0 => {}, 1 => {}, 2 => {}, 3 => {}}
+		@all_quads.each do |quad|
+			buildings = quad.buildings.select { |building|
+																query.insert(1, building.id)
+																puts query.inspect
+																exist = Room.exists? query
+																query.delete_at(1)
+																puts "#{building.id} #{exist}"
+																exist
+			}
+			unless buildings.empty?
+				(0..3).each do |year|
+					if quad.years[year] == "1"
+						@quad_buildings[year][quad] = buildings
+					end
+				end
+			end
+		end
+
+		respond_to do |format|
+			# format.html { redirect_to quads_path(query: query) }
+			format.js
+		end
+
 	end
 
 	private

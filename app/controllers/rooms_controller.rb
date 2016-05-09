@@ -31,6 +31,8 @@ before_action :set_search, only: [:update, :room_params]
 		@chosen_building_user = params[:building]
 		@chosen_floor_user = params[:floor]
 		# chosen_file_temp = "assets/#{@chosen_building_user}#{@chosen_floor_user}"
+		puts @chosen_building_user
+		puts @chosen_floor_user
 		chosen_file_temp = "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/floor_plans/#{@chosen_building_user}#{@chosen_floor_user}.png"
 		if @chosen_building_user == "" || @chosen_floor_user == ""
 			@chosen_file_user = ""
@@ -159,7 +161,7 @@ before_action :set_search, only: [:update, :room_params]
 				years.push " Sophomores"
 			end
 			if room.years_available[2] == "1"
-				years.push " Juniors"	
+				years.push " Juniors"
 			end
 			if room.years_available[3] == "1"
 				years.push " Seniors"
