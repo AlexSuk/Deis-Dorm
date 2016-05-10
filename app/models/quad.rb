@@ -7,7 +7,7 @@ class Quad < ActiveRecord::Base
 
     unless args[:type].nil?
       args[:type].each do |type|
-				query += " AND type = ? "
+				query += " AND room_type = ? "
 				values.push type.downcase
       end
     end
@@ -28,9 +28,13 @@ class Quad < ActiveRecord::Base
 			values.push max
     end
     unless args[:gender].nil?
-      args[:gender].each do |type|
-
+			query += " AND ( gender = ? "
+			values.push gender_for_sql(args[:gender][0])
+			(1...args[:gender].size).each do |g|
+				query += " OR gender = ? "
+				values.push gender_for_sql(args[:gender][g])
       end
+			query += " ) "
     end
     unless args[:ac].nil?
       query += " AND ac = ? "
@@ -48,5 +52,15 @@ class Quad < ActiveRecord::Base
     return values
 
   end
+
+	def self.gender_for_sql(gender)
+		if gender.downcase == "male only"
+			return "male"
+		elsif gender.downcase == "female only"
+			return "female"
+		else
+			return "mixed"
+		end
+	end
 
 end

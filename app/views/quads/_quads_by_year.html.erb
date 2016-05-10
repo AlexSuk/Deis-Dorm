@@ -5,14 +5,18 @@
 			<%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/9.jpg", class: "media-object", size:"175x131"%>
 		</div>
 		<div class="media-body">
-			<% @quad_buildings[0].each do |q, b| %>
-				<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
-				<div class="media-sub-heading" >
-					<span class="building-link">| </span>
-					<% b.each do |build| %>
-						<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
-					<% end %>
-				</div>
+			<% if @quad_buildings[0].empty? %>
+				<h4> No results </h4>
+			<% else %>
+				<% @quad_buildings[0].each do |q, b| %>
+					<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
+					<div class="media-sub-heading" >
+						<span class="building-link">| </span>
+						<% b.each do |build| %>
+							<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
+						<% end %>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
@@ -25,14 +29,18 @@
 			<%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/5.jpg", class: "media-object", size:"175x131"%>
 		</div>
 		<div class="media-body">
-			<% @quad_buildings[1].each do |q, b| %>
-				<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
-				<div class="media-sub-heading" >
-					<span class="building-link">| </span>
-					<% b.each do |build| %>
-						<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
-					<% end %>
-				</div>
+			<% if @quad_buildings[1].empty? %>
+				<h4> No results </h4>
+			<% else %>
+				<% @quad_buildings[1].each do |q, b| %>
+					<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
+					<div class="media-sub-heading" >
+						<span class="building-link">| </span>
+						<% b.each do |build| %>
+							<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
+						<% end %>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
@@ -45,14 +53,18 @@
 			<%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/3.jpg", class: "media-object", size:"175x131"%>
 		</div>
 		<div class="media-body">
-			<% @quad_buildings[2].each do |q, b| %>
-				<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
-				<div class="media-sub-heading" >
-					<span class="building-link">| </span>
-					<% b.each do |build| %>
-						<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
-					<% end %>
-				</div>
+			<% if @quad_buildings[2].empty? %>
+				<h4> No results </h4>
+			<% else %>
+				<% @quad_buildings[2].each do |q, b| %>
+					<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
+					<div class="media-sub-heading" >
+						<span class="building-link">| </span>
+						<% b.each do |build| %>
+							<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
+						<% end %>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
@@ -65,14 +77,18 @@
 			<%= image_tag "https://s3.amazonaws.com/deis-dorms-devel/pictures/static/buildings/24.jpg", class: "media-object", size:"175x131"%>
 		</div>
 		<div class="media-body">
-			<% @quad_buildings[3].each do |q, b| %>
-				<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
-				<div class="media-sub-heading" >
-					<span class="building-link">| </span>
-					<% b.each do |build| %>
-						<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
-					<% end %>
-				</div>
+			<% if @quad_buildings[3].empty? %>
+				<h4> No results </h4>
+			<% else %>
+				<% @quad_buildings[3].each do |q, b| %>
+					<h4 class="media-heading quad-link"><%= link_to q.name, quad_path(q.id)%></h4>
+					<div class="media-sub-heading" >
+						<span class="building-link">| </span>
+						<% b.each do |build| %>
+							<span class="building-link"><%= link_to build.name, quad_building_path(q.id, build.id) %> | </span>
+						<% end %>
+					</div>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
